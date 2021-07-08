@@ -1,5 +1,3 @@
-package Model;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,9 +8,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("..\\View\\sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
+        primaryStage.setTitle("Clash Royale");
+        primaryStage.setScene(new Scene(root, 349, 532));
         primaryStage.show();
     }
 

@@ -1,0 +1,17 @@
+
+{
+    color1 : #1E90FF;
+}
+
+.text-field{
+    -fx-background-color: white ;
+}
+
+.button:hover{
+    -fx-background-color: gold;
+    -fx-cursor: hand;
+}
+.button{
+    -fx-background-radius: 100px;
+    -fx-background-color: white;
+}
