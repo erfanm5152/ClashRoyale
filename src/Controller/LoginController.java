@@ -41,15 +41,19 @@ public class LoginController {
                 }else {
                     Alert alert =new Alert(AlertType.ERROR,"Wrong password.",ButtonType.OK);
                     alert.showAndWait();
+                    return;
                 }
             }else {
                 Alert alert =new Alert(AlertType.ERROR,"This user does not exist.",ButtonType.OK);
                 alert.showAndWait();
+                return;
             }
         }else {
             Alert alert =new Alert(Alert.AlertType.NONE,"Fill in the username and password field.",ButtonType.OK);
             alert.showAndWait();
+            return;
         }
+        MenuController.changeToMenu(userNameTextField);
     }
 
     @FXML

@@ -31,11 +31,14 @@ public class SignUpController {
             }else {
                 Alert alert =new Alert(Alert.AlertType.ERROR,"This user exists.", ButtonType.CLOSE);
                 alert.showAndWait();
+                return;
             }
         }else {
             Alert alert =new Alert(AlertType.NONE,"Fill in the username and password field.",ButtonType.OK);
             alert.showAndWait();
+            return;
         }
+        MenuController.changeToMenu(userNameTextField);
     }
 
 }
