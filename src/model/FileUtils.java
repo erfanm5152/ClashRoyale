@@ -6,6 +6,9 @@ import java.util.HashSet;
 public class FileUtils {
 
     public static void writeUsers(UserLibrary users){
+        if (users.getUsers().size()==0){
+            return;
+        }
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("./Resources/users.bin"))){
             outputStream.writeObject(users);
         } catch (FileNotFoundException e) {

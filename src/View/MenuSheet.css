@@ -1,0 +1,47 @@
+#back{
+    -fx-background-image: url("pic/background.png");
+    -fx-background-size: stretch;
+    -fx-background-repeat: round;
+}
+.button{
+    -fx-background-radius: 5em;
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
+
+}
+.button:hover{
+    -fx-cursor: hand;
+}
+
+#play{
+    -fx-background-image: url("pic/play.png");
+    -fx-background-size: cover;
+
+}
+#play:hover{
+    -fx-background-image: url("pic/playHover.png");
+    -fx-background-size: cover;
+}
+#profile{
+    -fx-background-image: url("pic/profile.png");
+    -fx-background-size: cover;
+}
+#profile:hover{
+    -fx-background-image: url("pic/profileHover.png");
+    -fx-background-size: cover;
+}
+
+#1V1,#2V2,#history,#battleDeck{
+    -fx-background-image: url("pic/round.png");
+    -fx-background-size: cover;
+}
+#1V1:hover,#2V2:hover,#history:hover,#battleDeck:hover{
+    -fx-background-image: url("pic/roundHover.png");
+    -fx-background-size: cover;
+}
+
+#1V1:pressed,#2V2:pressed,#play:pressed,#profile:pressed,#battleDeck:pressed,#history:pressed{
+    -fx-background-image: url("pic/accept.png");
+}

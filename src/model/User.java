@@ -52,12 +52,12 @@ public class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return xp == user.xp && numberOfCups == user.numberOfCups && Objects.equals(name, user.name) && Objects.equals(password, user.password) && level == user.level ;
+        return Objects.equals(name, user.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, password);
+        return Objects.hash(name);
     }
 
     @Override

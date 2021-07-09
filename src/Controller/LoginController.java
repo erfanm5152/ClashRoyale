@@ -1,13 +1,20 @@
 package Controller;
 
+import Model.SharedData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LoginController {
+
+    private SharedData sharedData = SharedData.getInstance();
 
     @FXML
     private TextField userNameTextField;
@@ -23,12 +30,43 @@ public class LoginController {
 
     @FXML
     void login(ActionEvent event) {
-
+        String name="";
+        String password="";
+        if (userNameTextField.getText().length()!=0 && passwordField.getText().length()!=0){
+            name= userNameTextField.getText();
+            password =passwordField.getText();
+            if (sharedData.getUserLibrary().isExistUser(name)){
+                if (sharedData.getUserLibrary().checkPassword(name,password)){
+                    sharedData.setPlayer(sharedData.getUserLibrary().getUserByName(name));
+                }else {
+                    Alert alert =new Alert(AlertType.ERROR,"Wrong password.",ButtonType.OK);
+                    alert.showAndWait();
+                }
+            }else {
+                Alert alert =new Alert(AlertType.ERROR,"This user does not exist.",ButtonType.OK);
+                alert.showAndWait();
+            }
+        }else {
+            Alert alert =new Alert(Alert.AlertType.NONE,"Fill in the username and password field.",ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     @FXML
     void signUp(ActionEvent event) {
+        Stage stage;
+        Parent root = null;
 
+        stage = (Stage) signUpLink.getScene().getWindow();
+        try {
+            root = FXMLLoader.load(getClass().getResource("../View/SignUp.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="349.0" spacing="10.0" style="-fx-background-color: #1E90FF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="349.0" spacing="10.0" style="-fx-background-color: #1E90FF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
@@ -38,7 +38,7 @@
                   <Image url="@pic/user.png" />
                </image>
             </ImageView>
-            <TextField promptText="User Name" style="-fx-border-color: gold;" stylesheets="@sheet.css" />
+            <TextField fx:id="userNameTextField" promptText="User Name" style="-fx-border-color: gold;" stylesheets="@sheet.css" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
@@ -48,11 +48,11 @@
                   <Image url="@pic/password.png" />
                </image>
             </ImageView>
-            <PasswordField promptText="Password" style="-fx-border-color: gold;" stylesheets="@sheet.css" />
+            <PasswordField fx:id="passwordField" promptText="Password" style="-fx-border-color: gold;" stylesheets="@sheet.css" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="54.0" stylesheets="@sheet.css" text="Login" VBox.vgrow="ALWAYS" />
-      <Hyperlink text="SignUp" textFill="GOLD" VBox.vgrow="ALWAYS">
+      <Button fx:id="loginKey" mnemonicParsing="false" onAction="#login" prefHeight="58.0" prefWidth="54.0" stylesheets="@sheet.css" text="Login" VBox.vgrow="ALWAYS" />
+      <Hyperlink fx:id="signUpLink" onAction="#signUp" text="SignUp" textFill="GOLD" VBox.vgrow="ALWAYS">
          <font>
             <Font size="18.0" />
          </font>

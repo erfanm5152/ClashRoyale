@@ -8,12 +8,21 @@ import org.junit.jupiter.api.*;
 public class TestUser {
     private static UserLibrary userLibrary =new UserLibrary();
 
-    @BeforeAll
-    @Disabled
-    static void add(){
-        userLibrary.add(new User("a","b"));
-        userLibrary.add(new User("a","b"));
-        userLibrary.add(new User("b","b"));
+//    @BeforeAll
+//    static void add(){
+//        userLibrary.add(new User("a","b"));
+//        userLibrary.add(new User("a","b"));
+//        userLibrary.add(new User("b","b"));
+//    }
+
+    @Test
+    void checkUsers(){
+        if (userLibrary.getUsers().size()==0){
+            System.out.println("size = 0");
+        }
+        for (User user:userLibrary.getUsers()) {
+            System.out.println(user);
+        }
     }
 
     @BeforeAll
@@ -21,16 +30,8 @@ public class TestUser {
         userLibrary=FileUtils.readUsers();
     }
 
-    @Test
-    @Disabled
-    void save(){
-        FileUtils.writeUsers(userLibrary);
-    }
-
-    @Test
-    void checkUsers(){
-        for (User user:userLibrary.getUsers()) {
-            System.out.println(user);
-        }
-    }
+//    @Test
+//    void save(){
+//        FileUtils.writeUsers(userLibrary);
+//    }
 }

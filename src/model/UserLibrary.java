@@ -32,4 +32,31 @@ public class UserLibrary implements Serializable {
     public HashSet<User> getUsers() {
         return users;
     }
+
+    public boolean isExistUser(User user){
+        return users.contains(user);
+    }
+    public boolean isExistUser(String userName){
+        Iterator<User> iterator = users.iterator();
+        while (iterator.hasNext()){
+            User user = iterator.next();
+            if (user.getName().equals(userName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public User getUserByName(String userName){
+        for (User temp:users) {
+            if (temp.getName().equals(userName)){
+                return temp;
+            }
+        }
+        return null;
+    }
+
+    public boolean checkPassword(String name,String password){
+        return getUserByName(name).getPassword().equals(password);
+    }
 }
