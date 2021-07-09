@@ -4,7 +4,13 @@
 }
 
 .text-field{
-    -fx-background-color: white ;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+}
+
+.password-field{
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
 }
 
 .button:hover{

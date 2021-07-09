@@ -36,17 +36,17 @@
                         <Image url="@pic/user.png" />
                     </image>
                 </ImageView>
-                <TextField promptText="User Name" style="-fx-border-color: gold;" />
+                <TextField promptText="User Name" style="-fx-border-color: gold;" stylesheets="@sheet.css" />
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="329.0" spacing="10.0">
             <children>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@pic/password.png" />
                     </image>
                 </ImageView>
-                <PasswordField promptText="Password" style="-fx-border-color: gold;" />
+                <PasswordField promptText="Password" style="-fx-border-color: gold;" stylesheets="@sheet.css" />
             </children>
         </HBox>
         <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="98.0" stylesheets="@sheet.css" text="SignUp" />

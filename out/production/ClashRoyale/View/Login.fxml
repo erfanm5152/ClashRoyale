@@ -14,7 +14,7 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="349.0" spacing="10.0" style="-fx-background-color: #1E90FF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                <image>
@@ -31,28 +31,28 @@
             </ImageView>
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@pic/user.png" />
                </image>
             </ImageView>
-            <TextField promptText="User Name" style="-fx-border-color: gold;" />
+            <TextField promptText="User Name" style="-fx-border-color: gold;" stylesheets="@sheet.css" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@pic/password.png" />
                </image>
             </ImageView>
-            <PasswordField promptText="Password" style="-fx-border-color: gold;" />
+            <PasswordField promptText="Password" style="-fx-border-color: gold;" stylesheets="@sheet.css" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="54.0" stylesheets="@sheet.css" text="Login" />
-      <Hyperlink text="SignUp" textFill="GOLD">
+      <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="54.0" stylesheets="@sheet.css" text="Login" VBox.vgrow="ALWAYS" />
+      <Hyperlink text="SignUp" textFill="GOLD" VBox.vgrow="ALWAYS">
          <font>
             <Font size="18.0" />
          </font>
