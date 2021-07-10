@@ -1,0 +1,17 @@
+#listCards{
+    -fx-border-color: black;
+    -fx-background-color: gold;
+}
+
+#backButton{
+    -fx-background-image: url("pic/left.png");
+    -fx-background-size: cover;
+}
+#backButton:hover{
+    -fx-background-image: url("pic/leftHover.png");
+    -fx-background-size: cover;
+}
+#backButton:pressed{
+    -fx-background-image: url("pic/leftClick.png");
+}
+

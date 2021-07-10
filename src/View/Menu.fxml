@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="600.0" stylesheets="@MenuSheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuController">
+<BorderPane id="back" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="610.0" stylesheets="@MenuSheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuController">
    <left>
-      <VBox alignment="CENTER" prefHeight="410.0" prefWidth="110.0" spacing="30.0" stylesheets="@MenuSheet.css" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="410.0" prefWidth="110.0" spacing="30.0" stylesheets="@MenuSheet.css" BorderPane.alignment="CENTER">
          <children>
-            <Button id="play" fx:id="playKey" mnemonicParsing="false" onAction="#play" stylesheets="@MenuSheet.css" VBox.vgrow="ALWAYS">
+            <Button id="play" fx:id="playKey" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#play" stylesheets="@MenuSheet.css" VBox.vgrow="ALWAYS">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button id="1V1" mnemonicParsing="false" stylesheets="@MenuSheet.css" text="1v1" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button id="1V1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@MenuSheet.css" text="1v1" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                <effect>
                   <DropShadow />
                </effect>
@@ -24,7 +24,7 @@
                   <Font size="31.0" />
                </font>
             </Button>
-            <Button id="2V2" mnemonicParsing="false" stylesheets="@MenuSheet.css" text="2v2" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button id="2V2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@MenuSheet.css" text="2v2" textFill="WHITE" VBox.vgrow="ALWAYS">
                <effect>
                   <DropShadow />
                </effect>
@@ -39,14 +39,14 @@
       </VBox>
    </left>
    <right>
-      <VBox alignment="CENTER" prefHeight="410.0" prefWidth="108.0" spacing="30.0" stylesheets="@MenuSheet.css" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="410.0" prefWidth="108.0" spacing="30.0" stylesheets="@MenuSheet.css" BorderPane.alignment="CENTER">
          <children>
-            <Button id="profile" fx:id="profileKey" mnemonicParsing="false" onAction="#showProfile" stylesheets="@MenuSheet.css" VBox.vgrow="ALWAYS">
+            <Button id="profile" fx:id="profileKey" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showProfile" stylesheets="@MenuSheet.css" VBox.vgrow="ALWAYS">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button id="battleDeck" fx:id="battleDeck" mnemonicParsing="false" onAction="#showBattleDeck" stylesheets="@MenuSheet.css" text="🎴" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button id="battleDeck" fx:id="battleDeck" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showBattleDeck" stylesheets="@MenuSheet.css" text="🎴" textFill="WHITE" VBox.vgrow="ALWAYS">
                <effect>
                   <DropShadow />
                </effect>
@@ -54,7 +54,7 @@
                   <Font size="41.0" />
                </font>
             </Button>
-            <Button id="history" fx:id="history" mnemonicParsing="false" onAction="#showHistory" stylesheets="@MenuSheet.css" text="H" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button id="history" fx:id="history" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showHistory" stylesheets="@MenuSheet.css" text="H" textFill="WHITE" VBox.vgrow="ALWAYS">
                <effect>
                   <DropShadow />
                </effect>

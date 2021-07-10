@@ -50,7 +50,20 @@ public class MenuController{
 
     @FXML
     void showProfile(ActionEvent event) {
+        Stage stage;
+        Parent root = null;
 
+        stage = (Stage) profileKey.getScene().getWindow();
+        try {
+            root = FXMLLoader.load(MenuController.class.getResource("../View/Profile.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setHeight(460);
+        stage.setWidth(631);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void changeToMenu(Node node){
@@ -63,8 +76,8 @@ public class MenuController{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        stage.setHeight(450);
-        stage.setWidth(610);
+        stage.setHeight(460);
+        stage.setWidth(630);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
