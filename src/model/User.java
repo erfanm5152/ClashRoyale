@@ -10,6 +10,7 @@ public class User implements Serializable {
     private int xp;
     private int numberOfCups;
     private Level level;
+    private Player player;
     private ArrayList<Game> gameHistory;
 
     public User(String name,String password) {
@@ -45,6 +46,14 @@ public class User implements Serializable {
 
     public ArrayList<Game> getGameHistory() {
         return gameHistory;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Override

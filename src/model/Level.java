@@ -1,9 +1,19 @@
 package Model;
 
+import javafx.scene.image.Image;
+
+import java.awt.*;
 import java.io.Serializable;
 
 public enum Level implements Serializable {
-    LEVEL1,LEVEL2,LEVEL3,LEVEL4,LEVEL5;
+    LEVEL1("1"),LEVEL2("2"),LEVEL3("3"),
+    LEVEL4("4"),LEVEL5("5");
+
+    private String levelNumber;
+
+    Level(String levelNumber) {
+        this.levelNumber =levelNumber;
+    }
 
     public static Level getLevelByXp(int xp){
         Level level = LEVEL1;
@@ -23,5 +33,9 @@ public enum Level implements Serializable {
             level = LEVEL5;
         }
         return level;
+    }
+
+    public String getLevelNumber() {
+        return levelNumber;
     }
 }

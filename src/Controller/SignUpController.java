@@ -26,7 +26,7 @@ public class SignUpController {
             User user =new User(userNameTextField.getText(),passwordField.getText());
             if (!sharedData.getUserLibrary().isExistUser(user)){
                 sharedData.getUserLibrary().add(user);
-                sharedData.setPlayer(user);
+                sharedData.setUser(user);
                 System.out.println(user);
             }else {
                 Alert alert =new Alert(Alert.AlertType.ERROR,"This user exists.", ButtonType.CLOSE);

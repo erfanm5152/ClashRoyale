@@ -37,7 +37,7 @@ public class LoginController {
             password =passwordField.getText();
             if (sharedData.getUserLibrary().isExistUser(name)){
                 if (sharedData.getUserLibrary().checkPassword(name,password)){
-                    sharedData.setPlayer(sharedData.getUserLibrary().getUserByName(name));
+                    sharedData.setUser(sharedData.getUserLibrary().getUserByName(name));
                 }else {
                     Alert alert =new Alert(AlertType.ERROR,"Wrong password.",ButtonType.OK);
                     alert.showAndWait();

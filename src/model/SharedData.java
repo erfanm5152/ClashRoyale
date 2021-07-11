@@ -2,12 +2,12 @@ package Model;
 
 public class SharedData {
     private static SharedData sharedDataInstance;
-    private User player;
+    private User user;
     private UserLibrary userLibrary;
 
 
     private SharedData() {
-        this.player =null;
+        this.user =null;
         this.userLibrary = FileUtils.readUsers();
     }
 
@@ -18,12 +18,12 @@ public class SharedData {
         return sharedDataInstance;
     }
 
-    public User getPlayer() {
-        return player;
+    public User getUser() {
+        return user;
     }
 
-    public void setPlayer(User player) {
-        this.player = player;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public UserLibrary getUserLibrary() {

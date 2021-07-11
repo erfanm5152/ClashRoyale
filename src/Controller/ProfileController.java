@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class ProfileController {
 
@@ -33,10 +31,10 @@ public class ProfileController {
 
 
     public void initialize(){
-        levelValue.setText(sharedData.getPlayer().getLevel().getLevelNumber());
-        userNameText.setText(sharedData.getPlayer().getName());
-        xpValue.setText(String.valueOf(sharedData.getPlayer().getXp()));
-        numberOfCups.setText(String.valueOf(sharedData.getPlayer().getNumberOfCups()));
+        levelValue.setText(sharedData.getUser().getLevel().getLevelNumber());
+        userNameText.setText(sharedData.getUser().getName());
+        xpValue.setText(String.valueOf(sharedData.getUser().getXp()));
+        numberOfCups.setText(String.valueOf(sharedData.getUser().getNumberOfCups()));
     }
 
     @FXML
