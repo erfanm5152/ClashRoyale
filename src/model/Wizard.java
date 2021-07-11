@@ -2,7 +2,7 @@ package Model;
 
 public class Wizard extends Soldier{
     public Wizard(Player player) {
-        super(5, 5, 1.7, true, 1, Speed.MEDIUM,player ,"./src/View/pic/wizard.png");
+        super(5, 5, 1.7, true, 1, Speed.MEDIUM,player ,"../View/pic/wizard.png");
         setSelf(Target.GROUND);
         setTarget(Target.AIR_AND_GROUND);
         switch (getPlayer().getUser().getLevel()){

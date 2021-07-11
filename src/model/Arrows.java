@@ -3,7 +3,7 @@ package Model;
 public class Arrows extends Spell{
     private int damage;
     public Arrows(Player player) {
-        super(3,4,player ,"./src/View/arrows.png");
+        super(3,4,player ,"../View/pic/arrows.png");
         switch (getPlayer().getUser().getLevel()){
             case LEVEL1 -> damage = 144;
             case LEVEL2 -> damage = 156;

@@ -2,7 +2,7 @@ package Model;
 
 public class Giant extends Soldier{
     public Giant(Player player) {
-        super(5,1,1.5,false,1,Speed.SLOW,player,"./src/View/pic/giant.png");
+        super(5,1,1.5,false,1,Speed.SLOW,player,"../View/pic/giant.png");
         setSelf(Target.GROUND);
         setTarget(Target.BUILDINGS);
         switch (getPlayer().getUser().getLevel()){

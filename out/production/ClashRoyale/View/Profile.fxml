@@ -40,10 +40,13 @@
             <URL value="@ProfileSheet.css" />
          </stylesheets>
       </Button>
-      <ListView id="listCards" fx:id="listOfCards" orientation="HORIZONTAL" prefHeight="142.0" prefWidth="611.0" stylesheets="@ProfileSheet.css" GridPane.columnSpan="4" GridPane.rowIndex="2" GridPane.rowSpan="2">
+      <ListView id="listCards" fx:id="listOfCards" orientation="HORIZONTAL" prefHeight="142.0" prefWidth="611.0" stylesheets="@ProfileSheet.css" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <effect>
             <DropShadow />
          </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </ListView>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="1">
          <children>
@@ -146,6 +149,9 @@
                <image>
                   <Image url="@pic/user.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
             <Label id="userLabel" fx:id="userNameText" prefHeight="94.0" prefWidth="222.0" stylesheets="@ProfileSheet.css" text="user">
                <font>

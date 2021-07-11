@@ -4,7 +4,7 @@ public class Fireball extends Spell{
     private int damage;
 
     public Fireball(Player player) {
-        super(4, 2.5, player,"./src/View/pic/fireball.png");
+        super(4, 2.5, player,"../View/pic/fireball.png");
         switch (getPlayer().getUser().getLevel()){
             case LEVEL1 -> damage = 325;
             case LEVEL2 -> damage = 357;

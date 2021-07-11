@@ -13,18 +13,20 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class TestCards {
-//    private static User user = new User("a","b");
-//    private static Player player = new Player(user);
-//    private static ArrayList<Card> cards;
-//    @BeforeAll
-//    static void add(){
-//        cards = Factory.createCards(new Player(user));
-//        player.setUser(user);
-//        user.setPlayer(player);
-//    }
+    private static User user = new User("a","b");
+    private static Player player = new Player(user);
+    private static ArrayList<Card> cards;
+    @BeforeAll
+    static void add(){
+        cards = Factory.createCards(new Player(user));
+        player.setUser(user);
+        user.setPlayer(player);
+    }
 
     @Test
     void print(){
-
+        for (Card card:cards) {
+            System.out.println(card);
+        }
     }
 }

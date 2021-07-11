@@ -2,7 +2,7 @@ package Model;
 
 public class BabyDragon extends Soldier{
     public BabyDragon(Player player) {
-        super(4, 3, 1.8, true, 1, Speed.FAST, player,"./src/View/pic/dragon.png");
+        super(4, 3, 1.8, true, 1, Speed.FAST, player,"../View/pic/dragon.png");
         setSelf(Target.AIR);
         setTarget(Target.AIR_AND_GROUND);
         switch (getPlayer().getUser().getLevel()){

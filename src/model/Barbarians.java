@@ -2,7 +2,7 @@ package Model;
 
 public class Barbarians extends Soldier{
     public Barbarians(Player player) {
-        super(5, 1, 1.5,false,4,Speed.MEDIUM,player,"./src/View/pic/barbarians.png");
+        super(5, 1, 1.5,false,4,Speed.MEDIUM,player,"../View/pic/barbarians.png");
         setTarget(Target.GROUND);
         setSelf(Target.GROUND);
         switch (getPlayer().getUser().getLevel()){

@@ -43,4 +43,44 @@ public class Player implements Serializable {
     public void setElixir(int elixir) {
         this.elixir = elixir;
     }
+
+    public ArrayList<Card> getAllCards() {
+        return allCards;
+    }
+
+    public void setAllCards(ArrayList<Card> allCards) {
+        this.allCards = allCards;
+    }
+
+    public ArrayList<Tower> getTowers() {
+        return towers;
+    }
+
+    public void setTowers(ArrayList<Tower> towers) {
+        this.towers = towers;
+    }
+
+    public ArrayList<Card> getDeck() {
+        return deck;
+    }
+
+    public void setDeck(ArrayList<Card> deck) {
+        this.deck = deck;
+    }
+
+    public Card getChosenCard() {
+        return chosenCard;
+    }
+
+    public void setChosenCard(Card chosenCard) {
+        this.chosenCard = chosenCard;
+    }
+
+    public Card getNextCard() {
+        return nextCard;
+    }
+
+    public void setNextCard(Card nextCard) {
+        this.nextCard = nextCard;
+    }
 }

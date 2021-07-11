@@ -2,7 +2,7 @@ package Model;
 
 public class Valkyrie extends Soldier{
     public Valkyrie(Player player) {
-        super(4, 1, 1.5, true, 1, Speed.MEDIUM, player,"./src/View/pic/valkyrie.png");
+        super(4, 1, 1.5, true, 1, Speed.MEDIUM, player,"../View/pic/valkyrie.png");
         setSelf(Target.GROUND);
         setTarget(Target.GROUND);
         switch (getPlayer().getUser().getLevel()){

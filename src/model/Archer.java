@@ -2,7 +2,7 @@ package Model;
 
 public class Archer extends Soldier{
     public Archer(Player player) {
-        super(3, 5, 1.2, false, 2, Speed.MEDIUM,player, "./src/View/pic/archer.png");
+        super(3, 5, 1.2, false, 2, Speed.MEDIUM,player, "../View/pic/archer.png");
         setSelf(Target.GROUND);
         setTarget(Target.AIR_AND_GROUND);
         switch (getPlayer().getUser().getLevel()){

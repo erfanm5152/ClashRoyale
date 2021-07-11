@@ -3,7 +3,7 @@ package Model;
 public class Peka extends Soldier{
 
     public Peka(Player player) {
-        super(4, 1, 1.8, false, 1, Speed.FAST, player,"./src/View/pic/peka.png");
+        super(4, 1, 1.8, false, 1, Speed.FAST, player,"../View/pic/peka.png");
         setSelf(Target.GROUND);
         setTarget(Target.GROUND);
         switch (getPlayer().getUser().getLevel()){
