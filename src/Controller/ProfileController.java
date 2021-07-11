@@ -45,7 +45,7 @@ public class ProfileController {
     }
 
     public void initializeListView(){
-    final ObservableList<Card> cards = FXCollections.observableArrayList(sharedData.getUser().getPlayer().getAllCards());
+    final ObservableList<Card> cards = FXCollections.observableArrayList(sharedData.getUser().getPlayer().getDeck());
         listOfCards.setItems(cards);
         listOfCards.setCellFactory(new CellOfList());
     }

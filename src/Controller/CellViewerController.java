@@ -10,10 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
 
-import java.awt.*;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.Random;
 
 public class CellViewerController extends ListCell<Card> {

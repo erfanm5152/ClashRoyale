@@ -52,6 +52,7 @@ public class MenuController{
         Parent root = null;
 
         stage = (Stage) profileKey.getScene().getWindow();
+        stage.hide();
         try {
             root = FXMLLoader.load(MenuController.class.getResource("../View/Profile.fxml"));
         } catch (IOException e) {
@@ -77,6 +78,7 @@ public class MenuController{
         Parent root = null;
 
         stage = (Stage) node.getScene().getWindow();
+        stage.hide();
         try {
             root = FXMLLoader.load(MenuController.class.getResource("../View/Menu.fxml"));
         } catch (IOException e) {
