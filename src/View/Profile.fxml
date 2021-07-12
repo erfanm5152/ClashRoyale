@@ -31,7 +31,7 @@
     <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="86.39999999999998" valignment="CENTER" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <Button id="backButton" fx:id="backKey" minWidth="79.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="100.0" prefWidth="79.0">
+      <Button id="homeButton" fx:id="backKey" minWidth="79.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="100.0" prefWidth="79.0">
          <effect>
             <DropShadow />
          </effect>

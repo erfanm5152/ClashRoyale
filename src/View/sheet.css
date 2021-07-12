@@ -21,3 +21,6 @@
     -fx-background-radius: 100px;
     -fx-background-color: white;
 }
+.button:pressed{
+    -fx-background-color: lime;
+}

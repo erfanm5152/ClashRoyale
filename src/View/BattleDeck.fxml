@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1E90FF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BattleDeckController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="221.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pic/reminderCards.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ListView fx:id="reminderCards" nodeOrientation="RIGHT_TO_LEFT" prefHeight="345.0" prefWidth="212.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </ListView>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="390.0" prefWidth="129.0" spacing="20.0" style="-fx-background-color: #1E90FF;">
+         <children>
+            <Button id="homeButton" fx:id="backKey" mnemonicParsing="false" onAction="#backToMenu" stylesheets="@BattleDeckSheet.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button id="choseButton" fx:id="choseKey" maxHeight="102.0" minWidth="74.0" mnemonicParsing="false" onAction="#choseCard" prefHeight="100.0" prefWidth="74.0" stylesheets="@BattleDeckSheet.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button id="removeButton" fx:id="removeKey" mnemonicParsing="false" onAction="#removeCard" stylesheets="@BattleDeckSheet.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button id="randomButton" fx:id="randomKey" minWidth="67.0" mnemonicParsing="false" onAction="#randomChose" prefHeight="80.0" prefWidth="67.0" stylesheets="@BattleDeckSheet.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+         <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </HBox.margin>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="223.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pic/deck.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ListView fx:id="deckCards" prefHeight="360.0" prefWidth="225.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </ListView>
+         </children>
+      </VBox>
+   </children>
+</HBox>

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Player implements Serializable {
-    private ArrayList<Card> allCards;
+    private ArrayList<Card> reminderCards;
     private ArrayList<Tower> towers;
     private ArrayList<Card> deck;
     private Card chosenCard;
@@ -16,7 +16,8 @@ public class Player implements Serializable {
     public Player(User user) {
         this.user = user;
         user.setPlayer(this);
-        allCards = Factory.createCards(this);
+        reminderCards = Factory.createRemainingCards(this);
+        deck = Factory.createBasicDeck(this);
         towers = Factory.createTowers(this);
     }
 
@@ -44,12 +45,12 @@ public class Player implements Serializable {
         this.elixir = elixir;
     }
 
-    public ArrayList<Card> getAllCards() {
-        return allCards;
+    public ArrayList<Card> getReminderCards() {
+        return reminderCards;
     }
 
-    public void setAllCards(ArrayList<Card> allCards) {
-        this.allCards = allCards;
+    public void setReminderCards(ArrayList<Card> allCards) {
+        this.reminderCards = allCards;
     }
 
     public ArrayList<Tower> getTowers() {

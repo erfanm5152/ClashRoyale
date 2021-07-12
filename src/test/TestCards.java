@@ -18,7 +18,7 @@ public class TestCards {
     private static ArrayList<Card> cards;
     @BeforeAll
     static void add(){
-        cards = Factory.createCards(new Player(user));
+        cards = Factory.createRemainingCards(new Player(user));
         player.setUser(user);
         user.setPlayer(player);
     }
