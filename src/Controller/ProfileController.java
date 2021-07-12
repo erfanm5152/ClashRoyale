@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 
 public class ProfileController {
@@ -24,7 +26,7 @@ public class ProfileController {
     private ListView<Card> listOfCards;
 
     @FXML
-    private Label levelValue;
+    private ImageView levelImage;
 
     @FXML
     private Label xpValue;
@@ -37,7 +39,7 @@ public class ProfileController {
 
 
     public void initialize(){
-        levelValue.setText(sharedData.getUser().getLevel().getLevelNumber());
+        levelImage.setImage(new Image(getClass().getResource(sharedData.getUser().getLevel().getImageAddress()).toExternalForm()));
         userNameText.setText(sharedData.getUser().getName());
         xpValue.setText(String.valueOf(sharedData.getUser().getXp()));
         numberOfCups.setText(String.valueOf(sharedData.getUser().getNumberOfCups()));

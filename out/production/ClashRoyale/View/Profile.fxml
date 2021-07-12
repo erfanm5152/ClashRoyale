@@ -31,7 +31,7 @@
     <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="86.39999999999998" valignment="CENTER" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <Button id="backButton" fx:id="backKey" minWidth="79.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="100.0" prefWidth="79.0">
+      <Button id="homeButton" fx:id="backKey" minWidth="79.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="100.0" prefWidth="79.0">
          <effect>
             <DropShadow />
          </effect>
@@ -55,27 +55,11 @@
                   <Image url="@pic/level.png" />
                </image>
             </ImageView>
-            <Label id="levelLabel" fx:id="levelValue" prefHeight="50.0" prefWidth="74.0" stylesheets="@ProfileSheet.css">
-               <font>
-                  <Font name="System Italic" size="24.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="0.35114507456772204" endY="0.7862595456247111" startX="0.20610687386898593" startY="0.3854961977660201">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.557894766330719" green="0.2810136377811432" blue="0.2810136377811432" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.9399999976158142" green="0.8208608031272888" blue="0.5264000296592712" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
+            <ImageView fx:id="levelImage" fitHeight="53.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
          </children>
          <padding>
             <Insets left="10.0" top="5.0" />

@@ -3,15 +3,15 @@
     -fx-background-color: gold;
 }
 
-#backButton{
-    -fx-background-image: url("pic/left.png");
+#homeButton{
+    -fx-background-image: url("pic/home.png");
     -fx-background-size: cover;
 }
-#backButton:hover{
-    -fx-background-image: url("pic/leftHover.png");
+#homeButton:hover{
+    -fx-background-image: url("pic/homeHover.png");
     -fx-background-size: cover;
 }
-#backButton:pressed{
+#homeButton:pressed{
     -fx-background-image: url("pic/leftClick.png");
 }
 

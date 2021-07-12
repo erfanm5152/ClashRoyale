@@ -67,7 +67,7 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        MenuController.changeSceneAnimation(root,"left",349);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

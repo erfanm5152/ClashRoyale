@@ -1,0 +1,47 @@
+.button{
+    -fx-background-radius: 5em;
+    -fx-min-width: 80px;
+    -fx-min-height: 80px;
+    -fx-max-width: 80px;
+    -fx-max-height: 80px;
+
+}
+.button:hover{
+    -fx-cursor: hand;
+}
+#homeButton{
+    -fx-background-image: url("pic/home.png");
+    -fx-background-size: cover;
+}
+#homeButton:hover{
+    -fx-background-image: url("pic/homeHover.png");
+}
+#choseButton{
+    -fx-background-image: url("pic/plus.png");
+    -fx-background-size: cover;
+}
+#choseButton:hover{
+    -fx-background-image: url("pic/plusHover.png");
+}
+#removeButton{
+    -fx-background-image: url("pic/cancel.png");
+    -fx-background-size: cover;
+}
+#removeButton:hover{
+    -fx-background-image: url("pic/cancelHover.png");
+}
+#randomButton{
+    -fx-background-image: url("pic/help.png");
+    -fx-background-size: cover;
+}
+#randomButton:hover{
+    -fx-background-image: url("pic/helpHover.png");
+}
+#homeButton:pressed{
+    -fx-background-image: url("pic/leftClick.png");;
+}
+
+#choseButton:pressed,#removeButton:pressed,#randomButton:pressed{
+    -fx-background-image: url("pic/accept.png");
+    -fx-background-size: cover;
+}
