@@ -1,3 +1,5 @@
+import Model.FileUtils;
+import Model.SharedData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +17,10 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    @Override
+    public void stop(){
+        FileUtils.writeUsers(SharedData.getInstance().getUserLibrary());
+    }
 
     public static void main(String[] args) {
         launch(args);

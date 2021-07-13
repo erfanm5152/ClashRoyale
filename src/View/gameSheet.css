@@ -1,0 +1,9 @@
+
+.progress-bar > .bar {
+    -fx-progress-color: Deeppink;
+    -fx-background-color: Deeppink;
+}
+#backGroundGame{
+    -fx-background-image: url("pic/melt.png");
+    -fx-background-repeat: round;
+}

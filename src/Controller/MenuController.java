@@ -40,6 +40,23 @@ public class MenuController{
 
     @FXML
     void play(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View/GameView.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent root = loader.getRoot();
+        GameController gameController = loader.getController();
+//        root.setmouseevent
+        Stage stage = ((Stage)playKey.getScene().getWindow());
+        stage.hide();
+        stage.setHeight(770);
+        stage.setWidth(345);
+        changeSceneAnimation(root,"left",320);
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
@@ -90,7 +107,6 @@ public class MenuController{
 
     public void initialize(){
         if (sharedData.getUser().getPlayer()==null){
-            //todo dorost shavad edamash.
             Player player = new Player(sharedData.getUser());
             sharedData.getUser().setPlayer(player);
         }

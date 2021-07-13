@@ -6,13 +6,13 @@ import java.awt.*;
 import java.io.Serializable;
 
 public enum Level implements Serializable {
-    LEVEL1("1"),LEVEL2("2"),LEVEL3("3"),
-    LEVEL4("4"),LEVEL5("5");
+    LEVEL1("../View/pic/1.png"),LEVEL2("../View/pic/2.png"),LEVEL3("../View/pic/3.png"),
+    LEVEL4("../View/pic/4.png"),LEVEL5("../View/pic/5.png");
 
-    private String levelNumber;
+    private String imageAddress;
 
-    Level(String levelNumber) {
-        this.levelNumber =levelNumber;
+    Level(String imageAddress) {
+        this.imageAddress =imageAddress;
     }
 
     public static Level getLevelByXp(int xp){
@@ -35,7 +35,7 @@ public enum Level implements Serializable {
         return level;
     }
 
-    public String getLevelNumber() {
-        return levelNumber;
+    public String getImageAddress() {
+        return imageAddress;
     }
 }
