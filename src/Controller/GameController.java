@@ -3,8 +3,10 @@ package Controller;
 import Model.Card;
 import Model.Game;
 import Model.GameAccessory;
+import Model.TimerMe;
 import View.CellOfList;
 import View.MapView;
+import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,10 +24,11 @@ public class GameController implements EventHandler<MouseEvent> {
 
     private ObservableList<Card> hand;
 
-    @FXML
-    private MapView mapView;
+    private TimerMe timerMe;
 
     private Game game;
+    @FXML
+    private MapView mapView;
 
     @FXML
     private ImageView newCard;
@@ -44,6 +47,8 @@ public class GameController implements EventHandler<MouseEvent> {
 
     public void initialize(){
         game = new Game();
+        timerMe =new TimerMe(timerLabel,game);
+        timerMe.start();
         mapView.setImages(game);
         elixirLabel.textProperty().bind(progressBar.progressProperty().multiply(10).asString("%.0f"));
         game.getUser1().getPlayer().setGameAccessory(new GameAccessory(game.getUser1().getPlayer()));
@@ -64,11 +69,14 @@ public class GameController implements EventHandler<MouseEvent> {
                     }
                 }
         );
+        progressBar.progressProperty().bind(game.getUser1().getPlayer().getGameAccessory().getElixir().elixirValueProperty().divide(10));
     }
 
     @Override
     public void handle(MouseEvent mouseEvent) {
+        // todo check shavad ke pol kart entekhabi ra dard ya na.
         Card chosenCard =game.getUser1().getPlayer().getGameAccessory().getChosenCard();
+        if (chosenCard == null){return;}
         Card nextCard =game.getUser1().getPlayer().getGameAccessory().getNextCard();
         hand.remove(chosenCard);
         game.getUser1().getPlayer().getGameAccessory().getHand().remove(chosenCard);

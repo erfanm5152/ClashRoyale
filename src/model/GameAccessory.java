@@ -9,12 +9,14 @@ public class GameAccessory {
     private ArrayList<Tower> towers;
     private Card nextCard;
     private Card chosenCard;
+    private Elixir elixir;
 
     public GameAccessory(Player player){
         this.player = player;
         this.hand = createHand();
         this.nextCard = createNextCard();
         this.towers = Factory.createTowers(player);
+        this.elixir = new Elixir(4);
         this.chosenCard = null;
     }
 
@@ -75,5 +77,13 @@ public class GameAccessory {
 
     public void setChosenCard(Card chosenCard) {
         this.chosenCard = chosenCard;
+    }
+
+    public Elixir getElixir() {
+        return elixir;
+    }
+
+    public void setElixir(Elixir elixir) {
+        this.elixir = elixir;
     }
 }
