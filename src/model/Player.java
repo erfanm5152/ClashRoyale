@@ -5,20 +5,22 @@ import java.util.ArrayList;
 
 public class Player implements Serializable {
     private ArrayList<Card> reminderCards;
-    private ArrayList<Tower> towers;
+//    private ArrayList<Tower> towers;
     private ArrayList<Card> deck;
-    private Card chosenCard;
-    private Card nextCard;
-    private Game game;
+//    private Card chosenCard;
+//    private Card nextCard;
     private User user;
-    private int elixir;
+    private Game game;
+    private transient GameAccessory gameAccessory;
+//    private int elixir;
+
 
     public Player(User user) {
         this.user = user;
         user.setPlayer(this);
         reminderCards = Factory.createRemainingCards(this);
         deck = Factory.createBasicDeck(this);
-        towers = Factory.createTowers(this);
+//        towers = Factory.createTowers(this);
     }
 
     public Game getGame() {
@@ -37,13 +39,13 @@ public class Player implements Serializable {
         this.user = user;
     }
 
-    public int getElixir() {
-        return elixir;
-    }
+//    public int getElixir() {
+//        return elixir;
+//    }
 
-    public void setElixir(int elixir) {
-        this.elixir = elixir;
-    }
+//    public void setElixir(int elixir) {
+//        this.elixir = elixir;
+//    }
 
     public ArrayList<Card> getReminderCards() {
         return reminderCards;
@@ -53,13 +55,13 @@ public class Player implements Serializable {
         this.reminderCards = allCards;
     }
 
-    public ArrayList<Tower> getTowers() {
-        return towers;
-    }
+//    public ArrayList<Tower> getTowers() {
+//        return towers;
+//    }
 
-    public void setTowers(ArrayList<Tower> towers) {
-        this.towers = towers;
-    }
+//    public void setTowers(ArrayList<Tower> towers) {
+//        this.towers = towers;
+//    }
 
     public ArrayList<Card> getDeck() {
         return deck;
@@ -69,19 +71,27 @@ public class Player implements Serializable {
         this.deck = deck;
     }
 
-    public Card getChosenCard() {
-        return chosenCard;
+    public GameAccessory getGameAccessory() {
+        return gameAccessory;
     }
 
-    public void setChosenCard(Card chosenCard) {
-        this.chosenCard = chosenCard;
+    public void setGameAccessory(GameAccessory gameAccessory) {
+        this.gameAccessory = gameAccessory;
     }
 
-    public Card getNextCard() {
-        return nextCard;
-    }
+    //    public Card getChosenCard() {
+//        return chosenCard;
+//    }
 
-    public void setNextCard(Card nextCard) {
-        this.nextCard = nextCard;
-    }
+//    public void setChosenCard(Card chosenCard) {
+//        this.chosenCard = chosenCard;
+//    }
+//
+//    public Card getNextCard() {
+//        return nextCard;
+//    }
+
+//    public void setNextCard(Card nextCard) {
+//        this.nextCard = nextCard;
+//    }
 }

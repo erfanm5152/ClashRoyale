@@ -49,7 +49,7 @@ public class MenuController{
         }
         Parent root = loader.getRoot();
         GameController gameController = loader.getController();
-//        root.setmouseevent
+        root.setOnMouseClicked(gameController);
         Stage stage = ((Stage)playKey.getScene().getWindow());
         stage.hide();
         stage.setHeight(770);

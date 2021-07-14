@@ -33,7 +33,7 @@
             </ImageView>
                </children>
             </VBox>
-            <ListView fx:id="listOfCards" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="106.0" prefWidth="242.0" style="-fx-background-color: aqua; -fx-border-color: gold;" HBox.hgrow="ALWAYS">
+            <ListView fx:id="listOfCards" orientation="HORIZONTAL" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="106.0" prefWidth="242.0" style="-fx-background-color: aqua; -fx-border-color: gold;" HBox.hgrow="ALWAYS">
                <effect>
                   <InnerShadow />
                </effect>
@@ -52,7 +52,7 @@
                   <Insets right="10.0" />
                </padding>
                <font>
-                  <Font size="24.0" />
+                  <Font  size="24.0" />
                </font>
             </Label>
          </right>
@@ -69,7 +69,10 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Label fx:id="elixirLabel" prefHeight="30.0" prefWidth="33.0" text="elixir">
+                        <Label fx:id="elixirLabel" prefHeight="30.0" prefWidth="33.0" text="elixir" textFill="deeppink">
+                           <font>
+                              <Font name="Forte" size="24.0" />
+                           </font>
                            <effect>
                               <DropShadow />
                            </effect>
