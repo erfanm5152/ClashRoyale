@@ -4,9 +4,11 @@ import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 
 import java.io.Serializable;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
-public abstract class Tower implements Runnable , Serializable {
+public abstract class Tower extends TimerTask implements Vulnerable{
 
     private int health;
     private int damage;
@@ -16,6 +18,7 @@ public abstract class Tower implements Runnable , Serializable {
     private Point2D point2D;
     private String imageAddress;
     private Target self;
+    private Timer timer;
 
     public Tower( double range, double hitSpeed,Player player, String imageAddress) {
         this.range = range;
@@ -23,6 +26,7 @@ public abstract class Tower implements Runnable , Serializable {
         this.imageAddress = imageAddress;
         this.self = Target.BUILDINGS;
         this.player = player;
+        this.timer = new Timer();
     }
 
     public int getHealth() {
@@ -80,4 +84,35 @@ public abstract class Tower implements Runnable , Serializable {
     public void setImageAddress(String image) {
         this.imageAddress = image;
     }
+
+    @Override
+    public synchronized void decreaseHealth(int decreaseValue) {
+        this.health = health-decreaseValue;
+    }
+
+    public Target getSelf() {
+        return self;
+    }
+
+    public void setSelf(Target self) {
+        this.self = self;
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
+    public void start() {
+        getTimer().schedule(this,0, (long) (hitSpeed*1000));
+    }
+
+    public void stop(){
+        getTimer().cancel();
+        getTimer().purge();
+    }
+
+
 }

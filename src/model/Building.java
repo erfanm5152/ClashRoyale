@@ -44,4 +44,9 @@ public abstract class  Building extends Card{
     public void setLifeTime(int lifeTime) {
         this.lifeTime = lifeTime;
     }
+
+    @Override
+    public synchronized void decreaseHealth(int decreaseValue) {
+        this.health = health-decreaseValue;
+    }
 }

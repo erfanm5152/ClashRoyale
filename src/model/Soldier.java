@@ -57,4 +57,9 @@ public abstract class Soldier extends Card{
     public void setCount(int count) {
         this.count = count;
     }
+
+    @Override
+    public synchronized void decreaseHealth(int decreaseValue) {
+        this.health=health-decreaseValue;
+    }
 }

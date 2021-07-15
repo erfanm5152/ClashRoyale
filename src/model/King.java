@@ -19,14 +19,27 @@ public class King extends Tower {
 
     @Override
     public void run() {
+        if (isDisabled){
 
+            if (getHealth()<=0){
+                stop();
+                getPlayer().getGameAccessory().getTowers().remove(this);
+                getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().setNumberOfCups(3);
+            }
+        }
     }
 
     public boolean isDisabled() {
         return isDisabled;
     }
 
-    public void setDisabled(boolean disabled) {
+    public synchronized void setDisabled(boolean disabled) {
         isDisabled = disabled;
+    }
+
+    @Override
+    public void decreaseHealth(int decreaseValue) {
+        super.decreaseHealth(decreaseValue);
+        isDisabled = true;
     }
 }

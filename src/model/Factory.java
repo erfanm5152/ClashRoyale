@@ -32,4 +32,48 @@ public class Factory {
         towers.add(new Princess(player));
         return towers;
     }
+
+    public static Card createReplaceCard(Card oldCard){
+        Card temp = null;
+        switch (oldCard.getClass().getName()){
+            case "Model.Archer":
+                temp = new Archer(oldCard.getPlayer());
+                break;
+            case "Model.Barbarians":
+                temp = new Barbarians(oldCard.getPlayer());
+                break;
+            case "Model.BabyDragon" :
+                temp = new BabyDragon(oldCard.getPlayer());
+                break;
+            case"Model.Peka" :
+                temp = new Peka(oldCard.getPlayer());
+                break;
+            case"Model.Wizard" :
+                temp = new Wizard(oldCard.getPlayer());
+                break;
+            case"Model.Valkyrie" :
+                temp = new Valkyrie(oldCard.getPlayer());
+                break;
+            case"Model.Giant" :
+                temp = new Giant(oldCard.getPlayer());
+                break;
+            case"Model.Rage" :
+                temp = new Rage(oldCard.getPlayer());
+                break;
+            case"Model.Fireball" :
+                temp = new Fireball(oldCard.getPlayer());
+                break;
+            case"Model.Arrows" :
+                temp = new Arrows(oldCard.getPlayer());
+                break;
+            case"Model.Cannon" :
+                temp = new Cannon(oldCard.getPlayer());
+                break;
+            case"Model.InfernoTower" :
+                temp = new InfernoTower(oldCard.getPlayer());
+                break;
+
+        }
+        return temp;
+    }
 }

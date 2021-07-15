@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.*;
+import java.util.TimerTask;
 
 public class Princess extends Tower{
 
@@ -18,5 +19,12 @@ public class Princess extends Tower{
     @Override
     public void run() {
 
+        if (getHealth()<=0){
+            stop();
+            getPlayer().getGameAccessory().getKing().setDisabled(true);
+            getPlayer().getGameAccessory().getTowers().remove(this);
+            getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().increaseCups(1);
+        }
     }
+
 }

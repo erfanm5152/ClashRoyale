@@ -1,27 +1,30 @@
 package Model;
 
-import javafx.scene.image.Image;
+import javafx.geometry.Point2D;
+import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public abstract class Card implements Runnable , Serializable {
+public abstract class Card extends TimerTask implements Serializable,Vulnerable{
     private String cardImageAddress;
-//    private Image inGameImage;
     private int cost;
     private double range;
     private Player player;
-//  نوع هدف
+    private Point2D point2D;
     private Target target;
-//  نوع خود کارت
     private Target self;
+    private ImageView imageView;
+    private Timer timer;
 
     public Card(int cost, double range,Player player,String cardAddress) {
         this.cost = cost;
         this.range = range;
         this.player = player;
         this.cardImageAddress = cardAddress;
-//        this.inGameImage = new Image("file: "+inGameImage);
+        this.timer = new Timer();
     }
 
     public String getCardImageAddress() {
@@ -31,14 +34,6 @@ public abstract class Card implements Runnable , Serializable {
     public void setCardImageAddress(String cardImage) {
         this.cardImageAddress = cardImage;
     }
-
-//    public Image getInGameImage() {
-//        return inGameImage;
-//    }
-//
-//    public void setInGameImage(Image inGameImage) {
-//        this.inGameImage = inGameImage;
-//    }
 
     public int getCost() {
         return cost;
@@ -101,5 +96,29 @@ public abstract class Card implements Runnable , Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(cardImageAddress);
+    }
+
+    public Point2D getPoint2D() {
+        return point2D;
+    }
+
+    public void setPoint2D(Point2D point2D) {
+        this.point2D = point2D;
+    }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
     }
 }

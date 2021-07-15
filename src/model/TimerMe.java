@@ -13,13 +13,13 @@ public class TimerMe {
     private int timeInt;
     private Timer timer;
     private TimerTask timerTask;
-    private int increasePerSecond;
+    private double increasePerSecond;
     private boolean finished;
 
     public TimerMe(Label label,Game game) {
         this.label = label;
         this.game =game;
-        this.increasePerSecond = 1;
+        this.increasePerSecond = 0.5;
         this.timeInt=180;
         this.label.setText("3:00");
         this.finished = false;
@@ -34,7 +34,7 @@ public class TimerMe {
                         label.setText(timeInt/60 +" : "+timeInt%60);
                         game.getUser1().getPlayer().getGameAccessory().getElixir().add(increasePerSecond);
                         if (timeInt<60){
-                            increasePerSecond = 2;
+                            increasePerSecond = 1;
                         }
                         if (timeInt == 0){
                             finished = true;
@@ -84,11 +84,11 @@ public class TimerMe {
         this.label = label;
     }
 
-    public int getIncreasePerSecond() {
+    public double getIncreasePerSecond() {
         return increasePerSecond;
     }
 
-    public void setIncreasePerSecond(int increasePerSecond) {
+    public void setIncreasePerSecond(double increasePerSecond) {
         this.increasePerSecond = increasePerSecond;
     }
 

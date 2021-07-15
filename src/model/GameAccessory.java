@@ -10,6 +10,7 @@ public class GameAccessory {
     private Card nextCard;
     private Card chosenCard;
     private Elixir elixir;
+    private int numberOfCups;
 
     public GameAccessory(Player player){
         this.player = player;
@@ -18,6 +19,7 @@ public class GameAccessory {
         this.towers = Factory.createTowers(player);
         this.elixir = new Elixir(4);
         this.chosenCard = null;
+        this.numberOfCups = 0;
     }
 
     public ArrayList<Card> createHand(){
@@ -85,5 +87,43 @@ public class GameAccessory {
 
     public void setElixir(Elixir elixir) {
         this.elixir = elixir;
+    }
+
+    public double healthOfTowers(){
+        double temp=0;
+        for (Tower tower:towers) {
+            temp+=tower.getHealth();
+        }
+        return temp;
+    }
+
+    public boolean isKingInGame(){
+        for (Tower tower:towers) {
+            if (tower instanceof King){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public King getKing(){
+        for (Tower tower:towers) {
+            if (tower instanceof King){
+                return (King) tower;
+            }
+        }
+        return null;
+    }
+
+    public int getNumberOfCups() {
+        return numberOfCups;
+    }
+
+    public void increaseCups(int value){
+        numberOfCups= numberOfCups+value;
+    }
+
+    public void setNumberOfCups(int numberOfCups) {
+        this.numberOfCups = numberOfCups;
     }
 }
