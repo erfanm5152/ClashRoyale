@@ -90,6 +90,6 @@
       </BorderPane>
    </top>
    <center >
-      <MapView fx:id="mapView" rowCount="35" columnCount="20" />
+      <MapView fx:id="mapView" onMouseClicked="#handle" rowCount="34" columnCount="20" />
    </center>
 </BorderPane>

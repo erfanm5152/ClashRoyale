@@ -1,7 +1,6 @@
 package Model;
 
 import java.io.*;
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class FileUtils {
@@ -34,7 +33,7 @@ public class FileUtils {
     }
 
     public static String[][] readMap(){
-        String[][] temp = new String[35][20];
+        String[][] temp = new String[34][20];
         Scanner scanner = null;
         try {
             scanner = new Scanner(new File("./Resources/map.txt"));
