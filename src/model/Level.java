@@ -17,19 +17,19 @@ public enum Level implements Serializable {
 
     public static Level getLevelByXp(int xp){
         Level level = LEVEL1;
-        if (xp<300){
+        if (xp<500){
             level = LEVEL1;
         }
-        else if (xp<500){
+        if (500<=xp && xp<900){
             level = LEVEL2;
         }
-        else if (xp<900){
+        if (900<=xp && xp<1700){
             level = LEVEL3;
         }
-        else if (xp<1700){
+        if (1700<=xp && xp<2500){
             level = LEVEL4;
         }
-        else if (xp<2500){
+        if (2500<=xp){
             level = LEVEL5;
         }
         return level;

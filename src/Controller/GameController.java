@@ -2,12 +2,14 @@ package Controller;
 
 import Model.*;
 import View.MapView;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -47,8 +49,13 @@ public class GameController {
         new FinishThread(game).start();
         mapView.setImages(game);
         elixirLabel.textProperty().bind(progressBar.progressProperty().multiply(10).asString("%.0f"));
+
         game.getUser1().getPlayer().setGameAccessory(new GameAccessory(game.getUser1().getPlayer()));
         game.getUser2().getPlayer().setGameAccessory(new GameAccessory(game.getUser2().getPlayer()));
+
+        game.getUser1().getPlayer().setGame(game);
+        game.getUser2().getPlayer().setGame(game);
+
         ((Bot)game.getUser2()).setMapView(mapView);
 
         hand = FXCollections.observableArrayList(game.getUser1().getPlayer().getGameAccessory().getHand());
@@ -76,6 +83,22 @@ public class GameController {
         // todo check shavad ke pol kart entekhabi ra dard ya na.
         Card chosenCard =game.getUser1().getPlayer().getGameAccessory().getChosenCard();
         if (chosenCard == null){return;}
+
+        if (chosenCard.getCost()>game.getUser1().getPlayer().getGameAccessory().getElixir().getElixirValue()){
+            return;
+        }
+        //todo az comment dar biad
+//        game.getUser1().getPlayer().getGameAccessory().getElixir().add(chosenCard.getCost()*-1);
+
+        chosenCard.setPoint2D(new Point2D(mouseEvent.getX(),mouseEvent.getY()));
+        chosenCard.setMap(mapView);
+        chosenCard.setImageView(new ImageView());
+//        Platform.runLater(chosenCard);
+        chosenCard.start();
+        /*
+        age az noe spell bod nyazi be check kardan marz nistl
+         */
+
         Card nextCard =game.getUser1().getPlayer().getGameAccessory().getNextCard();
         //remove chosen Card from hand & deck
         hand.remove(chosenCard);

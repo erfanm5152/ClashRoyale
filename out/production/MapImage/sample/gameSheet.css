@@ -1,0 +1,6 @@
+
+.progress-bar > .bar {
+    -fx-progress-color: Deeppink;
+    -fx-background-color: Deeppink;
+
+}

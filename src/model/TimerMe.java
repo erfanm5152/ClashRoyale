@@ -36,7 +36,7 @@ public class TimerMe {
                         if (timeInt<60){
                             increasePerSecond = 1;
                         }
-                        if (timeInt == 0){
+                        if (game.isFinished()){
                             finished = true;
                             timer.cancel();
                             timer.purge();
