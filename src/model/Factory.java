@@ -27,9 +27,15 @@ public class Factory {
 
     public static ArrayList<Tower> createTowers(Player player){
         ArrayList<Tower> towers = new ArrayList<>();
-        towers.add(new King(player));
-        towers.add(new Princess(player));
-        towers.add(new Princess(player));
+        if (!(player.getUser() instanceof Bot)){
+            towers.add(new King(player,157,502));
+            towers.add(new Princess(player,63,444));
+            towers.add(new Princess(player,254,444));
+        }else {
+            towers.add(new King(player,157,58));
+            towers.add(new Princess(player,256,115));
+            towers.add(new Princess(player,61,115));
+        }
         return towers;
     }
 

@@ -5,8 +5,8 @@ import java.awt.*;
 public class King extends Tower {
     private boolean isDisabled;
 
-    public King( Player player ) {
-        super(7,1,player,"./src/View/pic/KingTower.png");
+    public King( Player player ,double x ,double y ) {
+        super(x,y,7,1,player,"./src/View/pic/KingTower.png");
         switch (getPlayer().getUser().getLevel()){
             case LEVEL1 ->{setHealth(2400);setDamage(50);}
             case LEVEL2 ->{setHealth(2568);setDamage(53);}

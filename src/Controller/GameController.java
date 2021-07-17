@@ -48,6 +48,9 @@ public class GameController {
         mapView.setImages(game);
         elixirLabel.textProperty().bind(progressBar.progressProperty().multiply(10).asString("%.0f"));
         game.getUser1().getPlayer().setGameAccessory(new GameAccessory(game.getUser1().getPlayer()));
+        game.getUser2().getPlayer().setGameAccessory(new GameAccessory(game.getUser2().getPlayer()));
+        ((Bot)game.getUser2()).setMapView(mapView);
+
         hand = FXCollections.observableArrayList(game.getUser1().getPlayer().getGameAccessory().getHand());
         newCard.setImage(new Image(getClass().getResourceAsStream(game.getUser1().getPlayer().getGameAccessory().getNextCard().getCardImageAddress())));
         listOfCards.setItems(hand);

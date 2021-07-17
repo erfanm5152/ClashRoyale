@@ -15,12 +15,13 @@ public abstract class Tower extends TimerTask implements Vulnerable{
     private double range;
     private double hitSpeed;
     private Player player;
-    private Point2D point2D;
+    private transient Point2D point2D;
     private String imageAddress;
     private Target self;
     private Timer timer;
 
-    public Tower( double range, double hitSpeed,Player player, String imageAddress) {
+    public Tower(double x , double y ,double range, double hitSpeed,Player player, String imageAddress) {
+        point2D = new Point2D(x, y);
         this.range = range;
         this.hitSpeed = hitSpeed;
         this.imageAddress = imageAddress;

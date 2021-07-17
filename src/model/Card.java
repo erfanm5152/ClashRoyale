@@ -13,11 +13,11 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
     private int cost;
     private double range;
     private Player player;
-    private Point2D point2D;
+    private transient Point2D point2D;
     private Target target;
     private Target self;
     private ImageView imageView;
-    private Timer timer;
+    private transient Timer timer;
 
     public Card(int cost, double range,Player player,String cardAddress) {
         this.cost = cost;
@@ -121,4 +121,6 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
     public void setTimer(Timer timer) {
         this.timer = timer;
     }
+
+    
 }

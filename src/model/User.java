@@ -56,6 +56,18 @@ public class User implements Serializable {
         this.player = player;
     }
 
+    public void increaseXp(int value){
+        xp = xp+value;
+    }
+
+    public void increaseCups(int value){
+        numberOfCups = numberOfCups+value;
+    }
+
+    public void updateLevel(){
+        this.level = Level.getLevelByXp(xp);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,4 +91,5 @@ public class User implements Serializable {
                 ", level=" + level +
                 '}';
     }
+
 }
