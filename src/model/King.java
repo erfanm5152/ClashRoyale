@@ -24,6 +24,7 @@ public class King extends Tower {
             if (getHealth()<=0){
                 stop();
                 getPlayer().getGameAccessory().getTowers().remove(this);
+                getPlayer().getGameAccessory().getInGameTargets().remove(this);
                 getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().setNumberOfCups(3);
             }
         }
@@ -41,5 +42,6 @@ public class King extends Tower {
     public void decreaseHealth(int decreaseValue) {
         super.decreaseHealth(decreaseValue);
         isDisabled = true;
+        System.out.println(decreaseValue);
     }
 }

@@ -1,7 +1,5 @@
 package Model;
 
-import java.awt.*;
-import java.util.TimerTask;
 
 public class Princess extends Tower{
 
@@ -23,6 +21,7 @@ public class Princess extends Tower{
             stop();
             getPlayer().getGameAccessory().getKing().setDisabled(true);
             getPlayer().getGameAccessory().getTowers().remove(this);
+            getPlayer().getGameAccessory().getInGameTargets().remove(this);
             getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().increaseCups(1);
         }
     }

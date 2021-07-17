@@ -7,6 +7,7 @@ public class GameAccessory {
     private Player player;
     private ArrayList<Card> hand ;
     private ArrayList<Tower> towers;
+    private ArrayList<Vulnerable> inGameTargets;
     private Card nextCard;
     private Card chosenCard;
     private Elixir elixir;
@@ -20,6 +21,9 @@ public class GameAccessory {
         this.elixir = new Elixir(4);
         this.chosenCard = null;
         this.numberOfCups = 0;
+        this.inGameTargets = new ArrayList<>();
+        this.inGameTargets.addAll(towers);
+        startTowers();
     }
 
     public ArrayList<Card> createHand(){
@@ -125,5 +129,19 @@ public class GameAccessory {
 
     public void setNumberOfCups(int numberOfCups) {
         this.numberOfCups = numberOfCups;
+    }
+
+    public ArrayList<Vulnerable> getInGameTargets() {
+        return inGameTargets;
+    }
+
+    public void setInGameTargets(ArrayList<Vulnerable> inGameTargets) {
+        this.inGameTargets = inGameTargets;
+    }
+
+    public void startTowers(){
+        for (Tower tower:towers) {
+            tower.start();
+        }
     }
 }

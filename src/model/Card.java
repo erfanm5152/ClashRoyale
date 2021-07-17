@@ -1,5 +1,6 @@
 package Model;
 
+import View.MapView;
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 
@@ -16,8 +17,10 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
     private transient Point2D point2D;
     private Target target;
     private Target self;
-    private ImageView imageView;
+    private transient int secondInGame;
+    private transient ImageView imageView;
     private transient Timer timer;
+    private transient MapView map;
 
     public Card(int cost, double range,Player player,String cardAddress) {
         this.cost = cost;
@@ -25,6 +28,8 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
         this.player = player;
         this.cardImageAddress = cardAddress;
         this.timer = new Timer();
+        this.imageView = new ImageView();
+        this.secondInGame = 0;
     }
 
     public String getCardImageAddress() {
@@ -122,5 +127,28 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
         this.timer = timer;
     }
 
-    
+    public MapView getMap() {
+        return map;
+    }
+
+    public void setMap(MapView map) {
+        this.map = map;
+    }
+    public void start(){
+        timer = new Timer();
+        timer.schedule(this,500,100);
+    }
+    public void stop(){
+        map.getChildren().remove(imageView);
+        timer.cancel();
+        timer.purge();
+    }
+
+    public int getSecondInGame() {
+        return secondInGame;
+    }
+
+    public void setSecondInGame(int secondInGame) {
+        this.secondInGame = secondInGame;
+    }
 }
