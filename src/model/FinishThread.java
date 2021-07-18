@@ -55,4 +55,20 @@ public class FinishThread extends TimerTask {
             }
         });
     }
+    public void stopTowers(){
+        for (Tower tower:game.getUser1().getPlayer().getGameAccessory().getTowers()) {
+            tower.stop();
+        }
+        for (Tower tower:game.getUser2().getPlayer().getGameAccessory().getTowers()) {
+            tower.stop();
+        }
+    }
+    public void stopCards(){
+        for (Card card:game.getUser1().getPlayer().getGameAccessory().getInGameTargets()) {
+            card.stop();
+        }
+        for (Card card:game.getUser2().getPlayer().getGameAccessory().getInGameTargets()) {
+            card.stop();
+        }
+    }
 }

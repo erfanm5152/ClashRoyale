@@ -48,6 +48,11 @@ public class Fireball extends Spell{
                     vulnerable.decreaseHealth(damage);
                 }
             }
+            for (Tower tower:getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers()) {
+                if (range.contains(tower.getPoint2D())){
+                    tower.decreaseHealth(damage);
+                }
+            }
         }
         if (getSecondInGame()>=2000) {
             Platform.runLater(new Runnable() {

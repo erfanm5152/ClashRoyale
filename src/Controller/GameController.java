@@ -93,8 +93,9 @@ public class GameController {
         chosenCard.setPoint2D(new Point2D(mouseEvent.getX(),mouseEvent.getY()));
         chosenCard.setMap(mapView);
         chosenCard.setImageView(new ImageView());
-//        Platform.runLater(chosenCard);
+        //todo az comment dar biad , age instance of spell nabod bayd be card haye daron bazi add shavad va marz check shavad
         chosenCard.start();
+        System.out.println(chosenCard.findClosetTarget().getPoint2D());
         /*
         age az noe spell bod nyazi be check kardan marz nistl
          */

@@ -1,7 +1,7 @@
 package Model;
 
 public enum Speed {
-    SLOW(1),MEDIUM(2),FAST(3);
+    SLOW(0.5),MEDIUM(1),FAST(1.5);
 
     private double speed;
 

@@ -5,6 +5,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -151,4 +152,31 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
     public void setSecondInGame(int secondInGame) {
         this.secondInGame = secondInGame;
     }
+
+    public Vulnerable findClosetTarget(){
+        ArrayList<Vulnerable> vulnerableArrayList = new ArrayList<>();
+        ArrayList<Card> opponentCards = getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets();
+        ArrayList<Tower> opponentTowers = getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers();
+        for (Card card:opponentCards) {
+            if (getTarget() == Target.AIR_AND_GROUND){
+                if (card.getSelf() == Target.AIR || card.getSelf() == Target.GROUND){
+                    vulnerableArrayList.add(card);
+                }
+            }else {
+                if (card.getSelf()==getTarget()){
+                    vulnerableArrayList.add(card);
+                }
+            }
+        }
+        vulnerableArrayList.addAll(opponentTowers);
+        Vulnerable temp = vulnerableArrayList.get(0);
+        for (Vulnerable vulnerable:vulnerableArrayList) {
+            if (getPoint2D().distance(vulnerable.getPoint2D())<getPoint2D().distance(temp.getPoint2D())){
+                temp = vulnerable;
+            }
+        }
+        return temp;
+    }
+
+
 }
