@@ -1,14 +1,14 @@
 package Model;
 
-public abstract class  Building extends Card{
+public abstract class Building extends Card {
 
     private int damage;
     private int health;
     private double hitSpeed;
     private int lifeTime;
 
-    public Building(int cost, double range,double hitSpeed,int lifeTime,Player player ,String cardAddress) {
-        super(cost, range,player ,cardAddress);
+    public Building(int cost, double range, double hitSpeed, int lifeTime, Player player, String cardAddress) {
+        super(cost, range, player, cardAddress);
         this.hitSpeed = hitSpeed;
         this.lifeTime = lifeTime;
     }
@@ -47,6 +47,12 @@ public abstract class  Building extends Card{
 
     @Override
     public synchronized void decreaseHealth(int decreaseValue) {
-        this.health = health-decreaseValue;
+        this.health = health - decreaseValue;
+    }
+
+    @Override
+    public void stop() {
+        super.stop();
+        getPlayer().getGameAccessory().getInGameTargets().remove(this);
     }
 }

@@ -2,6 +2,8 @@ package Model;
 
 import javafx.geometry.Point2D;
 
+import java.util.Random;
+
 public abstract class Soldier extends Card{
     private int health;
     private int damage;
@@ -65,17 +67,37 @@ public abstract class Soldier extends Card{
         this.health=health-decreaseValue;
     }
 
+    @Override
+    public void stop() {
+        super.stop();
+        getPlayer().getGameAccessory().getInGameTargets().remove(this);
+
+    }
+
     public void goToTarget(Vulnerable vulnerable){
         Point2D target = vulnerable.getPoint2D();
+        Point2D newPoint;
         if (target.getX()>getPoint2D().getX()){
-            setPoint2D(getPoint2D().add(speed.getSpeed(),0));
+            newPoint = getPoint2D().add(speed.getSpeed(),0);
+            if (getPlayer().getGame().isEmptyCell(newPoint,this)) {
+                setPoint2D(newPoint);
+            }
         }else if (target.getX()<getPoint2D().getX()){
-            setPoint2D(getPoint2D().add(-1*speed.getSpeed(),0));
+            newPoint = getPoint2D().add(-1*speed.getSpeed(),0);
+            if (getPlayer().getGame().isEmptyCell(newPoint,this)) {
+                setPoint2D(newPoint);
+            }
         }
         if (target.getY()>getPoint2D().getY()){
-            setPoint2D(getPoint2D().add(0,speed.getSpeed()));
+            newPoint = getPoint2D().add(0,speed.getSpeed());
+            if (getPlayer().getGame().isEmptyCell(newPoint,this)) {
+                setPoint2D(newPoint);
+            }
         }else if (target.getY()<getPoint2D().getY()){
-            setPoint2D(getPoint2D().add(0,-1*speed.getSpeed()));
+            newPoint = getPoint2D().add(0,-1*speed.getSpeed());
+            if (getPlayer().getGame().isEmptyCell(newPoint,this)) {
+                setPoint2D(newPoint);
+            }
         }
         getImageView().setX(getPoint2D().getX());
         getImageView().setY(getPoint2D().getY());

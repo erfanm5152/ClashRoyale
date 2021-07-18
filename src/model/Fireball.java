@@ -55,12 +55,7 @@ public class Fireball extends Spell{
             }
         }
         if (getSecondInGame()>=2000) {
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    stop();
-                }
-            });
+            stop();
         }
         setSecondInGame(getSecondInGame()+100);
     }

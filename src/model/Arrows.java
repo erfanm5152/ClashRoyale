@@ -58,13 +58,8 @@ public class Arrows extends Spell{
                 }
             }
         }
-        if (getSecondInGame()>=2000) {
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    stop();
-                }
-            });
+        if (getSecondInGame()>=4000) {
+            stop();
         }
         setSecondInGame(getSecondInGame()+100);
     }

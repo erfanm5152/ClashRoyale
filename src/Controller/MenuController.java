@@ -61,7 +61,22 @@ public class MenuController{
 
     @FXML
     void showHistory(ActionEvent event) {
+        Stage stage;
+        Parent root = null;
 
+        stage = (Stage) profileKey.getScene().getWindow();
+        stage.hide();
+        try {
+            root = FXMLLoader.load(MenuController.class.getResource("../View/History.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        changeSceneAnimation(root,"left",631);
+        stage.setHeight(460);
+        stage.setWidth(631);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

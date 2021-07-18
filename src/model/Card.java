@@ -1,6 +1,7 @@
 package Model;
 
 import View.MapView;
+import javafx.application.Platform;
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 
@@ -139,8 +140,13 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
         timer = new Timer();
         timer.schedule(this,500,100);
     }
-    public void stop(){
-        map.getChildren().remove(imageView);
+    public synchronized void stop(){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                map.getChildren().remove(imageView);
+            }
+        });
         timer.cancel();
         timer.purge();
     }

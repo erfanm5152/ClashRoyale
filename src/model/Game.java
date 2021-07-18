@@ -162,5 +162,26 @@ public class Game implements Serializable {
         this.leftBridgeUser2 = leftBridgeUser2;
     }
 
+    public boolean isEmptyCell(Point2D point2D , Card card){
+        ArrayList<Card> cards =new ArrayList<>();
+        for (Card temp:getUser1().getPlayer().getGameAccessory().getInGameTargets()) {
+            if (!(temp instanceof Spell)){
+                cards.add(temp);
+            }
+        }
+        for (Card temp:getUser2().getPlayer().getGameAccessory().getInGameTargets()) {
+            if (!(temp instanceof Spell)){
+                cards.add(temp);
+            }
+        }
+        for (Card temp:cards) {
+            if (temp == card){ continue; }
+            if (temp.getPoint2D().equals(point2D)||temp.getPoint2D().distance(point2D)<2){
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 }

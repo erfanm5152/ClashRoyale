@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="hbox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="104.0" prefWidth="414.0" spacing="10.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="userOne" alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="80.0" text="user1" HBox.hgrow="ALWAYS">
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.8664122228404036" startX="0.3625954271272848">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" blue="0.17341040074825287" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.007680491551459294">
+                     <color>
+                        <Color red="1.0" blue="0.17341040074825287" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.4663830792863051">
+                     <color>
+                        <Color red="0.10000000149011612" green="0.09300000220537186" blue="0.09300000220537186" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.949999988079071" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="35.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pic/vs.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label fx:id="userTwo" prefHeight="35.0" prefWidth="55.0" text="user2" HBox.hgrow="ALWAYS">
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.8664122228404036" startX="0.3625954271272848">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" blue="0.17341040074825287" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.007680491551459294">
+                     <color>
+                        <Color red="1.0" blue="0.17341040074825287" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.4663830792863051">
+                     <color>
+                        <Color red="0.10000000149011612" green="0.09300000220537186" blue="0.09300000220537186" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.949999988079071" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="104.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pic/line.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="129.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pic/winner.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label fx:id="winner" prefHeight="35.0" prefWidth="80.0" text="winner" HBox.hgrow="ALWAYS">
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.8664122228404036" startX="0.3625954271272848">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" blue="0.17341040074825287" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.007680491551459294">
+                     <color>
+                        <Color red="1.0" blue="0.17341040074825287" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.4663830792863051">
+                     <color>
+                        <Color red="0.10000000149011612" green="0.09300000220537186" blue="0.09300000220537186" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.949999988079071" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</HBox>

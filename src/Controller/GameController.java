@@ -94,6 +94,9 @@ public class GameController {
         chosenCard.setMap(mapView);
         chosenCard.setImageView(new ImageView());
         //todo az comment dar biad , age instance of spell nabod bayd be card haye daron bazi add shavad va marz check shavad
+        if (!(chosenCard instanceof Spell)){
+            game.getUser1().getPlayer().getGameAccessory().getInGameTargets().add(chosenCard);
+        }
         chosenCard.start();
         System.out.println(chosenCard.findClosetTarget().getPoint2D());
         /*

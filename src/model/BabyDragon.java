@@ -60,13 +60,7 @@ public class BabyDragon extends Soldier{
             }
         }
         if (getHealth()<=0){
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    //todo bayad az in game card ha hazf shavad.
-                    stop();
-                }
-            });
+            stop();
         }
         setSecondInGame(getSecondInGame()+100);
     }

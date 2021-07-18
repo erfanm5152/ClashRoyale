@@ -61,7 +61,7 @@ public class GameAccessory {
         return hand;
     }
 
-    public ArrayList<Tower> getTowers() {
+    public synchronized ArrayList<Tower> getTowers() {
         return towers;
     }
 
@@ -131,7 +131,7 @@ public class GameAccessory {
         this.numberOfCups = numberOfCups;
     }
 
-    public ArrayList<Card> getInGameTargets() {
+    public synchronized ArrayList<Card> getInGameTargets() {
         return inGameTargets;
     }
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane prefHeight="460.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HistoryController">
+   <right>
+      <ListView fx:id="listOfGames" prefHeight="460.0" prefWidth="449.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <effect>
+            <InnerShadow choke="0.23" height="255.0" radius="127.0" width="255.0" />
+         </effect>
+      </ListView>
+   </right>
+   <center>
+      <VBox alignment="CENTER" prefHeight="460.0" prefWidth="182.0" spacing="5.0" style="-fx-background-color: #1E90FF;" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="homeButton" fx:id="homeKey" maxHeight="110.0" maxWidth="107.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="110.0" prefWidth="107.0">
+               <stylesheets>
+                  <URL value="@MenuSheet.css" />
+                  <URL value="@ProfileSheet.css" />
+               </stylesheets>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <PieChart fx:id="chart" prefHeight="290.0" prefWidth="201.0" title="wins" titleSide="BOTTOM" />
+         </children>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="1.0" green="0.843137264251709" />
+               </color>
+            </InnerShadow>
+         </effect>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

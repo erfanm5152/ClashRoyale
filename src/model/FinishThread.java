@@ -48,6 +48,8 @@ public class FinishThread extends TimerTask {
                     game.getLoser().increaseCups(game.getLoser().getPlayer().getGameAccessory().getNumberOfCups());
                     game.getUser1().updateLevel();
                     game.getUser2().updateLevel();
+                    stopTowers();
+                    stopCards();
                     MenuController.changeToMenu(game.getTimerMe().getLabel());
                     timer.cancel();
                     timer.purge();
