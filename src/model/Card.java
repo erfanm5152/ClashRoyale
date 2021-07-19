@@ -165,7 +165,7 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
         ArrayList<Tower> opponentTowers = getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers();
         for (Card card:opponentCards) {
             if (getTarget() == Target.AIR_AND_GROUND){
-                if (card.getSelf() == Target.AIR || card.getSelf() == Target.GROUND){
+                if (card.getSelf() == Target.AIR || card.getSelf() == Target.GROUND || card.getSelf()==Target.AIR_AND_GROUND){
                     vulnerableArrayList.add(card);
                 }
             }else {
@@ -175,6 +175,9 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
             }
         }
         vulnerableArrayList.addAll(opponentTowers);
+        if (vulnerableArrayList.size()==0){
+            return null;
+        }
         Vulnerable temp = vulnerableArrayList.get(0);
         for (Vulnerable vulnerable:vulnerableArrayList) {
             if (getPoint2D().distance(vulnerable.getPoint2D())<getPoint2D().distance(temp.getPoint2D())){

@@ -34,33 +34,36 @@ public class BabyDragon extends Soldier{
             });
         }
         Vulnerable target = findClosetTarget();
-        if (getPoint2D().distance(target.getPoint2D())>40) {
-            goToTarget(target);
-        }else {
-            if (getSecondInGame()%(getHitSpeed()*1000)==0){
-                Circle range = new Circle(target.getPoint2D().getX(),target.getPoint2D().getY(),10);
-                range.setVisible(false);
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        getMap().getChildren().add(range);
+        if (target != null) {
+            if (getPoint2D().distance(target.getPoint2D()) > 40) {
+                goToTarget(target.getPoint2D());
+            } else {
+                if (getSecondInGame() % (getHitSpeed() * 1000) == 0) {
+                    Circle range = new Circle(target.getPoint2D().getX(), target.getPoint2D().getY(), 10);
+                    range.setVisible(false);
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            getMap().getChildren().add(range);
+                        }
+                    });
+                    for (Vulnerable vulnerable :
+                            getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets()) {
+                        if (range.contains(vulnerable.getPoint2D())) {
+                            vulnerable.decreaseHealth(getDamage());
+                        }
                     }
-                });
-                for (Vulnerable vulnerable :
-                        getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets()) {
-                    if (range.contains(vulnerable.getPoint2D())) {
-                        vulnerable.decreaseHealth(getDamage());
-                    }
-                }
-                for (Tower tower:getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers()) {
-                    if (range.contains(tower.getPoint2D())){
-                        tower.decreaseHealth(getDamage());
+                    for (Tower tower : getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers()) {
+                        if (range.contains(tower.getPoint2D())) {
+                            tower.decreaseHealth(getDamage());
+                        }
                     }
                 }
             }
         }
-        if (getHealth()<=0){
+        if (getHealth()<=0||target==null){
             stop();
+            getPlayer().getGameAccessory().getInGameTargets().remove(this);
         }
         setSecondInGame(getSecondInGame()+100);
     }

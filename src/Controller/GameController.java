@@ -97,8 +97,9 @@ public class GameController {
         if (!(chosenCard instanceof Spell)){
             game.getUser1().getPlayer().getGameAccessory().getInGameTargets().add(chosenCard);
         }
+        game.getInMapCards().add(chosenCard);
         chosenCard.start();
-        System.out.println(chosenCard.findClosetTarget().getPoint2D());
+        System.out.println(mouseEvent.getX() +" "+mouseEvent.getY());
         /*
         age az noe spell bod nyazi be check kardan marz nistl
          */

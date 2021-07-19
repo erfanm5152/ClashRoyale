@@ -3,6 +3,7 @@ package Model;
 import Controller.MenuController;
 import javafx.application.Platform;
 
+import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -58,19 +59,27 @@ public class FinishThread extends TimerTask {
         });
     }
     public void stopTowers(){
-        for (Tower tower:game.getUser1().getPlayer().getGameAccessory().getTowers()) {
-            tower.stop();
-        }
-        for (Tower tower:game.getUser2().getPlayer().getGameAccessory().getTowers()) {
-            tower.stop();
+        stopTowersOfUser(game.getUser1());
+        stopTowersOfUser(game.getUser2());
+    }
+
+    public void stopTowersOfUser(User user){
+        Iterator<Tower> towerIterator = user.getPlayer().getGameAccessory().getTowers().iterator();
+        while (towerIterator.hasNext()){
+            Tower temp = towerIterator.next();
+            temp.stop();
         }
     }
+
     public void stopCards(){
-        for (Card card:game.getUser1().getPlayer().getGameAccessory().getInGameTargets()) {
-            card.stop();
-        }
-        for (Card card:game.getUser2().getPlayer().getGameAccessory().getInGameTargets()) {
-            card.stop();
+        stopCardsOfUser(game.getUser1());
+        stopCardsOfUser(game.getUser2());
+    }
+    public void stopCardsOfUser(User user){
+        Iterator<Card> cardIterator = user.getPlayer().getGameAccessory().getInGameTargets().iterator();
+        while (cardIterator.hasNext()){
+            Card temp = cardIterator.next();
+            temp.stop();
         }
     }
 }

@@ -68,14 +68,45 @@ public abstract class Soldier extends Card{
     }
 
     @Override
-    public void stop() {
+    public synchronized void stop() {
         super.stop();
-        getPlayer().getGameAccessory().getInGameTargets().remove(this);
+//        getPlayer().getGameAccessory().getInGameTargets().remove(this);
 
     }
 
-    public void goToTarget(Vulnerable vulnerable){
-        Point2D target = vulnerable.getPoint2D();
+    public boolean isTargetInOpponentArea(Vulnerable target){
+        if (getPlayer().getGame().getUser1().equals(getPlayer().getUser())){
+            if (target.getPoint2D().getY()<254 && getPoint2D().getY()>254){
+                return true;
+            }
+        }else {
+            if (target.getPoint2D().getY()>290 && getPoint2D().getY()<290){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void gotoBridge(){
+        Point2D left= null;
+        Point2D right= null;
+        Point2D closetBridge= null;
+        if (getPlayer().getUser().equals(getPlayer().getGame().getUser1())){
+            left = getPlayer().getGame().getLeftBridgeUser1();
+            right = getPlayer().getGame().getRightBridgeUser1();
+        }else {
+            left = getPlayer().getGame().getLeftBridgeUser2();
+            right = getPlayer().getGame().getRightBridgeUser2();
+        }
+        if (getPoint2D().distance(left)<getPoint2D().distance(right)){
+            goToTarget(left);
+        }else {
+            goToTarget(right);
+        }
+    }
+
+    public void goToTarget(Point2D target){
+//        Point2D target = vulnerable.getPoint2D();
         Point2D newPoint;
         if (target.getX()>getPoint2D().getX()){
             newPoint = getPoint2D().add(speed.getSpeed(),0);

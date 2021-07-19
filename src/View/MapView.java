@@ -29,6 +29,8 @@ public class MapView extends Group {
     private Image n1 ;
     private Image n2 ;
     private Image p ;
+    private Image p1 ;
+    private Image p2 ;
     private Image Q ;
     private Image r ;
     private Image s ;
@@ -63,6 +65,8 @@ public class MapView extends Group {
         n1=new Image(getClass().getResourceAsStream("pic/map/n1.png"));
         n2=new Image(getClass().getResourceAsStream("pic/map/n2.png"));
         p=new Image(getClass().getResourceAsStream("pic/map/p.png"));
+        p1=new Image(getClass().getResourceAsStream("pic/map/p1.png"));
+        p2=new Image(getClass().getResourceAsStream("pic/map/p2.png"));
         Q=new Image(getClass().getResourceAsStream("pic/map/Q.png"));
         r=new Image(getClass().getResourceAsStream("pic/map/r.png"));
         s=new Image(getClass().getResourceAsStream("pic/map/s.png"));
@@ -217,6 +221,11 @@ public class MapView extends Group {
                     case "t":
                         cellViews[i][j].setImage(t);
                         break;
+                    case "p1":
+                        cellViews[i][j].setImage(p1);
+                        break;
+                    case "p2":
+                        cellViews[i][j].setImage(p2);
                 }
             }
         }

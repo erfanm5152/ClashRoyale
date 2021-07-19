@@ -15,7 +15,7 @@
    <right>
       <ListView fx:id="listOfGames" prefHeight="460.0" prefWidth="449.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <effect>
-            <DropShadow />
+            <InnerShadow choke="0.23" height="255.0" radius="127.0" width="255.0" />
          </effect>
       </ListView>
    </right>

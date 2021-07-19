@@ -29,12 +29,12 @@ public class Game implements Serializable {
         user2.setPlayer(new Player(user2));
 
         isFinished = false;
-        map=FileUtils.readMap();
+        map = FileUtils.readMap();
         inMapCards = new ArrayList<>();
-        this.rightBridgeUser1 = new Point2D(255, 287);
-        this.rightBridgeUser2 = new Point2D(255, 254);
-        this.leftBridgeUser1 = new Point2D(63, 287);
-        this.leftBridgeUser2 = new Point2D(63,254 );
+        this.rightBridgeUser1 = new Point2D(240, 254);
+        this.rightBridgeUser2 = new Point2D(240, 290);
+        this.leftBridgeUser1 = new Point2D(50, 254);
+        this.leftBridgeUser2 = new Point2D(50, 287);
     }
 
     public User getUser1() {
@@ -93,12 +93,12 @@ public class Game implements Serializable {
         this.timerMe = timerMe;
     }
 
-    public void winnerInFinishTime(){
+    public void winnerInFinishTime() {
         int numberOfCupsUser1 = user1.getPlayer().getGameAccessory().getNumberOfCups();
         int numberOfCupsUser2 = user2.getPlayer().getGameAccessory().getNumberOfCups();
-        if (numberOfCupsUser1!=numberOfCupsUser2){
-            winner= numberOfCupsUser1>numberOfCupsUser2 ?user1 :user2;
-        }else {
+        if (numberOfCupsUser1 != numberOfCupsUser2) {
+            winner = numberOfCupsUser1 > numberOfCupsUser2 ? user1 : user2;
+        } else {
             if (user1.getPlayer().getGameAccessory().healthOfTowers() > user2.getPlayer().getGameAccessory().healthOfTowers()) {
                 winner = user1;
             } else if (user1.getPlayer().getGameAccessory().healthOfTowers() == user2.getPlayer().getGameAccessory().healthOfTowers()) {
@@ -107,11 +107,11 @@ public class Game implements Serializable {
                 winner = user2;
             }
         }
-        loser = user1==winner? user2: user1 ;
+        loser = user1 == winner ? user2 : user1;
     }
 
-    public User getOpponent(User selfUser){
-        return selfUser==user1?user2:user1;
+    public User getOpponent(User selfUser) {
+        return selfUser == user1 ? user2 : user1;
     }
 
     public User getWinner() {
@@ -162,26 +162,30 @@ public class Game implements Serializable {
         this.leftBridgeUser2 = leftBridgeUser2;
     }
 
-    public boolean isEmptyCell(Point2D point2D , Card card){
-        ArrayList<Card> cards =new ArrayList<>();
-        for (Card temp:getUser1().getPlayer().getGameAccessory().getInGameTargets()) {
-            if (!(temp instanceof Spell)){
+    public boolean isEmptyCell(Point2D point2D, Card card) {
+        ArrayList<Card> cards = new ArrayList<>();
+        for (Card temp : getUser1().getPlayer().getGameAccessory().getInGameTargets()) {
+            if (!(temp instanceof Spell)) {
                 cards.add(temp);
             }
         }
-        for (Card temp:getUser2().getPlayer().getGameAccessory().getInGameTargets()) {
-            if (!(temp instanceof Spell)){
+        for (Card temp : getUser2().getPlayer().getGameAccessory().getInGameTargets()) {
+            if (!(temp instanceof Spell)) {
                 cards.add(temp);
             }
         }
-        for (Card temp:cards) {
-            if (temp == card){ continue; }
-            if (temp.getPoint2D().equals(point2D)||temp.getPoint2D().distance(point2D)<2){
+        for (Card temp : cards) {
+            if (temp == card) {
+                continue;
+            }
+            if ((temp.getPoint2D().equals(point2D) || temp.getPoint2D().distance(point2D) < 2) && temp.getSelf()== card.getSelf()) {
                 return false;
             }
         }
 
         return true;
     }
+
+
 
 }

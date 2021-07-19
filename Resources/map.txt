@@ -14,8 +14,8 @@ r m m t t m m m m m m m m m m t t m m l
 r m m t t m m m m m m m m m m t t m m l
 r m m t t m m m m m m m m m m t t m m l
 r m m t t m m m m m m m m m m t t m m l
-b b b p p b b b b b b b b b b p p b b b 
-a a a p p a a a a a a a a a a p p a a a
+b b p1 p p p2 b b b b b b b b p1 p p p2 b b
+a a p1 p p p2 a a a a a a a a p1 p p p2 a a
 r m m t t m m m m m m m m m m t t m m l 
 r m m t t m m m m m m m m m m t t m m l
 r m m t t m m m m m m m m m m t t m m l   
