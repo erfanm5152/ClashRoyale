@@ -49,8 +49,8 @@ public class FinishThread extends TimerTask {
                     game.getLoser().increaseCups(game.getLoser().getPlayer().getGameAccessory().getNumberOfCups());
                     game.getUser1().updateLevel();
                     game.getUser2().updateLevel();
-                    stopTowers();
-                    stopCards();
+//                    stopTowers();
+//                    stopCards();
                     MenuController.changeToMenu(game.getTimerMe().getLabel());
                     timer.cancel();
                     timer.purge();
@@ -75,7 +75,7 @@ public class FinishThread extends TimerTask {
         stopCardsOfUser(game.getUser1());
         stopCardsOfUser(game.getUser2());
     }
-    public void stopCardsOfUser(User user){
+    public synchronized void stopCardsOfUser(User user){
         Iterator<Card> cardIterator = user.getPlayer().getGameAccessory().getInGameTargets().iterator();
         while (cardIterator.hasNext()){
             Card temp = cardIterator.next();

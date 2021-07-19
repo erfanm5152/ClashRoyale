@@ -20,7 +20,7 @@ public class TimerMe {
         this.label = label;
         this.game =game;
         this.increasePerSecond = 0.5;
-        this.timeInt=180;
+        this.timeInt=10;
         this.label.setText("3:00");
         this.finished = false;
         this.timer = new Timer();
@@ -36,7 +36,7 @@ public class TimerMe {
                         if (timeInt<60){
                             increasePerSecond = 1;
                         }
-                        if (game.isFinished()){
+                        if (game.isFinished()||timeInt==0){
                             finished = true;
                             timer.cancel();
                             timer.purge();
@@ -92,7 +92,7 @@ public class TimerMe {
         this.increasePerSecond = increasePerSecond;
     }
 
-    public boolean isFinished() {
+    public synchronized boolean isFinished() {
         return finished;
     }
 

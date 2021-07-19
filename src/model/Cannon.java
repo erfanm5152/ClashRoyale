@@ -47,15 +47,16 @@ public class Cannon extends Building {
         }
         Vulnerable target = findClosetTarget();
 
-        if (getHealth() <= 0 || getSecondInGame() ==getLifeTime()*1000 || target == null) {
+        if (getHealth() <= 0 || getSecondInGame() == getLifeTime() * 1000 || target == null || getPlayer().getGame().isFinished()) {
             stop();
             getPlayer().getGameAccessory().getInGameTargets().remove(this);
+            return;
         }
         if (getPoint2D().distance(target.getPoint2D()) <= getRange() * 10) {
             if (getSecondInGame() % (getHitSpeed() * 1000) == 0) {
                 target.decreaseHealth(getDamage());
             }
         }
-        setSecondInGame(getSecondInGame()+100);
+        setSecondInGame(getSecondInGame() + 100);
     }
 }

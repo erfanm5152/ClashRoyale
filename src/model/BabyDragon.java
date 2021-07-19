@@ -61,7 +61,7 @@ public class BabyDragon extends Soldier{
                 }
             }
         }
-        if (getHealth()<=0||target==null){
+        if (getHealth()<=0||target==null ||getPlayer().getGame().isFinished()){
             stop();
             getPlayer().getGameAccessory().getInGameTargets().remove(this);
         }

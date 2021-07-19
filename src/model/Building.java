@@ -11,6 +11,8 @@ public abstract class Building extends Card {
         super(cost, range, player, cardAddress);
         this.hitSpeed = hitSpeed;
         this.lifeTime = lifeTime;
+        setSelf(Target.BUILDINGS);
+        setTarget(Target.AIR_AND_GROUND);
     }
 
     public int getDamage() {

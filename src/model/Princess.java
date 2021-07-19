@@ -17,14 +17,14 @@ public class Princess extends Tower{
     @Override
     public void run() {
 
-        if (getHealth()<=0){
+        if (getHealth()<=0 || getPlayer().getGame().isFinished()){
             stop();
             if (!getPlayer().getGame().isFinished()) {
                 getPlayer().getGameAccessory().getKing().setDisabled(true);
+                getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().increaseCups(1);
+                getPlayer().getGameAccessory().getTowers().remove(this);
             }
-            getPlayer().getGameAccessory().getTowers().remove(this);
 //            getPlayer().getGameAccessory().getInGameTargets().remove(this);
-            getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().increaseCups(1);
         }
     }
 

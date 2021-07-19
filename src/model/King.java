@@ -21,11 +21,13 @@ public class King extends Tower {
     public void run() {
         if (isDisabled){
 
-            if (getHealth()<=0){
+            if (getHealth()<=0 || getPlayer().getGame().isFinished()){
                 stop();
-                getPlayer().getGameAccessory().getTowers().remove(this);
+                if (!getPlayer().getGame().isFinished()){
+                    getPlayer().getGameAccessory().getTowers().remove(this);
+                    getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().setNumberOfCups(3);
+                }
 //                getPlayer().getGameAccessory().getInGameTargets().remove(this);
-                getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().setNumberOfCups(3);
             }
         }
     }
