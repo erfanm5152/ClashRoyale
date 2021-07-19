@@ -1,5 +1,6 @@
 package Model;
 
+import javafx.application.Platform;
 import javafx.geometry.Point2D;
 
 import java.util.Random;
@@ -107,30 +108,46 @@ public abstract class Soldier extends Card{
 
     public void goToTarget(Point2D target){
 //        Point2D target = vulnerable.getPoint2D();
+        //todo dar else ha bayad hadaf jaygozin random tolid shvad ke be on hadaf asli nazdik bashad
         Point2D newPoint;
         if (target.getX()>getPoint2D().getX()){
             newPoint = getPoint2D().add(speed.getSpeed(),0);
             if (getPlayer().getGame().isEmptyCell(newPoint,this)) {
                 setPoint2D(newPoint);
+            }else {
+
             }
         }else if (target.getX()<getPoint2D().getX()){
             newPoint = getPoint2D().add(-1*speed.getSpeed(),0);
             if (getPlayer().getGame().isEmptyCell(newPoint,this)) {
                 setPoint2D(newPoint);
+            }else {
+
             }
         }
         if (target.getY()>getPoint2D().getY()){
             newPoint = getPoint2D().add(0,speed.getSpeed());
             if (getPlayer().getGame().isEmptyCell(newPoint,this)) {
                 setPoint2D(newPoint);
+            }else {
+
             }
         }else if (target.getY()<getPoint2D().getY()){
             newPoint = getPoint2D().add(0,-1*speed.getSpeed());
             if (getPlayer().getGame().isEmptyCell(newPoint,this)) {
                 setPoint2D(newPoint);
+            }else {
+
             }
         }
-        getImageView().setX(getPoint2D().getX());
-        getImageView().setY(getPoint2D().getY());
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                getImageView().setX(getPoint2D().getX());
+                getImageView().setY(getPoint2D().getY());
+            }
+        });
+//        getImageView().setX(getPoint2D().getX());
+//        getImageView().setY(getPoint2D().getY());
     }
 }

@@ -98,6 +98,7 @@ public class GameController {
             game.getUser1().getPlayer().getGameAccessory().getInGameTargets().add(chosenCard);
         }
         game.getInMapCards().add(chosenCard);
+
         chosenCard.start();
         System.out.println(mouseEvent.getX() +" "+mouseEvent.getY());
         /*

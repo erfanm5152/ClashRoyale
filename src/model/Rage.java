@@ -32,12 +32,16 @@ public class Rage extends Spell{
             @Override
             public void run() {
                 getMap().getChildren().add(range);
+                getImageView().setFitHeight(100);
+                getImageView().setFitWidth(100);
+                getImageView().setX(getPoint2D().getX()-50);
+                getImageView().setY(getPoint2D().getY()-50);
             }
         });
-        getImageView().setFitHeight(100);
-        getImageView().setFitWidth(100);
-        getImageView().setX(getPoint2D().getX()-50);
-        getImageView().setY(getPoint2D().getY()-50);
+//        getImageView().setFitHeight(100);
+//        getImageView().setFitWidth(100);
+//        getImageView().setX(getPoint2D().getX()-50);
+//        getImageView().setY(getPoint2D().getY()-50);
 
         if (getSecondInGame()<100) {
             Platform.runLater(new Runnable() {

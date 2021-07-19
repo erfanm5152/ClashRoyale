@@ -29,12 +29,16 @@ public class Arrows extends Spell{
             @Override
             public void run() {
                 getMap().getChildren().add(range);
+                getImageView().setFitHeight(80);
+                getImageView().setFitWidth(80);
+                getImageView().setX(getPoint2D().getX()-40);
+                getImageView().setY(getPoint2D().getY()-40);
             }
         });
-        getImageView().setFitHeight(80);
-        getImageView().setFitWidth(80);
-        getImageView().setX(getPoint2D().getX()-40);
-        getImageView().setY(getPoint2D().getY()-40);
+//        getImageView().setFitHeight(80);
+//        getImageView().setFitWidth(80);
+//        getImageView().setX(getPoint2D().getX()-40);
+//        getImageView().setY(getPoint2D().getY()-40);
 
         if (getSecondInGame()<100) {
             Platform.runLater(new Runnable() {

@@ -26,12 +26,16 @@ public class Fireball extends Spell{
             @Override
             public void run() {
                 getMap().getChildren().add(range);
+                getImageView().setFitHeight(50);
+                getImageView().setFitWidth(50);
+                getImageView().setX(getPoint2D().getX()-25);
+                getImageView().setY(getPoint2D().getY()-25);
             }
         });
-        getImageView().setFitHeight(50);
-        getImageView().setFitWidth(50);
-        getImageView().setX(getPoint2D().getX()-25);
-        getImageView().setY(getPoint2D().getY()-25);
+//        getImageView().setFitHeight(50);
+//        getImageView().setFitWidth(50);
+//        getImageView().setX(getPoint2D().getX()-25);
+//        getImageView().setY(getPoint2D().getY()-25);
         if (getSecondInGame()<100) {
             Platform.runLater(new Runnable() {
                 @Override
