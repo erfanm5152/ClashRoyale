@@ -35,7 +35,7 @@ public abstract class Soldier extends Card{
         return damage;
     }
 
-    public void setDamage(int damage) {
+    public synchronized void setDamage(int damage) {
         this.damage = damage;
     }
 
@@ -43,7 +43,7 @@ public abstract class Soldier extends Card{
         return hitSpeed;
     }
 
-    public void setHitSpeed(double hitSpeed) {
+    public synchronized void setHitSpeed(double hitSpeed) {
         this.hitSpeed = hitSpeed;
     }
 
@@ -149,5 +149,31 @@ public abstract class Soldier extends Card{
         });
 //        getImageView().setX(getPoint2D().getX());
 //        getImageView().setY(getPoint2D().getY());
+    }
+
+    @Override
+    public void effectOfRage() {
+        increaseSpeed();
+        setDamage((int)(damage+(damage*0.4)));
+    }
+
+    @Override
+    public void neutralizeRage() {
+        neutralizeSpeed();
+        setDamage((int)(damage/1.4));
+    }
+    public void increaseSpeed(){
+        switch (speed){
+            case SLOW -> speed = Speed.RAGE_SLOW;
+            case MEDIUM -> speed = Speed.RAGE_MEDIUM;
+            case FAST -> speed = Speed.RAGE_FAST;
+        }
+    }
+    public void neutralizeSpeed(){
+        switch (speed){
+            case RAGE_SLOW -> speed = Speed.SLOW;
+            case RAGE_MEDIUM -> speed = Speed.MEDIUM;
+            case RAGE_FAST -> speed = Speed.FAST;
+        }
     }
 }

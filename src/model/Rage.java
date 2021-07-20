@@ -4,17 +4,21 @@ import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Circle;
 
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Rage extends Spell{
 
     private double duration;
-    private HashMap<Vulnerable,Boolean> guide;
+    private ArrayList<Vulnerable> guide;
+    private int counter;
 
     public Rage(Player player) {
         super(3, 5, player,"../View/pic/rage.png");
         updateLevel();
-        guide = new HashMap<>();
+        guide = new ArrayList<>();
+        counter = 0;
     }
 
     @Override
@@ -26,16 +30,23 @@ public class Rage extends Spell{
             @Override
             public void run() {
                 getMap().getChildren().add(range);
-                getImageView().setFitHeight(100);
-                getImageView().setFitWidth(100);
-                getImageView().setX(getPoint2D().getX()-50);
-                getImageView().setY(getPoint2D().getY()-50);
+                getImageView().setFitHeight(110);
+                getImageView().setFitWidth(110);
+                getImageView().setX(getPoint2D().getX()-55);
+                getImageView().setY(getPoint2D().getY()-55);
+                for (Card card:getPlayer().getGameAccessory().getInGameTargets()) {
+                    if (range.contains(card.getPoint2D()) && !(card instanceof Spell)) {
+                        if (!isInGuide(card)) {
+                            guide.add(card);
+                        }
+                    }
+                }
             }
         });
-//        getImageView().setFitHeight(100);
-//        getImageView().setFitWidth(100);
-//        getImageView().setX(getPoint2D().getX()-50);
-//        getImageView().setY(getPoint2D().getY()-50);
+        while (counter<guide.size()){
+            guide.get(counter).effectOfRage();
+            counter++;
+        }
 
         if (getSecondInGame()<100) {
             Platform.runLater(new Runnable() {
@@ -50,12 +61,12 @@ public class Rage extends Spell{
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    for (Vulnerable vulnerable:guide.keySet()) {
-
-                    }
                     stop();
                 }
             });
+            for (Vulnerable vulnerable:guide) {
+                vulnerable.neutralizeRage();
+            }
         }
         setSecondInGame(getSecondInGame()+100);
     }
@@ -69,5 +80,18 @@ public class Rage extends Spell{
             case LEVEL4 -> duration = 7.5;
             case LEVEL5 -> duration = 8;
         }
+    }
+
+    public boolean isInGuide(Vulnerable vulnerable){
+        for (Vulnerable temp:guide) {
+            if (temp==vulnerable){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void increaseAbility(Vulnerable vulnerable){
+        vulnerable.effectOfRage();
     }
 }

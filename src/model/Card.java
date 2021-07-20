@@ -189,5 +189,4 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
         return temp;
     }
 
-
 }

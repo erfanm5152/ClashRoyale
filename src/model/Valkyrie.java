@@ -37,7 +37,6 @@ public class Valkyrie extends Soldier{
                 }
             } else {
                 if (getSecondInGame() % (getHitSpeed() * 1000) == 0) {
-//                    target.decreaseHealth(getDamage());
                     Circle range = new Circle(getPoint2D().getX(),getPoint2D().getY(),10);
                     range.setVisible(false);
                     Platform.runLater(new Runnable() {

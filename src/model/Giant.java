@@ -40,6 +40,7 @@ public class Giant extends Soldier{
                 }
             }
         }
+
         if (getHealth()<=0 || target==null || getPlayer().getGame().isFinished()){
             stop();
             getPlayer().getGameAccessory().getInGameTargets().remove(this);
@@ -57,4 +58,5 @@ public class Giant extends Soldier{
             case LEVEL5 ->{setHealth(2920);setDamage(183);}
         }
     }
+
 }

@@ -115,5 +115,15 @@ public abstract class Tower extends TimerTask implements Vulnerable{
         getTimer().purge();
     }
 
+    @Override
+    public void effectOfRage() {
+        damage = (int) (damage+(damage*0.4));
+        hitSpeed = hitSpeed - (hitSpeed*0.4);
+    }
 
+    @Override
+    public void neutralizeRage() {
+        damage = (int)(damage/1.4);
+        hitSpeed = hitSpeed/0.6;
+    }
 }

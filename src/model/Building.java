@@ -57,4 +57,16 @@ public abstract class Building extends Card {
         super.stop();
         getPlayer().getGameAccessory().getInGameTargets().remove(this);
     }
+
+    @Override
+    public void effectOfRage() {
+        damage = (int) (damage+(damage*0.4));
+//        hitSpeed = hitSpeed - (hitSpeed*0.4);
+    }
+
+    @Override
+    public void neutralizeRage() {
+        damage = (int)(damage/1.4);
+//        hitSpeed = hitSpeed/0.6;
+    }
 }

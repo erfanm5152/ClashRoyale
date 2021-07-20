@@ -9,4 +9,13 @@ public abstract class Spell extends Card{
 
     @Override
     public synchronized void decreaseHealth(int decreaseValue) {}
+
+    @Override
+    public void effectOfRage() {
+    }
+
+    @Override
+    public void neutralizeRage() {
+
+    }
 }
