@@ -13,13 +13,7 @@ public class Rage extends Spell{
 
     public Rage(Player player) {
         super(3, 5, player,"../View/pic/rage.png");
-        switch (getPlayer().getUser().getLevel()){
-            case LEVEL1 -> duration = 6;
-            case LEVEL2 -> duration = 6.5;
-            case LEVEL3 -> duration = 7;
-            case LEVEL4 -> duration = 7.5;
-            case LEVEL5 -> duration = 8;
-        }
+        updateLevel();
         guide = new HashMap<>();
     }
 
@@ -64,5 +58,16 @@ public class Rage extends Spell{
             });
         }
         setSecondInGame(getSecondInGame()+100);
+    }
+
+    @Override
+    public void updateLevel() {
+        switch (getPlayer().getUser().getLevel()){
+            case LEVEL1 -> duration = 6;
+            case LEVEL2 -> duration = 6.5;
+            case LEVEL3 -> duration = 7;
+            case LEVEL4 -> duration = 7.5;
+            case LEVEL5 -> duration = 8;
+        }
     }
 }

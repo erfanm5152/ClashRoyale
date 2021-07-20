@@ -9,13 +9,7 @@ public class BabyDragon extends Soldier{
         super(4, 3, 1.8, true, 1, Speed.FAST, player,"../View/pic/dragon.png");
         setSelf(Target.AIR);
         setTarget(Target.AIR_AND_GROUND);
-        switch (getPlayer().getUser().getLevel()){
-            case LEVEL1 ->{setHealth(800);setDamage(100);}
-            case LEVEL2 ->{setHealth(880);setDamage(110);}
-            case LEVEL3 ->{setHealth(968);setDamage(121);}
-            case LEVEL4 ->{setHealth(1064);setDamage(133);}
-            case LEVEL5 ->{setHealth(1168);setDamage(146);}
-        }
+        updateLevel();
     }
 
     @Override
@@ -24,10 +18,10 @@ public class BabyDragon extends Soldier{
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    getImageView().setFitHeight(50);
-                    getImageView().setFitWidth(50);
-                    getImageView().setX(getPoint2D().getX()-50);
-                    getImageView().setY(getPoint2D().getY()-50);
+                    getImageView().setFitHeight(40);
+                    getImageView().setFitWidth(40);
+                    getImageView().setX(getPoint2D().getX()-20);
+                    getImageView().setY(getPoint2D().getY()-20);
                     getImageView().setImage(new Image(getClass().getResourceAsStream("../View/pic/inGame/dragon/gif.gif")));
                     getMap().getChildren().add(getImageView());
                 }
@@ -35,7 +29,7 @@ public class BabyDragon extends Soldier{
         }
         Vulnerable target = findClosetTarget();
         if (target != null) {
-            if (getPoint2D().distance(target.getPoint2D()) > 40) {
+            if (getPoint2D().distance(target.getPoint2D()) > getRange()*10) {
                 goToTarget(target.getPoint2D());
             } else {
                 if (getSecondInGame() % (getHitSpeed() * 1000) == 0) {
@@ -66,5 +60,16 @@ public class BabyDragon extends Soldier{
             getPlayer().getGameAccessory().getInGameTargets().remove(this);
         }
         setSecondInGame(getSecondInGame()+100);
+    }
+
+    @Override
+    public void updateLevel() {
+        switch (getPlayer().getUser().getLevel()){
+            case LEVEL1 ->{setHealth(800);setDamage(100);}
+            case LEVEL2 ->{setHealth(880);setDamage(110);}
+            case LEVEL3 ->{setHealth(968);setDamage(121);}
+            case LEVEL4 ->{setHealth(1064);setDamage(133);}
+            case LEVEL5 ->{setHealth(1168);setDamage(146);}
+        }
     }
 }

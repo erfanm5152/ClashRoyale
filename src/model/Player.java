@@ -75,6 +75,15 @@ public class Player implements Serializable {
         return gameAccessory;
     }
 
+    public void updateCards(){
+        for (Card card:reminderCards) {
+            card.updateLevel();
+        }
+        for (Card card:deck) {
+            card.updateLevel();
+        }
+    }
+
     public void setGameAccessory(GameAccessory gameAccessory) {
         this.gameAccessory = gameAccessory;
     }

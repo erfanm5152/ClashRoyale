@@ -159,6 +159,8 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
         this.secondInGame = secondInGame;
     }
 
+    public abstract void updateLevel();
+
     public Vulnerable findClosetTarget(){
         ArrayList<Vulnerable> vulnerableArrayList = new ArrayList<>();
         ArrayList<Card> opponentCards = getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets();

@@ -66,6 +66,7 @@ public class User implements Serializable {
 
     public void updateLevel(){
         this.level = Level.getLevelByXp(xp);
+        player.updateCards();
     }
 
     @Override

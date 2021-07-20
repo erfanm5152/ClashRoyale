@@ -10,33 +10,7 @@ public class InfernoTower extends Building {
 
     public InfernoTower(Player player) {
         super(5, 6, 0.4, 40, player, "../View/pic/inferno.png");
-        switch (getPlayer().getUser().getLevel()) {
-            case LEVEL1 -> {
-                setHealth(800);
-                lowDamage = 20;
-                setDamage(400);
-            }
-            case LEVEL2 -> {
-                setHealth(880);
-                lowDamage = 22;
-                setDamage(440);
-            }
-            case LEVEL3 -> {
-                setHealth(968);
-                lowDamage = 24;
-                setDamage(484);
-            }
-            case LEVEL4 -> {
-                setHealth(1064);
-                lowDamage = 26;
-                setDamage(532);
-            }
-            case LEVEL5 -> {
-                setHealth(1168);
-                lowDamage = 29;
-                setDamage(584);
-            }
-        }
+        updateLevel();
         increaseDamagePerSecond = (int) (Math.floor(getDamage() - lowDamage) / 40);
     }
 
@@ -87,5 +61,36 @@ public class InfernoTower extends Building {
 
     public void setIncreaseDamagePerSecond(int increaseDamagePerSecond) {
         this.increaseDamagePerSecond = increaseDamagePerSecond;
+    }
+
+    @Override
+    public void updateLevel() {
+        switch (getPlayer().getUser().getLevel()) {
+            case LEVEL1 -> {
+                setHealth(800);
+                lowDamage = 20;
+                setDamage(400);
+            }
+            case LEVEL2 -> {
+                setHealth(880);
+                lowDamage = 22;
+                setDamage(440);
+            }
+            case LEVEL3 -> {
+                setHealth(968);
+                lowDamage = 24;
+                setDamage(484);
+            }
+            case LEVEL4 -> {
+                setHealth(1064);
+                lowDamage = 26;
+                setDamage(532);
+            }
+            case LEVEL5 -> {
+                setHealth(1168);
+                lowDamage = 29;
+                setDamage(584);
+            }
+        }
     }
 }

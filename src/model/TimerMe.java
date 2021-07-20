@@ -20,7 +20,7 @@ public class TimerMe {
         this.label = label;
         this.game =game;
         this.increasePerSecond = 0.5;
-        this.timeInt=10;
+        this.timeInt=180;
         this.label.setText("3:00");
         this.finished = false;
         this.timer = new Timer();

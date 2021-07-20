@@ -9,13 +9,7 @@ public class Peka extends Soldier{
         super(4, 1, 1.8, false, 1, Speed.FAST, player,"../View/pic/peka.png");
         setSelf(Target.GROUND);
         setTarget(Target.GROUND);
-        switch (getPlayer().getUser().getLevel()){
-            case LEVEL1 ->{setHealth(600);setDamage(325);}
-            case LEVEL2 ->{setHealth(660);setDamage(357);}
-            case LEVEL3 ->{setHealth(726);setDamage(393);}
-            case LEVEL4 ->{setHealth(798);setDamage(432);}
-            case LEVEL5 ->{setHealth(876);setDamage(474);}
-        }
+        updateLevel();
     }
 
     @Override
@@ -52,5 +46,16 @@ public class Peka extends Soldier{
             getPlayer().getGameAccessory().getInGameTargets().remove(this);
         }
         setSecondInGame(getSecondInGame()+100);
+    }
+
+    @Override
+    public void updateLevel() {
+        switch (getPlayer().getUser().getLevel()){
+            case LEVEL1 ->{setHealth(600);setDamage(325);}
+            case LEVEL2 ->{setHealth(660);setDamage(357);}
+            case LEVEL3 ->{setHealth(726);setDamage(393);}
+            case LEVEL4 ->{setHealth(798);setDamage(432);}
+            case LEVEL5 ->{setHealth(876);setDamage(474);}
+        }
     }
 }

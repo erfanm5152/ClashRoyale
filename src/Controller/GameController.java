@@ -50,11 +50,12 @@ public class GameController {
         mapView.setImages(game);
         elixirLabel.textProperty().bind(progressBar.progressProperty().multiply(10).asString("%.0f"));
 
+        game.getUser1().getPlayer().setGame(game);
+        game.getUser2().getPlayer().setGame(game);
+
         game.getUser1().getPlayer().setGameAccessory(new GameAccessory(game.getUser1().getPlayer()));
         game.getUser2().getPlayer().setGameAccessory(new GameAccessory(game.getUser2().getPlayer()));
 
-        game.getUser1().getPlayer().setGame(game);
-        game.getUser2().getPlayer().setGame(game);
 
         ((Bot)game.getUser2()).setMapView(mapView);
 

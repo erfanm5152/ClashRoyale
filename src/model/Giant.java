@@ -8,13 +8,7 @@ public class Giant extends Soldier{
         super(5,1,1.5,false,1,Speed.SLOW,player,"../View/pic/giant.png");
         setSelf(Target.GROUND);
         setTarget(Target.BUILDINGS);
-        switch (getPlayer().getUser().getLevel()){
-            case LEVEL1 ->{setHealth(2000);setDamage(126);}
-            case LEVEL2 ->{setHealth(2200);setDamage(138);}
-            case LEVEL3 ->{setHealth(2420);setDamage(152);}
-            case LEVEL4 ->{setHealth(2660);setDamage(167);}
-            case LEVEL5 ->{setHealth(2920);setDamage(183);}
-        }
+        updateLevel();
     }
 
     @Override
@@ -34,7 +28,7 @@ public class Giant extends Soldier{
         }
         Vulnerable target = findClosetTarget();
         if (target != null) {
-            if (getPoint2D().distance(target.getPoint2D()) > 10) {
+            if (getPoint2D().distance(target.getPoint2D()) > getRange()*10) {
                 if (isTargetInOpponentArea(target)) {
                     gotoBridge();
                 } else {
@@ -51,5 +45,16 @@ public class Giant extends Soldier{
             getPlayer().getGameAccessory().getInGameTargets().remove(this);
         }
         setSecondInGame(getSecondInGame()+100);
+    }
+
+    @Override
+    public void updateLevel() {
+        switch (getPlayer().getUser().getLevel()){
+            case LEVEL1 ->{setHealth(2000);setDamage(126);}
+            case LEVEL2 ->{setHealth(2200);setDamage(138);}
+            case LEVEL3 ->{setHealth(2420);setDamage(152);}
+            case LEVEL4 ->{setHealth(2660);setDamage(167);}
+            case LEVEL5 ->{setHealth(2920);setDamage(183);}
+        }
     }
 }
