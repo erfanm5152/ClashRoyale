@@ -10,7 +10,9 @@ public class Bot extends User implements Runnable{
 
     @Override
     public void run() {
+        while (!getPlayer().getGame().isFinished()){
 
+        }
     }
 
     public MapView getMapView() {

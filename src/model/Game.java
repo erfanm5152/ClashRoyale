@@ -178,7 +178,7 @@ public class Game implements Serializable {
             if (temp == card) {
                 continue;
             }
-            if ((temp.getPoint2D().equals(point2D) || temp.getPoint2D().distance(point2D) < 2) && temp.getSelf()== card.getSelf()) {
+            if ((temp.getPoint2D().equals(point2D) || temp.getPoint2D().distance(point2D) < 2) && temp.getSelf() == card.getSelf()) {
                 return false;
             }
         }
@@ -186,6 +186,30 @@ public class Game implements Serializable {
         return true;
     }
 
+    public double closetTower(Point2D point2D, Card card) {
+        double distance = 200;
+        for (Tower tower : getOpponent(card.getPlayer().getUser()).getPlayer().getGameAccessory().getTowers()) {
+            if (tower.getPoint2D().distance(point2D) < distance) {
+                distance = tower.getPoint2D().distance(point2D);
+            }
+        }
+        return distance;
+    }
 
+    public boolean checkPoint(Point2D point2D, Card card) {
+        if (point2D.getY() > 530 || point2D.getY() < 4) {
+            return false;
+        }
+        if (point2D.getX() > 310 || point2D.getX() < 10) {
+            return false;
+        }
+        if (point2D.getY() >= 245 && point2D.getY() <= 290) {
+            return false;
+        }
+        if (closetTower(point2D, card) < 160) {
+            return false;
+        }
+        return isEmptyCell(point2D, card);
+    }
 
 }

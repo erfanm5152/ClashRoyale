@@ -1,7 +1,10 @@
 package Model;
 
 
+import javafx.application.Platform;
 import javafx.geometry.Point2D;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.awt.*;
 
@@ -32,6 +35,7 @@ public class Princess extends Tower{
                 getPlayer().getGameAccessory().getKing().setDisabled(true);
                 getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().increaseCups(1);
                 getPlayer().getGameAccessory().getTowers().remove(this);
+                setFlag();
             }
 //            getPlayer().getGameAccessory().getInGameTargets().remove(this);
         }

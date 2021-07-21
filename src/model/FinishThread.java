@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.FinishController;
 import Controller.MenuController;
 import javafx.application.Platform;
 
@@ -51,7 +52,8 @@ public class FinishThread extends TimerTask {
                     game.getUser2().updateLevel();
 //                    stopTowers();
 //                    stopCards();
-                    MenuController.changeToMenu(game.getTimerMe().getLabel());
+//                    MenuController.changeToMenu(game.getTimerMe().getLabel());
+                    FinishController.finishView(game.getTimerMe().getLabel());
                     timer.cancel();
                     timer.purge();
                 }

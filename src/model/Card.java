@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public abstract class Card extends TimerTask implements Serializable,Vulnerable{
+public abstract class Card extends TimerTask implements Serializable, Vulnerable {
     private String cardImageAddress;
     private int cost;
     private double range;
@@ -24,7 +24,7 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
     private transient Timer timer;
     private transient MapView map;
 
-    public Card(int cost, double range,Player player,String cardAddress) {
+    public Card(int cost, double range, Player player, String cardAddress) {
         this.cost = cost;
         this.range = range;
         this.player = player;
@@ -90,7 +90,7 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
                 ", range=" + range +
                 ", target=" + target +
                 ", self=" + self +
-                '}'+getClass();
+                '}' + getClass();
     }
 
     @Override
@@ -136,11 +136,13 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
     public void setMap(MapView map) {
         this.map = map;
     }
-    public void start(){
+
+    public void start() {
         timer = new Timer();
-        timer.schedule(this,500,100);
+        timer.schedule(this, 500, 100);
     }
-    public synchronized void stop(){
+
+    public synchronized void stop() {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -161,28 +163,28 @@ public abstract class Card extends TimerTask implements Serializable,Vulnerable{
 
     public abstract void updateLevel();
 
-    public Vulnerable findClosetTarget(){
+    public Vulnerable findClosetTarget() {
         ArrayList<Vulnerable> vulnerableArrayList = new ArrayList<>();
         ArrayList<Card> opponentCards = getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets();
         ArrayList<Tower> opponentTowers = getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers();
-        for (Card card:opponentCards) {
-            if (getTarget() == Target.AIR_AND_GROUND){
-                if (card.getSelf() == Target.AIR || card.getSelf() == Target.GROUND || card.getSelf()==Target.AIR_AND_GROUND){
+        for (Card card : opponentCards) {
+            if (getTarget() == Target.AIR_AND_GROUND) {
+                if (card.getSelf() == Target.AIR || card.getSelf() == Target.GROUND || card.getSelf() == Target.AIR_AND_GROUND) {
                     vulnerableArrayList.add(card);
                 }
-            }else {
-                if (card.getSelf()==getTarget()){
+            } else {
+                if (card.getSelf() == getTarget()) {
                     vulnerableArrayList.add(card);
                 }
             }
         }
         vulnerableArrayList.addAll(opponentTowers);
-        if (vulnerableArrayList.size()==0){
+        if (vulnerableArrayList.size() == 0) {
             return null;
         }
         Vulnerable temp = vulnerableArrayList.get(0);
-        for (Vulnerable vulnerable:vulnerableArrayList) {
-            if (getPoint2D().distance(vulnerable.getPoint2D())<getPoint2D().distance(temp.getPoint2D())){
+        for (Vulnerable vulnerable : vulnerableArrayList) {
+            if (getPoint2D().distance(vulnerable.getPoint2D()) < getPoint2D().distance(temp.getPoint2D())) {
                 temp = vulnerable;
             }
         }

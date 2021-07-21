@@ -1,5 +1,7 @@
 package Model;
 
+import View.MapView;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -142,6 +144,12 @@ public class GameAccessory {
     public void startTowers(){
         for (Tower tower:towers) {
             tower.start();
+        }
+    }
+
+    public void setMapOnTowers(MapView map){
+        for (Tower tower:towers) {
+            tower.setMap(map);
         }
     }
 }

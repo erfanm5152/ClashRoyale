@@ -42,9 +42,9 @@ public class GameController {
     @FXML
     private ProgressBar progressBar;
 
-    public void initialize(){
+    public void initialize() {
         game = new Game();
-        game.setTimerMe(new TimerMe(timerLabel,game));
+        game.setTimerMe(new TimerMe(timerLabel, game));
         game.getTimerMe().start();
         new FinishThread(game).start();
         mapView.setImages(game);
@@ -56,11 +56,15 @@ public class GameController {
         game.getUser1().getPlayer().setGameAccessory(new GameAccessory(game.getUser1().getPlayer()));
         game.getUser2().getPlayer().setGameAccessory(new GameAccessory(game.getUser2().getPlayer()));
 
+
+        game.getUser2().getPlayer().getGameAccessory().setMapOnTowers(mapView);
+        game.getUser2().getPlayer().getGameAccessory().setMapOnTowers(mapView);
+
         game.getUser1().getPlayer().getGameAccessory().startTowers();
         game.getUser2().getPlayer().getGameAccessory().startTowers();
 
 
-        ((Bot)game.getUser2()).setMapView(mapView);
+        ((Bot) game.getUser2()).setMapView(mapView);
 
         hand = FXCollections.observableArrayList(game.getUser1().getPlayer().getGameAccessory().getHand());
         newCard.setImage(new Image(getClass().getResourceAsStream(game.getUser1().getPlayer().getGameAccessory().getNextCard().getCardImageAddress())));
@@ -81,36 +85,45 @@ public class GameController {
         );
         progressBar.progressProperty().bind(game.getUser1().getPlayer().getGameAccessory().getElixir().elixirValueProperty().divide(10));
     }
-//todo yek thread ham baraye inke chek cone bazitamam shode ya na;
+
+    //todo yek thread ham baraye inke chek cone bazitamam shode ya na;
     @FXML
     public void handle(MouseEvent mouseEvent) {
         // todo check shavad ke pol kart entekhabi ra dard ya na.
         // todo check shavad ke jayi ke mindazad kartt digei nabashad.
-        Card chosenCard =game.getUser1().getPlayer().getGameAccessory().getChosenCard();
-        if (chosenCard == null){return;}
+        Card chosenCard = game.getUser1().getPlayer().getGameAccessory().getChosenCard();
+        if (chosenCard == null) {
+            return;
+        }
 
-        if (chosenCard.getCost()>game.getUser1().getPlayer().getGameAccessory().getElixir().getElixirValue()){
+        if (chosenCard.getCost() > game.getUser1().getPlayer().getGameAccessory().getElixir().getElixirValue()) {
             return;
         }
         //todo az comment dar biad
 //        game.getUser1().getPlayer().getGameAccessory().getElixir().add(chosenCard.getCost()*-1);
 
-        chosenCard.setPoint2D(new Point2D(mouseEvent.getX(),mouseEvent.getY()));
+        if (!game.checkPoint(new Point2D(mouseEvent.getX(),mouseEvent.getY()),chosenCard) && !(chosenCard instanceof Spell)){
+            return;
+        }
+
+        chosenCard.setPoint2D(new Point2D(mouseEvent.getX(), mouseEvent.getY()));
         chosenCard.setMap(mapView);
         chosenCard.setImageView(new ImageView());
+
         //todo az comment dar biad , age instance of spell nabod bayd be card haye daron bazi add shavad va marz check shavad
-        if (!(chosenCard instanceof Spell)){
+
+        if (!(chosenCard instanceof Spell)) {
             game.getUser1().getPlayer().getGameAccessory().getInGameTargets().add(chosenCard);
         }
-        game.getInMapCards().add(chosenCard);
 
         chosenCard.start();
-        System.out.println(mouseEvent.getX() +" "+mouseEvent.getY());
+
+        game.getInMapCards().add(chosenCard);
         /*
         age az noe spell bod nyazi be check kardan marz nistl
          */
 
-        Card nextCard =game.getUser1().getPlayer().getGameAccessory().getNextCard();
+        Card nextCard = game.getUser1().getPlayer().getGameAccessory().getNextCard();
         //remove chosen Card from hand & deck
         hand.remove(chosenCard);
         game.getUser1().getPlayer().getGameAccessory().getHand().remove(chosenCard);
