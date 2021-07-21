@@ -4,6 +4,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -19,6 +20,7 @@ public abstract class Tower extends TimerTask implements Vulnerable{
     private String imageAddress;
     private Target self;
     private Timer timer;
+    private transient int secondInGame;
 
     public Tower(double x , double y ,double range, double hitSpeed,Player player, String imageAddress) {
         point2D = new Point2D(x, y);
@@ -27,6 +29,7 @@ public abstract class Tower extends TimerTask implements Vulnerable{
         this.imageAddress = imageAddress;
         this.self = Target.BUILDINGS;
         this.player = player;
+        this.secondInGame = 0;
         this.timer = new Timer();
     }
 
@@ -86,6 +89,14 @@ public abstract class Tower extends TimerTask implements Vulnerable{
         this.imageAddress = image;
     }
 
+    public int getSecondInGame() {
+        return secondInGame;
+    }
+
+    public void setSecondInGame(int secondInGame) {
+        this.secondInGame = secondInGame;
+    }
+
     @Override
     public synchronized void decreaseHealth(int decreaseValue) {
         this.health = health-decreaseValue;
@@ -107,7 +118,7 @@ public abstract class Tower extends TimerTask implements Vulnerable{
         this.timer = timer;
     }
     public void start() {
-        getTimer().schedule(this,0, (long) (hitSpeed*1000));
+        getTimer().schedule(this,0,100);
     }
 
     public void stop(){
@@ -115,15 +126,33 @@ public abstract class Tower extends TimerTask implements Vulnerable{
         getTimer().purge();
     }
 
+    public Vulnerable findClosetTarget(){
+        ArrayList<Vulnerable> vulnerableArrayList = new ArrayList<>();
+        vulnerableArrayList.addAll(getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets());
+        vulnerableArrayList.addAll(getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers());
+        if (vulnerableArrayList.size()==0){
+            return null;
+        }
+        Vulnerable temp = vulnerableArrayList.get(0);
+        for (Vulnerable vulnerable:vulnerableArrayList) {
+            if (getPoint2D().distance(temp.getPoint2D())>getPoint2D().distance(vulnerable.getPoint2D())){
+                temp = vulnerable;
+            }
+        }
+        return temp;
+    }
+
     @Override
     public void effectOfRage() {
         damage = (int) (damage+(damage*0.4));
-        hitSpeed = hitSpeed - (hitSpeed*0.4);
+//        hitSpeed = hitSpeed - (hitSpeed*0.4);
     }
 
     @Override
     public void neutralizeRage() {
         damage = (int)(damage/1.4);
-        hitSpeed = hitSpeed/0.6;
+//        hitSpeed = hitSpeed/0.6;
     }
+
+    public abstract boolean isTargetAvailable(Vulnerable target);
 }

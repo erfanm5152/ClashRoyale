@@ -1,6 +1,10 @@
 package Model;
 
 
+import javafx.geometry.Point2D;
+
+import java.awt.*;
+
 public class Princess extends Tower{
 
     public Princess(Player player,double x ,double y) {
@@ -16,8 +20,13 @@ public class Princess extends Tower{
 
     @Override
     public void run() {
-
-        if (getHealth()<=0 || getPlayer().getGame().isFinished()){
+        Vulnerable target =findClosetTarget();
+        if (target != null && isTargetAvailable(target)){
+            if (getSecondInGame() % (getHitSpeed()*1000)==0){
+                target.decreaseHealth(getDamage());
+            }
+        }
+        if (getHealth()<=0 || getPlayer().getGame().isFinished() || target==null){
             stop();
             if (!getPlayer().getGame().isFinished()) {
                 getPlayer().getGameAccessory().getKing().setDisabled(true);
@@ -26,6 +35,17 @@ public class Princess extends Tower{
             }
 //            getPlayer().getGameAccessory().getInGameTargets().remove(this);
         }
+        setSecondInGame(getSecondInGame()+100);
     }
 
+    @Override
+    public boolean isTargetAvailable(Vulnerable target) {
+        Point2D targetPoint = target .getPoint2D();
+        if (Math.abs(targetPoint.getX()-getPoint2D().getX())<= 160 &&
+        Math.abs(targetPoint.getY()-getPoint2D().getY())<=150){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

@@ -56,6 +56,9 @@ public class GameController {
         game.getUser1().getPlayer().setGameAccessory(new GameAccessory(game.getUser1().getPlayer()));
         game.getUser2().getPlayer().setGameAccessory(new GameAccessory(game.getUser2().getPlayer()));
 
+        game.getUser1().getPlayer().getGameAccessory().startTowers();
+        game.getUser2().getPlayer().getGameAccessory().startTowers();
+
 
         ((Bot)game.getUser2()).setMapView(mapView);
 
@@ -82,6 +85,7 @@ public class GameController {
     @FXML
     public void handle(MouseEvent mouseEvent) {
         // todo check shavad ke pol kart entekhabi ra dard ya na.
+        // todo check shavad ke jayi ke mindazad kartt digei nabashad.
         Card chosenCard =game.getUser1().getPlayer().getGameAccessory().getChosenCard();
         if (chosenCard == null){return;}
 

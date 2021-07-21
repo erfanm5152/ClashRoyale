@@ -23,7 +23,7 @@ public class GameAccessory {
         this.numberOfCups = 0;
         this.inGameTargets = new ArrayList<>();
 //        this.inGameTargets.addAll(towers);
-        startTowers();
+//        startTowers();
     }
 
     public ArrayList<Card> createHand(){
