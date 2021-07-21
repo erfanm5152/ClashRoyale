@@ -84,13 +84,14 @@ public class GameController {
                 }
         );
         progressBar.progressProperty().bind(game.getUser1().getPlayer().getGameAccessory().getElixir().elixirValueProperty().divide(10));
+
+//        ((Bot)game.getUser2()).start();
     }
 
-    //todo yek thread ham baraye inke chek cone bazitamam shode ya na;
+
     @FXML
     public void handle(MouseEvent mouseEvent) {
-        // todo check shavad ke pol kart entekhabi ra dard ya na.
-        // todo check shavad ke jayi ke mindazad kartt digei nabashad.
+
         Card chosenCard = game.getUser1().getPlayer().getGameAccessory().getChosenCard();
         if (chosenCard == null) {
             return;
@@ -99,8 +100,8 @@ public class GameController {
         if (chosenCard.getCost() > game.getUser1().getPlayer().getGameAccessory().getElixir().getElixirValue()) {
             return;
         }
-        //todo az comment dar biad
-//        game.getUser1().getPlayer().getGameAccessory().getElixir().add(chosenCard.getCost()*-1);
+
+        game.getUser1().getPlayer().getGameAccessory().getElixir().add(chosenCard.getCost()*-1);
 
         if (!game.checkPoint(new Point2D(mouseEvent.getX(),mouseEvent.getY()),chosenCard) && !(chosenCard instanceof Spell)){
             return;
@@ -110,7 +111,6 @@ public class GameController {
         chosenCard.setMap(mapView);
         chosenCard.setImageView(new ImageView());
 
-        //todo az comment dar biad , age instance of spell nabod bayd be card haye daron bazi add shavad va marz check shavad
 
         if (!(chosenCard instanceof Spell)) {
             game.getUser1().getPlayer().getGameAccessory().getInGameTargets().add(chosenCard);
@@ -119,9 +119,6 @@ public class GameController {
         chosenCard.start();
 
         game.getInMapCards().add(chosenCard);
-        /*
-        age az noe spell bod nyazi be check kardan marz nistl
-         */
 
         Card nextCard = game.getUser1().getPlayer().getGameAccessory().getNextCard();
         //remove chosen Card from hand & deck

@@ -150,6 +150,7 @@ public abstract class Card extends TimerTask implements Serializable, Vulnerable
             }
         });
         timer.cancel();
+        this.cancel();
         timer.purge();
     }
 

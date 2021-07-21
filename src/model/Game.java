@@ -13,7 +13,6 @@ public class Game implements Serializable {
     private boolean isFinished;
     private transient SharedData sharedData;
     private String[][] map;
-    // todo ye thread zade shavad baraye inke joon in card ha chekc shavad va dar sorat mordan pak shavand.
     private ArrayList<Card> inMapCards;
     private transient Point2D rightBridgeUser1;
     private transient Point2D leftBridgeUser1;

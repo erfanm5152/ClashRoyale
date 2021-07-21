@@ -11,7 +11,7 @@ public class King extends Tower {
         super(x, y, 7, 1, player, "./src/View/pic/KingTower.png");
         switch (getPlayer().getUser().getLevel()) {
             case LEVEL1 -> {
-                setHealth(200);
+                setHealth(2400);
                 setDamage(50);
             }
             case LEVEL2 -> {
@@ -46,7 +46,7 @@ public class King extends Tower {
             if (getHealth() <= 0 || getPlayer().getGame().isFinished() || target == null) {
                 stop();
                 if (!getPlayer().getGame().isFinished()) {
-                    getPlayer().getGameAccessory().getTowers().remove(this);
+                    getPlayer().getGameAccessory().removeTower(this);
                     getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().setNumberOfCups(3);
                     setFlag();
                 }

@@ -152,4 +152,11 @@ public class GameAccessory {
             tower.setMap(map);
         }
     }
+
+    public synchronized void removeTower(Tower tower){
+        towers.remove(tower);
+    }
+    public synchronized void removeCard(Card card){
+        inGameTargets.remove(card);
+    }
 }

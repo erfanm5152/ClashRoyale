@@ -1,6 +1,7 @@
 package Model;
 
 import javafx.application.Platform;
+import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 
 public class Peka extends Soldier{
@@ -43,7 +44,7 @@ public class Peka extends Soldier{
         }
         if (getHealth()<=0 || target==null || getPlayer().getGame().isFinished()){
             stop();
-            getPlayer().getGameAccessory().getInGameTargets().remove(this);
+            getPlayer().getGameAccessory().removeCard(this);
         }
         setSecondInGame(getSecondInGame()+100);
     }

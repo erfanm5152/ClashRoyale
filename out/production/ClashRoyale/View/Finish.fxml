@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="631.0" spacing="7.0" style="-fx-background-color: #1E90FF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FinishController">
+<VBox fx:id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="631.0" spacing="10.0" style="-fx-background-color: #1E90FF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FinishController">
    <children>
       <ImageView fx:id="winOrLose" fitHeight="203.0" fitWidth="205.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="stars" fitHeight="56.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="winnerName" alignment="CENTER" prefHeight="35.0" prefWidth="242.0" text="Label" textFill="GOLD">
+      <Label alignment="CENTER" prefHeight="35.0" prefWidth="242.0" text="Label" textFill="GOLD">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>

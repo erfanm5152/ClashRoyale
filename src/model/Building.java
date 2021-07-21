@@ -52,11 +52,7 @@ public abstract class Building extends Card {
         this.health = health - decreaseValue;
     }
 
-    @Override
-    public void stop() {
-        super.stop();
-        getPlayer().getGameAccessory().getInGameTargets().remove(this);
-    }
+
 
     @Override
     public void effectOfRage() {

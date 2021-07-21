@@ -33,6 +33,7 @@ public class TimerMe {
                         timeInt-=1;
                         label.setText(timeInt/60 +" : "+timeInt%60);
                         game.getUser1().getPlayer().getGameAccessory().getElixir().add(increasePerSecond);
+                        game.getUser2().getPlayer().getGameAccessory().getElixir().add(increasePerSecond);
                         if (timeInt<60){
                             increasePerSecond = 1;
                         }

@@ -32,8 +32,8 @@ public class InfernoTower extends Building {
         Vulnerable target = findClosetTarget();
         if (getHealth() <= 0 || getSecondInGame() == getLifeTime() * 1000 || target == null || getPlayer().getGame().isFinished()) {
             stop();
-            getPlayer().getGameAccessory().getInGameTargets().remove(this);
-            //todo return bashad ya nabashad????
+            getPlayer().getGameAccessory().removeCard(this);
+
             return;
         }
         if (getPoint2D().distance(target.getPoint2D()) <= getRange() * 10) {

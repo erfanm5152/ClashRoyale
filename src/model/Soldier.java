@@ -68,20 +68,14 @@ public abstract class Soldier extends Card {
         this.health = health - decreaseValue;
     }
 
-    @Override
-    public synchronized void stop() {
-        super.stop();
-//        getPlayer().getGameAccessory().getInGameTargets().remove(this);
-
-    }
-
+// todo in tabe moshkel darad
     public boolean isTargetInOpponentArea(Vulnerable target) {
         if (getPlayer().getGame().getUser1().equals(getPlayer().getUser())) {
-            if (target.getPoint2D().getY() < 254 && getPoint2D().getY() > 254) {
+            if (target.getPoint2D().getY() <= 245 && getPoint2D().getY() >= 245) {
                 return true;
             }
         } else {
-            if (target.getPoint2D().getY() > 290 && getPoint2D().getY() < 290) {
+            if (target.getPoint2D().getY() > 295 && getPoint2D().getY() < 295) {
                 return true;
             }
         }
@@ -105,40 +99,39 @@ public abstract class Soldier extends Card {
             goToTarget(right);
         }
     }
-
+//todo dorost shavad
     public void goToTarget(Point2D target) {
 //        Point2D target = vulnerable.getPoint2D();
-        //todo dar else ha bayad hadaf jaygozin random tolid shvad ke be on hadaf asli nazdik bashad
         Point2D newPoint;
         if (target.getX() > getPoint2D().getX()) {
             newPoint = getPoint2D().add(speed.getSpeed(), 0);
-            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
+//            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
                 setPoint2D(newPoint);
-            } else {
-                target = findRandomTarget(target);
-            }
+//            } else {
+//                target = findRandomTarget(target);
+//            }
         } else if (target.getX() < getPoint2D().getX()) {
             newPoint = getPoint2D().add(-1 * speed.getSpeed(), 0);
-            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
+//            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
                 setPoint2D(newPoint);
-            } else {
-                target = findRandomTarget(target);
-            }
+//            } else {
+//                target = findRandomTarget(target);
+//            }
         }
         if (target.getY() > getPoint2D().getY()) {
             newPoint = getPoint2D().add(0, speed.getSpeed());
-            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
+//            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
                 setPoint2D(newPoint);
-            } else {
-                target = findRandomTarget(target);
-            }
+//            } else {
+//                target = findRandomTarget(target);
+//            }
         } else if (target.getY() < getPoint2D().getY()) {
             newPoint = getPoint2D().add(0, -1 * speed.getSpeed());
-            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
+//            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
                 setPoint2D(newPoint);
-            } else {
-                target = findRandomTarget(target);
-            }
+//            } else {
+//                target = findRandomTarget(target);
+//            }
         }
         Platform.runLater(new Runnable() {
             @Override

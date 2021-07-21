@@ -34,7 +34,7 @@ public class Princess extends Tower{
             if (!getPlayer().getGame().isFinished()) {
                 getPlayer().getGameAccessory().getKing().setDisabled(true);
                 getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().increaseCups(1);
-                getPlayer().getGameAccessory().getTowers().remove(this);
+                getPlayer().getGameAccessory().removeTower(this);
                 setFlag();
             }
 //            getPlayer().getGameAccessory().getInGameTargets().remove(this);
