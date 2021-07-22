@@ -81,7 +81,6 @@ public abstract class Soldier extends Card {
         return false;
     }
 
-    //todo check shavad
     public void gotoBridge() {
         Point2D left = null;
         Point2D right = null;
@@ -94,15 +93,17 @@ public abstract class Soldier extends Card {
             right = getPlayer().getGame().getRightBridgeUser2();
         }
         if (getPoint2D().distance(left) < getPoint2D().distance(right)) {
-            if (getPoint2D().getX() != left.getX()) {
+            if (Math.abs(getPoint2D().getX() - left.getX()) > 5) {
                 goToTarget(new Point2D(left.getX(), getPoint2D().getY()));
+            } else {
+                goToTarget(left);
             }
-            goToTarget(left);
         } else {
-            if (getPoint2D().getX() != right.getX()) {
+            if (Math.abs(getPoint2D().getX() - right.getX()) > 5) {
                 goToTarget(new Point2D(right.getX(), getPoint2D().getY()));
+            } else {
+                goToTarget(right);
             }
-            goToTarget(right);
         }
     }
 
