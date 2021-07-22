@@ -18,7 +18,7 @@ public class Factory {
      */
     public static ArrayList<Card> createRemainingCards(Player player) {
         ArrayList<Card> cards = new ArrayList<>();
-        cards.add(new Fireball(player));
+        cards.add(new Rage(player));
         cards.add(new Arrows(player));
         cards.add(new Cannon(player));
         cards.add(new InfernoTower(player));
@@ -41,7 +41,7 @@ public class Factory {
         cards.add(new Wizard(player));
         cards.add(new Valkyrie(player));
         cards.add(new Giant(player));
-        cards.add(new Rage(player));
+        cards.add(new Fireball(player));
         return cards;
     }
 

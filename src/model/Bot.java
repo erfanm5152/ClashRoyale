@@ -105,4 +105,28 @@ public class Bot extends User {
     public void setMapView(MapView mapView) {
         this.mapView = mapView;
     }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    public TimerTask getTimerTask() {
+        return timerTask;
+    }
+
+    public void setTimerTask(TimerTask timerTask) {
+        this.timerTask = timerTask;
+    }
 }

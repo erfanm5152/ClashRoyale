@@ -53,18 +53,18 @@ public class MenuController {
     @FXML
     void play(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../View/GameView.fxml"));
+        loader.setLocation(getClass().getResource("../View/ChoseBot.fxml"));
         try {
             loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
         Parent root = loader.getRoot();
-        GameController gameController = loader.getController();
+//        GameController gameController = loader.getController();
         Stage stage = ((Stage) playKey.getScene().getWindow());
         stage.hide();
-        stage.setHeight(770);
-        stage.setWidth(345);
+        stage.setHeight(170);
+        stage.setWidth(250);
         changeSceneAnimation(root, "left", 320);
         stage.setScene(new Scene(root));
         stage.show();

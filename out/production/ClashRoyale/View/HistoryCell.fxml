@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="hbox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="104.0" prefWidth="414.0" spacing="10.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="hbox" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="104.0" prefWidth="414.0" spacing="10.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="userOne" alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="80.0" text="user1" HBox.hgrow="ALWAYS">
          <textFill>

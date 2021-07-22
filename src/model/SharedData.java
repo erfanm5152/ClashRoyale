@@ -15,7 +15,8 @@ public class SharedData {
     private User user;
     // user library of the game
     private UserLibrary userLibrary;
-
+    // type of bot
+    private String nameOfBot;
     /**
      * create new shared data
      */
@@ -70,5 +71,13 @@ public class SharedData {
      */
     public void setUserLibrary(UserLibrary userLibrary) {
         this.userLibrary = userLibrary;
+    }
+
+    public String getNameOfBot() {
+        return nameOfBot;
+    }
+
+    public void setNameOfBot(String nameOfBot) {
+        this.nameOfBot = nameOfBot;
     }
 }
