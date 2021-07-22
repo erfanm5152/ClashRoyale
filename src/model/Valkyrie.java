@@ -45,9 +45,9 @@ public class Valkyrie extends Soldier{
                             getMap().getChildren().add(range);
                         }
                     });
-                    for (Vulnerable vulnerable:getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets()) {
-                        if (range.contains(vulnerable.getPoint2D())){
-                            vulnerable.decreaseHealth(getDamage());
+                    for (Card card:getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets()) {
+                        if (range.contains(card.getPoint2D()) && card.getSelf()==Target.GROUND){
+                            card.decreaseHealth(getDamage());
                         }
                     }
                     for (Tower tower: getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers()) {

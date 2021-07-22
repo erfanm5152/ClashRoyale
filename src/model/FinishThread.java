@@ -53,6 +53,11 @@ public class FinishThread extends TimerTask {
 //                    stopTowers();
 //                    stopCards();
 //                    MenuController.changeToMenu(game.getTimerMe().getLabel());
+//                    try {
+//                        Thread.sleep(1000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
                     FinishController.finishView(game.getTimerMe().getLabel());
                     timer.cancel();
                     timer.purge();

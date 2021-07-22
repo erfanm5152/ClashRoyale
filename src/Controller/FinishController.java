@@ -72,15 +72,15 @@ public class FinishController {
         Parent root = null;
 
         stage = (Stage) node.getScene().getWindow();
-        stage.hide();
         try {
             root = FXMLLoader.load(MenuController.class.getResource("../View/Finish.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        MenuController.changeSceneAnimation(root,"right",631);
-        stage.setHeight(460);
-        stage.setWidth(631);
+//        MenuController.changeSceneAnimation(root,"right",300);
+        stage.hide();
+        stage.setHeight(530);
+        stage.setWidth(350);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

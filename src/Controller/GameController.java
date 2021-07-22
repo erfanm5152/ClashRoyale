@@ -59,9 +59,9 @@ public class GameController {
 
         game.getUser2().getPlayer().getGameAccessory().setMapOnTowers(mapView);
         game.getUser2().getPlayer().getGameAccessory().setMapOnTowers(mapView);
-
-        game.getUser1().getPlayer().getGameAccessory().startTowers();
-        game.getUser2().getPlayer().getGameAccessory().startTowers();
+// todo az comment dar byad
+//        game.getUser1().getPlayer().getGameAccessory().startTowers();
+//        game.getUser2().getPlayer().getGameAccessory().startTowers();
 
 
         ((Bot) game.getUser2()).setMapView(mapView);
@@ -85,7 +85,7 @@ public class GameController {
         );
         progressBar.progressProperty().bind(game.getUser1().getPlayer().getGameAccessory().getElixir().elixirValueProperty().divide(10));
 
-//        ((Bot)game.getUser2()).start();
+        ((Bot)game.getUser2()).start();
     }
 
 

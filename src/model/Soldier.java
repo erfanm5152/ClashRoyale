@@ -71,11 +71,11 @@ public abstract class Soldier extends Card {
 // todo in tabe moshkel darad
     public boolean isTargetInOpponentArea(Vulnerable target) {
         if (getPlayer().getGame().getUser1().equals(getPlayer().getUser())) {
-            if (target.getPoint2D().getY() <= 245 && getPoint2D().getY() >= 245) {
+            if (target.getPoint2D().getY() <= 245 && getPoint2D().getY() >= 290) {
                 return true;
             }
         } else {
-            if (target.getPoint2D().getY() > 295 && getPoint2D().getY() < 295) {
+            if (target.getPoint2D().getY() >= 290 && getPoint2D().getY() <= 245) {
                 return true;
             }
         }
