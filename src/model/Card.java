@@ -16,11 +16,11 @@ public abstract class Card extends TimerTask implements Serializable, Vulnerable
     private int cost;
     private double range;
     private Player player;
-    private transient Point2D point2D;
     private Target target;
     private Target self;
     private transient int secondInGame;
     private transient ImageView imageView;
+    private transient Point2D point2D;
     private transient Timer timer;
     private transient MapView map;
 
@@ -163,14 +163,14 @@ public abstract class Card extends TimerTask implements Serializable, Vulnerable
     }
 
     public abstract void updateLevel();
-// todo in tabe irad darad.
+
     public Vulnerable findClosetTarget() {
         ArrayList<Vulnerable> vulnerableArrayList = new ArrayList<>();
         ArrayList<Card> opponentCards = getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getInGameTargets();
         ArrayList<Tower> opponentTowers = getPlayer().getGame().getOpponent(getPlayer().getUser()).getPlayer().getGameAccessory().getTowers();
         for (Card card : opponentCards) {
             if (getTarget() == Target.AIR_AND_GROUND) {
-                if (card.getSelf() == Target.AIR || card.getSelf() == Target.GROUND || card.getSelf() == Target.AIR_AND_GROUND) {
+                if (card.getSelf() == Target.AIR || card.getSelf() == Target.GROUND || card.getSelf() == Target.AIR_AND_GROUND || card.getSelf()==Target.BUILDINGS) {
                     vulnerableArrayList.add(card);
                 }
             } else {

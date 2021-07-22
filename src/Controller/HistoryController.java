@@ -17,14 +17,12 @@ public class HistoryController {
     private SharedData sharedData =SharedData.getInstance();
     private final ObservableList<Game> history = FXCollections.observableArrayList(sharedData.getUser().getGameHistory());
 
+
     @FXML
     private ListView<Game> listOfGames;
 
     @FXML
     private Button homeKey;
-
-    @FXML
-    private PieChart chart;
 
     @FXML
     void backToMenu(ActionEvent event) {
@@ -39,7 +37,6 @@ public class HistoryController {
                 return new CellHistoryController();
             }
         });
-        chart.setLegendVisible(true);
     }
 
 }

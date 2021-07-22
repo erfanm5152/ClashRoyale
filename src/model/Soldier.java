@@ -68,7 +68,6 @@ public abstract class Soldier extends Card {
         this.health = health - decreaseValue;
     }
 
-// todo in tabe moshkel darad
     public boolean isTargetInOpponentArea(Vulnerable target) {
         if (getPlayer().getGame().getUser1().equals(getPlayer().getUser())) {
             if (target.getPoint2D().getY() <= 245 && getPoint2D().getY() >= 290) {
@@ -82,6 +81,7 @@ public abstract class Soldier extends Card {
         return false;
     }
 
+    //todo check shavad
     public void gotoBridge() {
         Point2D left = null;
         Point2D right = null;
@@ -94,44 +94,51 @@ public abstract class Soldier extends Card {
             right = getPlayer().getGame().getRightBridgeUser2();
         }
         if (getPoint2D().distance(left) < getPoint2D().distance(right)) {
+            if (getPoint2D().getX() != left.getX()) {
+                goToTarget(new Point2D(left.getX(), getPoint2D().getY()));
+            }
             goToTarget(left);
         } else {
+            if (getPoint2D().getX() != right.getX()) {
+                goToTarget(new Point2D(right.getX(), getPoint2D().getY()));
+            }
             goToTarget(right);
         }
     }
-//todo dorost shavad
+
+
     public void goToTarget(Point2D target) {
 //        Point2D target = vulnerable.getPoint2D();
         Point2D newPoint;
         if (target.getX() > getPoint2D().getX()) {
             newPoint = getPoint2D().add(speed.getSpeed(), 0);
-//            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
+            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
                 setPoint2D(newPoint);
-//            } else {
-//                target = findRandomTarget(target);
-//            }
+            } else {
+                target = findRandomTarget(target);
+            }
         } else if (target.getX() < getPoint2D().getX()) {
             newPoint = getPoint2D().add(-1 * speed.getSpeed(), 0);
-//            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
+            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
                 setPoint2D(newPoint);
-//            } else {
-//                target = findRandomTarget(target);
-//            }
+            } else {
+                target = findRandomTarget(target);
+            }
         }
         if (target.getY() > getPoint2D().getY()) {
             newPoint = getPoint2D().add(0, speed.getSpeed());
-//            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
+            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
                 setPoint2D(newPoint);
-//            } else {
-//                target = findRandomTarget(target);
-//            }
+            } else {
+                target = findRandomTarget(target);
+            }
         } else if (target.getY() < getPoint2D().getY()) {
             newPoint = getPoint2D().add(0, -1 * speed.getSpeed());
-//            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
+            if (getPlayer().getGame().isEmptyCell(newPoint, this)) {
                 setPoint2D(newPoint);
-//            } else {
-//                target = findRandomTarget(target);
-//            }
+            } else {
+                target = findRandomTarget(target);
+            }
         }
         Platform.runLater(new Runnable() {
             @Override
@@ -148,7 +155,7 @@ public abstract class Soldier extends Card {
         Random random = new Random();
         int x = random.nextInt(2) == 0 ? -1 : 1;
         int y = random.nextInt(2) == 0 ? -1 : 1;
-        return mainTarget.subtract(x*random.nextInt(5), y*random.nextInt(5));
+        return mainTarget.subtract(x * random.nextInt(5), y * random.nextInt(5));
     }
 
     @Override

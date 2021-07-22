@@ -31,7 +31,7 @@ public class Bot extends User {
                 getPlayer().getGameAccessory().getElixir().add(chosenCard.getCost() * -1);
                 chosenCard.setMap(mapView);
                 chosenCard.setImageView(new ImageView());
-                chosenCard.setPoint2D(new Point2D(random.nextInt(280) + 20, random.nextInt(190) + 20));
+                chosenCard.setPoint2D(new Point2D(random.nextInt(260) + 20, random.nextInt(190) + 20));
 
                 if (!(chosenCard instanceof Spell)) {
                     getPlayer().getGameAccessory().getInGameTargets().add(chosenCard);
@@ -49,7 +49,7 @@ public class Bot extends User {
 
                 getPlayer().getGameAccessory().setNextCard(getPlayer().getGameAccessory().createNextCard());
 
-                if (getPlayer().getGame().isFinished() || true){
+                if (getPlayer().getGame().isFinished()){
                     stop();
                 }
 
@@ -58,8 +58,7 @@ public class Bot extends User {
     }
 
     public void start() {
-        //todo period check shavad
-        timer.schedule(timerTask, 3000, 4000);
+        timer.schedule(timerTask, 3000, 10000);
     }
 
     public void stop() {

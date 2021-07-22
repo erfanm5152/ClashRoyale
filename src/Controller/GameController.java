@@ -85,7 +85,7 @@ public class GameController {
         );
         progressBar.progressProperty().bind(game.getUser1().getPlayer().getGameAccessory().getElixir().elixirValueProperty().divide(10));
 
-        ((Bot)game.getUser2()).start();
+//        ((Bot) game.getUser2()).start();
     }
 
 
@@ -101,11 +101,11 @@ public class GameController {
             return;
         }
 
-        game.getUser1().getPlayer().getGameAccessory().getElixir().add(chosenCard.getCost()*-1);
 
-        if (!game.checkPoint(new Point2D(mouseEvent.getX(),mouseEvent.getY()),chosenCard) && !(chosenCard instanceof Spell)){
+        if (!game.checkPoint(new Point2D(mouseEvent.getX(), mouseEvent.getY()), chosenCard) && !(chosenCard instanceof Spell)) {
             return;
         }
+        game.getUser1().getPlayer().getGameAccessory().getElixir().add(chosenCard.getCost() * -1);
 
         chosenCard.setPoint2D(new Point2D(mouseEvent.getX(), mouseEvent.getY()));
         chosenCard.setMap(mapView);

@@ -93,4 +93,18 @@ public class User implements Serializable {
                 '}';
     }
 
+    public int numberOfWins(){
+        int temp = 0;
+        for (Game game: getGameHistory() ) {
+            if (game.getWinner().equals(this)){
+                temp++;
+            }
+        }
+        return temp;
+    }
+
+    public int numberOfLose(){
+        return getGameHistory().size()-numberOfWins();
+    }
+
 }
