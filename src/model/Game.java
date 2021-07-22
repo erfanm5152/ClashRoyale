@@ -43,7 +43,7 @@ public class Game implements Serializable {
         sharedData = SharedData.getInstance();
 
         user1 = sharedData.getUser();
-        user2 = new Bot();
+        user2 = sharedData.getNameOfBot().equals("simple") ? new Bot() : new AdvancedBot();
         user2.setPlayer(new Player(user2));
 
         isFinished = false;
