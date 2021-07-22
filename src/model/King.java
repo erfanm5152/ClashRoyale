@@ -4,9 +4,23 @@ import javafx.geometry.Point2D;
 
 import java.awt.*;
 
+/**
+ * The type King.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class King extends Tower {
+    // To check for damage to the King Tower
     private boolean isDisabled;
 
+    /**
+     * Instantiates a new King.
+     *
+     * @param player the player
+     * @param x      the x
+     * @param y      the y
+     */
     public King(Player player, double x, double y) {
         super(x, y, 7, 1, player, "./src/View/pic/KingTower.png");
         switch (getPlayer().getUser().getLevel()) {
@@ -38,8 +52,8 @@ public class King extends Tower {
     public void run() {
         if (isDisabled) {
             Vulnerable target = findClosetTarget();
-            if (target != null && isTargetAvailable(target)){
-                if (getSecondInGame() % (getHitSpeed()*1000)==0){
+            if (target != null && isTargetAvailable(target)) {
+                if (getSecondInGame() % (getHitSpeed() * 1000) == 0) {
                     target.decreaseHealth(getDamage());
                 }
             }
@@ -56,10 +70,20 @@ public class King extends Tower {
         }
     }
 
+    /**
+     * Is disabled boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDisabled() {
         return isDisabled;
     }
 
+    /**
+     * Sets disabled.
+     *
+     * @param disabled the disabled
+     */
     public synchronized void setDisabled(boolean disabled) {
         isDisabled = disabled;
     }

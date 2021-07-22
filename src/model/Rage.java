@@ -8,12 +8,25 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * The type Rage.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class Rage extends Spell{
-
+    // duration of rage
     private double duration;
+    // guide for effect of rage
     private ArrayList<Vulnerable> guide;
+    // counter for guide
     private int counter;
 
+    /**
+     * Instantiates a new Rage.
+     *
+     * @param player the player
+     */
     public Rage(Player player) {
         super(3, 5, player,"../View/pic/rage.png");
         updateLevel();
@@ -82,6 +95,12 @@ public class Rage extends Spell{
         }
     }
 
+    /**
+     * Is in guide boolean.
+     *
+     * @param vulnerable the vulnerable
+     * @return the boolean
+     */
     public boolean isInGuide(Vulnerable vulnerable){
         for (Vulnerable temp:guide) {
             if (temp==vulnerable){
@@ -91,6 +110,11 @@ public class Rage extends Spell{
         return false;
     }
 
+    /**
+     * Increase ability.
+     *
+     * @param vulnerable the vulnerable
+     */
     public void increaseAbility(Vulnerable vulnerable){
         vulnerable.effectOfRage();
     }

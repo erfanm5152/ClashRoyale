@@ -4,7 +4,18 @@ import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Circle;
 
+/**
+ * The type Valkyrie.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class Valkyrie extends Soldier{
+    /**
+     * Instantiates a new Valkyrie.
+     *
+     * @param player the player
+     */
     public Valkyrie(Player player) {
         super(4, 1, 1.5, true, 1, Speed.MEDIUM, player,"../View/pic/valkyrie.png");
         setSelf(Target.GROUND);

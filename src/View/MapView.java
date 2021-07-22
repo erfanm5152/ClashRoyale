@@ -9,83 +9,104 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
+/**
+ * The type Map view.
+ * view of the map
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class MapView extends Group {
+    /**
+     * The constant CELL_WIDTH.
+     */
     public final static double CELL_WIDTH = 16.0;
-
+    // number of rows
     private int rowCount;
+    // number of column
     private int columnCount;
+    // grid
     private ImageView[][] cellViews;
-    private Image a ;
-    private Image b ;
-    private Image C ;
-    private Image d ;
-    private Image E ;
-    private Image e1 ;
-    private Image e2 ;
-    private Image e3 ;
-    private Image e4 ;
-    private Image l ;
-    private Image m ;
-    private Image n1 ;
-    private Image n2 ;
-    private Image p ;
-    private Image p1 ;
-    private Image p2 ;
-    private Image Q ;
-    private Image r ;
-    private Image s ;
-    private Image t ;
-    private Image U ;
-    private Image v1 ;
-    private Image v2 ;
-    private Image v3 ;
-    private Image v4 ;
-    private Image x1 ;
-    private Image x2 ;
-    private Image x3 ;
-    private Image x4 ;
-    private Image y1 ;
-    private Image y2 ;
-    private Image j1 ;
-    private Image j2 ;
-    private Image Z ;
+    // images
+    private Image a;
+    private Image b;
+    private Image C;
+    private Image d;
+    private Image E;
+    private Image e1;
+    private Image e2;
+    private Image e3;
+    private Image e4;
+    private Image l;
+    private Image m;
+    private Image n1;
+    private Image n2;
+    private Image p;
+    private Image p1;
+    private Image p2;
+    private Image Q;
+    private Image r;
+    private Image s;
+    private Image t;
+    private Image U;
+    private Image v1;
+    private Image v2;
+    private Image v3;
+    private Image v4;
+    private Image x1;
+    private Image x2;
+    private Image x3;
+    private Image x4;
+    private Image y1;
+    private Image y2;
+    private Image j1;
+    private Image j2;
+    private Image Z;
 
+    /**
+     * Instantiates a new Map view.
+     * initialize images
+     */
     public MapView() {
-        a=new Image(getClass().getResourceAsStream("pic/map/a.png"));
-        b=new Image(getClass().getResourceAsStream("pic/map/b.png"));
-        C=new Image(getClass().getResourceAsStream("pic/map/C.png"));
-        d=new Image(getClass().getResourceAsStream("pic/map/d.png"));
-        E=new Image(getClass().getResourceAsStream("pic/map/E.png"));
-        e1=new Image(getClass().getResourceAsStream("pic/map/e1.png"));
-        e2=new Image(getClass().getResourceAsStream("pic/map/e2.png"));
-        e3=new Image(getClass().getResourceAsStream("pic/map/e3.png"));
-        e4=new Image(getClass().getResourceAsStream("pic/map/e4.png"));
-        l=new Image(getClass().getResourceAsStream("pic/map/l.png"));
-        m=new Image(getClass().getResourceAsStream("pic/map/m.png"));
-        n1=new Image(getClass().getResourceAsStream("pic/map/n1.png"));
-        n2=new Image(getClass().getResourceAsStream("pic/map/n2.png"));
-        p=new Image(getClass().getResourceAsStream("pic/map/p.png"));
-        p1=new Image(getClass().getResourceAsStream("pic/map/p1.png"));
-        p2=new Image(getClass().getResourceAsStream("pic/map/p2.png"));
-        Q=new Image(getClass().getResourceAsStream("pic/map/Q.png"));
-        r=new Image(getClass().getResourceAsStream("pic/map/r.png"));
-        s=new Image(getClass().getResourceAsStream("pic/map/s.png"));
-        t=new Image(getClass().getResourceAsStream("pic/map/t.png"));
-        U=new Image(getClass().getResourceAsStream("pic/map/U.png"));
-        v1=new Image(getClass().getResourceAsStream("pic/map/v1.png"));
-        v2=new Image(getClass().getResourceAsStream("pic/map/v2.png"));
-        v3=new Image(getClass().getResourceAsStream("pic/map/v3.png"));
-        v4=new Image(getClass().getResourceAsStream("pic/map/v4.png"));
-        x1=new Image(getClass().getResourceAsStream("pic/map/x1.png"));
-        x2=new Image(getClass().getResourceAsStream("pic/map/x2.png"));
-        x3=new Image(getClass().getResourceAsStream("pic/map/x3.png"));
-        x4=new Image(getClass().getResourceAsStream("pic/map/x4.png"));
-        y1=new Image(getClass().getResourceAsStream("pic/map/y1.png"));
-        y2=new Image(getClass().getResourceAsStream("pic/map/y2.png"));
-        j1=new Image(getClass().getResourceAsStream("pic/map/j1.png"));
-        j2=new Image(getClass().getResourceAsStream("pic/map/j2.png"));
-        Z=new Image(getClass().getResourceAsStream("pic/map/z.png"));
+        a = new Image(getClass().getResourceAsStream("pic/map/a.png"));
+        b = new Image(getClass().getResourceAsStream("pic/map/b.png"));
+        C = new Image(getClass().getResourceAsStream("pic/map/C.png"));
+        d = new Image(getClass().getResourceAsStream("pic/map/d.png"));
+        E = new Image(getClass().getResourceAsStream("pic/map/E.png"));
+        e1 = new Image(getClass().getResourceAsStream("pic/map/e1.png"));
+        e2 = new Image(getClass().getResourceAsStream("pic/map/e2.png"));
+        e3 = new Image(getClass().getResourceAsStream("pic/map/e3.png"));
+        e4 = new Image(getClass().getResourceAsStream("pic/map/e4.png"));
+        l = new Image(getClass().getResourceAsStream("pic/map/l.png"));
+        m = new Image(getClass().getResourceAsStream("pic/map/m.png"));
+        n1 = new Image(getClass().getResourceAsStream("pic/map/n1.png"));
+        n2 = new Image(getClass().getResourceAsStream("pic/map/n2.png"));
+        p = new Image(getClass().getResourceAsStream("pic/map/p.png"));
+        p1 = new Image(getClass().getResourceAsStream("pic/map/p1.png"));
+        p2 = new Image(getClass().getResourceAsStream("pic/map/p2.png"));
+        Q = new Image(getClass().getResourceAsStream("pic/map/Q.png"));
+        r = new Image(getClass().getResourceAsStream("pic/map/r.png"));
+        s = new Image(getClass().getResourceAsStream("pic/map/s.png"));
+        t = new Image(getClass().getResourceAsStream("pic/map/t.png"));
+        U = new Image(getClass().getResourceAsStream("pic/map/U.png"));
+        v1 = new Image(getClass().getResourceAsStream("pic/map/v1.png"));
+        v2 = new Image(getClass().getResourceAsStream("pic/map/v2.png"));
+        v3 = new Image(getClass().getResourceAsStream("pic/map/v3.png"));
+        v4 = new Image(getClass().getResourceAsStream("pic/map/v4.png"));
+        x1 = new Image(getClass().getResourceAsStream("pic/map/x1.png"));
+        x2 = new Image(getClass().getResourceAsStream("pic/map/x2.png"));
+        x3 = new Image(getClass().getResourceAsStream("pic/map/x3.png"));
+        x4 = new Image(getClass().getResourceAsStream("pic/map/x4.png"));
+        y1 = new Image(getClass().getResourceAsStream("pic/map/y1.png"));
+        y2 = new Image(getClass().getResourceAsStream("pic/map/y2.png"));
+        j1 = new Image(getClass().getResourceAsStream("pic/map/j1.png"));
+        j2 = new Image(getClass().getResourceAsStream("pic/map/j2.png"));
+        Z = new Image(getClass().getResourceAsStream("pic/map/z.png"));
     }
+
+    /**
+     * initialize grid of the map
+     */
     private void initializeGrid() {
         cellViews = new ImageView[rowCount][columnCount];
         for (int row = 0; row < rowCount; row++) {
@@ -101,29 +122,57 @@ public class MapView extends Group {
         }
     }
 
+    /**
+     * Sets row count.
+     *
+     * @param rowCount the row count
+     */
     public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
         initializeGrid();
     }
 
+    /**
+     * Sets column count.
+     *
+     * @param columnCount the column count
+     */
     public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
         initializeGrid();
     }
 
+    /**
+     * Gets row count.
+     *
+     * @return the row count
+     */
     public int getRowCount() {
         return rowCount;
     }
 
+    /**
+     * Gets column count.
+     *
+     * @return the column count
+     */
     public int getColumnCount() {
         return columnCount;
     }
-    public void setImages(Game game){
+
+    /**
+     * Set images.
+     *
+     * @param game the game
+     */
+    public void setImages(Game game) {
 
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < columnCount; j++) {
-                if (game.getMap()[i][j]==null){return;}
-                switch (game.getMap()[i][j]){
+                if (game.getMap()[i][j] == null) {
+                    return;
+                }
+                switch (game.getMap()[i][j]) {
                     case "a":
                         cellViews[i][j].setImage(a);
                         break;

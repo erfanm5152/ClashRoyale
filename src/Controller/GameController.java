@@ -17,32 +17,43 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 
+/**
+ * The type Game controller.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class GameController {
-
+    // observable list for list view
     private ObservableList<Card> hand;
 
-//    private TimerMe timerMe;
-
+    //    private TimerMe timerMe;
+    // game of the app
     private Game game;
+    // map of the game
     @FXML
     private MapView mapView;
-
+    // next card image
     @FXML
     private ImageView newCard;
-
+    // hand cards
     @FXML
     private ListView<Card> listOfCards;
-
+    // timer text
     @FXML
     private Label timerLabel;
-
+    // value of elixir
     @FXML
     private Label elixirLabel;
-
+    // progressBar for increase elixir
     @FXML
     private ProgressBar progressBar;
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
+        // create game & set Essentials of the game
         game = new Game();
         game.setTimerMe(new TimerMe(timerLabel, game));
         game.getTimerMe().start();
@@ -59,9 +70,9 @@ public class GameController {
 
         game.getUser2().getPlayer().getGameAccessory().setMapOnTowers(mapView);
         game.getUser2().getPlayer().getGameAccessory().setMapOnTowers(mapView);
-// todo az comment dar byad
-//        game.getUser1().getPlayer().getGameAccessory().startTowers();
-//        game.getUser2().getPlayer().getGameAccessory().startTowers();
+
+        game.getUser1().getPlayer().getGameAccessory().startTowers();
+        game.getUser2().getPlayer().getGameAccessory().startTowers();
 
 
         ((Bot) game.getUser2()).setMapView(mapView);
@@ -75,6 +86,7 @@ public class GameController {
                 return new HandCellController();
             }
         });
+        // add listener for hand
         listOfCards.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Card>() {
                     @Override
@@ -85,10 +97,15 @@ public class GameController {
         );
         progressBar.progressProperty().bind(game.getUser1().getPlayer().getGameAccessory().getElixir().elixirValueProperty().divide(10));
 
-//        ((Bot) game.getUser2()).start();
+        ((Bot) game.getUser2()).start();
     }
 
 
+    /**
+     * Handle.
+     *
+     * @param mouseEvent the mouse event
+     */
     @FXML
     public void handle(MouseEvent mouseEvent) {
 

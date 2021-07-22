@@ -11,23 +11,29 @@ import javafx.scene.paint.Color;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * The type Cell history controller.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class CellHistoryController extends ListCell<Game> {
-    private static Random random =new Random();
-    private static int red=random.nextInt(255),green= random.nextInt(255), blue=random.nextInt(255);
-
+    // random numbers for create random color
+    private static Random random = new Random();
+    private static int red = random.nextInt(255), green = random.nextInt(255), blue = random.nextInt(255);
+    // hbox of cell
     @FXML
     private HBox hbox;
-
-
+    // user1
     @FXML
     private Label userOne;
-
+    // user2
     @FXML
     private Label userTwo;
-
+    // winner name
     @FXML
     private Label winner;
-
+    // loader
     private FXMLLoader loader;
 
     @Override
@@ -45,10 +51,10 @@ public class CellHistoryController extends ListCell<Game> {
                     e.printStackTrace();
                 }
             }
-            hbox.setStyle("-fx-background-color: #"+ Color.rgb(red,green,blue).toString().substring(4));
-            blue=(blue+10)%255;
-            red = (red+10)%255;
-            green = (green+10) % 255;
+            hbox.setStyle("-fx-background-color: #" + Color.rgb(red, green, blue).toString().substring(4));
+            blue = (blue + 10) % 255;
+            red = (red + 10) % 255;
+            green = (green + 10) % 255;
             userOne.setText(game.getWinner().getName());
             userTwo.setText(game.getLoser().getName());
             winner.setText(game.getWinner().getName());

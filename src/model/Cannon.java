@@ -3,7 +3,18 @@ package Model;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 
+/**
+ * The type Cannon.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class Cannon extends Building {
+    /**
+     * Instantiates a new Cannon.
+     *
+     * @param player the player
+     */
     public Cannon(Player player) {
         super(3, 5.5, 0.8, 30, player, "../View/pic/cannon.png");
         updateLevel();

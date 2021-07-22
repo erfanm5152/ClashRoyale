@@ -3,24 +3,43 @@ package Model;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 
-public class Barbarians extends Soldier{
+/**
+ * The type Barbarians.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
+public class Barbarians extends Soldier {
+    // first health of card
+    private int firstHealth;
+    // first damage
+    private int firstDamage;
+
+
+    /**
+     * Instantiates a new Barbarians.
+     *
+     * @param player the player
+     */
     public Barbarians(Player player) {
-        super(5, 1, 1.5,false,4,Speed.MEDIUM,player,"../View/pic/barbarians.png");
+        super(5, 1, 1.5, false, 4, Speed.MEDIUM, player, "../View/pic/barbarians.png");
         setTarget(Target.GROUND);
         setSelf(Target.GROUND);
         updateLevel();
+        firstHealth = getHealth() / getCount();
+        firstDamage = getDamage() / getCount();
     }
 
     @Override
     public void run() {
-        if (getSecondInGame()<100) {
+        if (getSecondInGame() < 100) {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     getImageView().setFitHeight(40);
                     getImageView().setFitWidth(40);
-                    getImageView().setX(getPoint2D().getX()-20);
-                    getImageView().setY(getPoint2D().getY()-20);
+                    getImageView().setX(getPoint2D().getX() - 20);
+                    getImageView().setY(getPoint2D().getY() - 20);
                     getImageView().setImage(new Image(getClass().getResourceAsStream("../View/pic/inGame/barbar/gif.gif")));
                     getMap().getChildren().add(getImageView());
                 }
@@ -40,22 +59,43 @@ public class Barbarians extends Soldier{
                 }
             }
         }
-        if (getHealth()<=0 || target==null || getPlayer().getGame().isFinished()){
+        if (getHealth() <= 0 || target == null || getPlayer().getGame().isFinished()) {
             stop();
             getPlayer().getGameAccessory().removeCard(this);
 
         }
-        setSecondInGame(getSecondInGame()+100);
+        setSecondInGame(getSecondInGame() + 100);
+    }
+
+    @Override
+    public synchronized void decreaseHealth(int decreaseValue) {
+        super.decreaseHealth(decreaseValue);
+
     }
 
     @Override
     public void updateLevel() {
-        switch (getPlayer().getUser().getLevel()){
-            case LEVEL1 ->{setHealth(300);setDamage(75);}
-            case LEVEL2 ->{setHealth(330);setDamage(82);}
-            case LEVEL3 ->{setHealth(363);setDamage(90);}
-            case LEVEL4 ->{setHealth(438);setDamage(99);}
-            case LEVEL5 ->{setHealth(480);setDamage(109);}
+        switch (getPlayer().getUser().getLevel()) {
+            case LEVEL1 -> {
+                setHealth(300 * 4);
+                setDamage(75 * 4);
+            }
+            case LEVEL2 -> {
+                setHealth(330 * 4);
+                setDamage(82 * 4);
+            }
+            case LEVEL3 -> {
+                setHealth(363 * 4);
+                setDamage(90 * 4);
+            }
+            case LEVEL4 -> {
+                setHealth(438 * 4);
+                setDamage(99 * 4);
+            }
+            case LEVEL5 -> {
+                setHealth(480 * 4);
+                setDamage(109 * 4);
+            }
         }
     }
 }

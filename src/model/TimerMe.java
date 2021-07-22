@@ -7,15 +7,34 @@ import javafx.scene.control.ProgressBar;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * The type Timer me.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class TimerMe {
+    // label of timer
     private Label label;
+    // game of timer
     private Game game ;
+    // value of time (second)
     private int timeInt;
+    // timer of task
     private Timer timer;
+    // timer task for this timer
     private TimerTask timerTask;
+    // increase of elixir per second
     private double increasePerSecond;
+    // is timer finished
     private boolean finished;
 
+    /**
+     * Instantiates a new Timer me.
+     *
+     * @param label the label
+     * @param game  the game
+     */
     public TimerMe(Label label,Game game) {
         this.label = label;
         this.game =game;
@@ -24,6 +43,7 @@ public class TimerMe {
         this.label.setText("3:00");
         this.finished = false;
         this.timer = new Timer();
+        // define timer task
         this.timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -48,55 +68,118 @@ public class TimerMe {
         };
     }
 
+    /**
+     * Start.
+     */
     public void start(){
         timer.schedule(timerTask,0,1000);
     }
 
 
+    /**
+     * Gets time int.
+     *
+     * @return the time int
+     */
     public int getTimeInt() {
         return timeInt;
     }
 
+    /**
+     * Sets time int.
+     *
+     * @param timeInt the time int
+     */
     public void setTimeInt(int timeInt) {
         this.timeInt = timeInt;
     }
 
+    /**
+     * Gets timer.
+     *
+     * @return the timer
+     */
     public Timer getTimer() {
         return timer;
     }
 
+    /**
+     * Sets timer.
+     *
+     * @param timer the timer
+     */
     public void setTimer(Timer timer) {
         this.timer = timer;
     }
 
+    /**
+     * Gets timer task.
+     *
+     * @return the timer task
+     */
     public TimerTask getTimerTask() {
         return timerTask;
     }
 
+    /**
+     * Sets timer task.
+     *
+     * @param timerTask the timer task
+     */
     public void setTimerTask(TimerTask timerTask) {
         this.timerTask = timerTask;
     }
 
+    /**
+     * Gets label.
+     *
+     * @return the label
+     */
     public Label getLabel() {
         return label;
     }
 
+    /**
+     * Sets label.
+     *
+     * @param label the label
+     */
     public void setLabel(Label label) {
         this.label = label;
     }
 
+    /**
+     * Gets increase per second.
+     *
+     * @return the increase per second
+     */
     public double getIncreasePerSecond() {
         return increasePerSecond;
     }
 
+    /**
+     * Sets increase per second.
+     *
+     * @param increasePerSecond the increase per second
+     */
     public void setIncreasePerSecond(double increasePerSecond) {
         this.increasePerSecond = increasePerSecond;
     }
 
+    /**
+     * Is finished boolean.
+     *
+     * @return the boolean
+     */
     public synchronized boolean isFinished() {
         return finished;
     }
 
+    /**
+     * Sets finished.
+     *
+     * @param finished the finished
+     */
     public void setFinished(boolean finished) {
         this.finished = finished;
     }

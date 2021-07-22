@@ -3,9 +3,20 @@ package Model;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 
-public class Giant extends Soldier{
+/**
+ * The type Giant.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
+public class Giant extends Soldier {
+    /**
+     * Instantiates a new Giant.
+     *
+     * @param player the player
+     */
     public Giant(Player player) {
-        super(5,1,1.5,false,1,Speed.SLOW,player,"../View/pic/giant.png");
+        super(5, 1, 1.5, false, 1, Speed.SLOW, player, "../View/pic/giant.png");
         setSelf(Target.GROUND);
         setTarget(Target.BUILDINGS);
         updateLevel();
@@ -13,14 +24,14 @@ public class Giant extends Soldier{
 
     @Override
     public void run() {
-        if (getSecondInGame()<100) {
+        if (getSecondInGame() < 100) {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     getImageView().setFitHeight(40);
                     getImageView().setFitWidth(40);
-                    getImageView().setX(getPoint2D().getX()-20);
-                    getImageView().setY(getPoint2D().getY()-20);
+                    getImageView().setX(getPoint2D().getX() - 20);
+                    getImageView().setY(getPoint2D().getY() - 20);
                     getImageView().setImage(new Image(getClass().getResourceAsStream("../View/pic/inGame/giant/gif.gif")));
                     getMap().getChildren().add(getImageView());
                 }
@@ -28,7 +39,7 @@ public class Giant extends Soldier{
         }
         Vulnerable target = findClosetTarget();
         if (target != null) {
-            if (getPoint2D().distance(target.getPoint2D()) > getRange()*10) {
+            if (getPoint2D().distance(target.getPoint2D()) > getRange() * 10) {
                 if (isTargetInOpponentArea(target)) {
                     gotoBridge();
                 } else {
@@ -41,22 +52,37 @@ public class Giant extends Soldier{
             }
         }
 
-        if (getHealth()<=0 || target==null || getPlayer().getGame().isFinished()){
+        if (getHealth() <= 0 || target == null || getPlayer().getGame().isFinished()) {
             stop();
             getPlayer().getGameAccessory().removeCard(this);
 
         }
-        setSecondInGame(getSecondInGame()+100);
+        setSecondInGame(getSecondInGame() + 100);
     }
 
     @Override
     public void updateLevel() {
-        switch (getPlayer().getUser().getLevel()){
-            case LEVEL1 ->{setHealth(2000);setDamage(126);}
-            case LEVEL2 ->{setHealth(2200);setDamage(138);}
-            case LEVEL3 ->{setHealth(2420);setDamage(152);}
-            case LEVEL4 ->{setHealth(2660);setDamage(167);}
-            case LEVEL5 ->{setHealth(2920);setDamage(183);}
+        switch (getPlayer().getUser().getLevel()) {
+            case LEVEL1 -> {
+                setHealth(2000);
+                setDamage(126);
+            }
+            case LEVEL2 -> {
+                setHealth(2200);
+                setDamage(138);
+            }
+            case LEVEL3 -> {
+                setHealth(2420);
+                setDamage(152);
+            }
+            case LEVEL4 -> {
+                setHealth(2660);
+                setDamage(167);
+            }
+            case LEVEL5 -> {
+                setHealth(2920);
+                setDamage(183);
+            }
         }
     }
 

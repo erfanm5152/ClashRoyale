@@ -4,7 +4,18 @@ import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Circle;
 
+/**
+ * The type Wizard.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class Wizard extends Soldier{
+    /**
+     * Instantiates a new Wizard.
+     *
+     * @param player the player
+     */
     public Wizard(Player player) {
         super(5, 5, 1.7, true, 1, Speed.MEDIUM,player ,"../View/pic/wizard.png");
         setSelf(Target.GROUND);

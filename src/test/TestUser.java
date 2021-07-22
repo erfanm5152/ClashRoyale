@@ -6,14 +6,24 @@ import Model.User;
 import Model.UserLibrary;
 import org.junit.jupiter.api.*;
 
+/**
+ * The type Test user.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class TestUser {
-    private static UserLibrary userLibrary =new UserLibrary();
+    // user library
+    private static UserLibrary userLibrary = new UserLibrary();
 
+    /**
+     * Add.
+     */
     @BeforeAll
-    static void add(){
-        userLibrary.add(new User("a","b"));
-        userLibrary.add(new User("a","b"));
-        userLibrary.add(new User("b","b"));
+    static void add() {
+        userLibrary.add(new User("a", "b"));
+        userLibrary.add(new User("a", "b"));
+        userLibrary.add(new User("b", "b"));
 
     }
 
@@ -32,8 +42,11 @@ public class TestUser {
 //        userLibrary=FileUtils.readUsers();
 //    }
 
+    /**
+     * Save.
+     */
     @Test
-    void save(){
+    void save() {
         FileUtils.writeUsers(userLibrary);
     }
 //    @Test

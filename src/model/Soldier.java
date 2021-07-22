@@ -5,14 +5,38 @@ import javafx.geometry.Point2D;
 
 import java.util.Random;
 
+/**
+ * The type Soldier.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public abstract class Soldier extends Card {
+    // health of the card
     private int health;
+    // damage of the card
     private int damage;
+    // hit speed of the card
     private double hitSpeed;
+    // card is area splash
     private boolean isAreaSplash;
+    // number of soldiers
     private int count;
+    // speed of the card
     private Speed speed;
 
+    /**
+     * Instantiates a new Soldier.
+     *
+     * @param cost         the cost
+     * @param range        the range
+     * @param hitSpeed     the hit speed
+     * @param isAreaSplash the is area splash
+     * @param count        the count
+     * @param speed        the speed
+     * @param player       the player
+     * @param cardAddress  the card address
+     */
     public Soldier(int cost, double range, double hitSpeed,
                    boolean isAreaSplash, int count
             , Speed speed, Player player, String cardAddress) {
@@ -23,42 +47,92 @@ public abstract class Soldier extends Card {
         this.speed = speed;
     }
 
+    /**
+     * Gets health.
+     *
+     * @return the health
+     */
     public int getHealth() {
         return health;
     }
 
+    /**
+     * Sets health.
+     *
+     * @param health the health
+     */
     public void setHealth(int health) {
         this.health = health;
     }
 
+    /**
+     * Gets damage.
+     *
+     * @return the damage
+     */
     public int getDamage() {
         return damage;
     }
 
+    /**
+     * Sets damage.
+     *
+     * @param damage the damage
+     */
     public synchronized void setDamage(int damage) {
         this.damage = damage;
     }
 
+    /**
+     * Gets hit speed.
+     *
+     * @return the hit speed
+     */
     public double getHitSpeed() {
         return hitSpeed;
     }
 
+    /**
+     * Sets hit speed.
+     *
+     * @param hitSpeed the hit speed
+     */
     public synchronized void setHitSpeed(double hitSpeed) {
         this.hitSpeed = hitSpeed;
     }
 
+    /**
+     * Is area splash boolean.
+     *
+     * @return the boolean
+     */
     public boolean isAreaSplash() {
         return isAreaSplash;
     }
 
+    /**
+     * Sets area splash.
+     *
+     * @param areaSplash the area splash
+     */
     public void setAreaSplash(boolean areaSplash) {
         isAreaSplash = areaSplash;
     }
 
+    /**
+     * Gets count.
+     *
+     * @return the count
+     */
     public int getCount() {
         return count;
     }
 
+    /**
+     * Sets count.
+     *
+     * @param count the count
+     */
     public void setCount(int count) {
         this.count = count;
     }
@@ -68,6 +142,12 @@ public abstract class Soldier extends Card {
         this.health = health - decreaseValue;
     }
 
+    /**
+     * Is target in opponent area
+     *
+     * @param target the target
+     * @return the boolean
+     */
     public boolean isTargetInOpponentArea(Vulnerable target) {
         if (getPlayer().getGame().getUser1().equals(getPlayer().getUser())) {
             if (target.getPoint2D().getY() <= 245 && getPoint2D().getY() >= 290) {
@@ -81,6 +161,9 @@ public abstract class Soldier extends Card {
         return false;
     }
 
+    /**
+     * Goto bridge.
+     */
     public void gotoBridge() {
         Point2D left = null;
         Point2D right = null;
@@ -108,6 +191,11 @@ public abstract class Soldier extends Card {
     }
 
 
+    /**
+     * Go to target.
+     *
+     * @param target the target
+     */
     public void goToTarget(Point2D target) {
 //        Point2D target = vulnerable.getPoint2D();
         Point2D newPoint;
@@ -152,6 +240,12 @@ public abstract class Soldier extends Card {
 //        getImageView().setY(getPoint2D().getY());
     }
 
+    /**
+     * Find random target point 2 d.
+     *
+     * @param mainTarget the main target
+     * @return the point 2 d
+     */
     public Point2D findRandomTarget(Point2D mainTarget) {
         Random random = new Random();
         int x = random.nextInt(2) == 0 ? -1 : 1;
@@ -171,6 +265,9 @@ public abstract class Soldier extends Card {
         setDamage((int) (damage / 1.4));
     }
 
+    /**
+     * Increase speed.
+     */
     public void increaseSpeed() {
         switch (speed) {
             case SLOW -> speed = Speed.RAGE_SLOW;
@@ -179,6 +276,9 @@ public abstract class Soldier extends Card {
         }
     }
 
+    /**
+     * Neutralize speed.
+     */
     public void neutralizeSpeed() {
         switch (speed) {
             case RAGE_SLOW -> speed = Speed.SLOW;

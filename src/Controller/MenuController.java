@@ -20,24 +20,36 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class MenuController{
+/**
+ * The type Menu controller.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
+public class MenuController {
+    // shared data of the game
     private SharedData sharedData = SharedData.getInstance();
 
 
-
+    // play button
     @FXML
     private Button playKey;
-
+    // profile button
     @FXML
     private Button profileKey;
-
+    // deck button
     @FXML
     private Button battleDeck;
-
+    // history button
     @FXML
     private Button history;
 
 
+    /**
+     * on action of Play button.
+     *
+     * @param event the event
+     */
     @FXML
     void play(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
@@ -49,16 +61,21 @@ public class MenuController{
         }
         Parent root = loader.getRoot();
         GameController gameController = loader.getController();
-        Stage stage = ((Stage)playKey.getScene().getWindow());
+        Stage stage = ((Stage) playKey.getScene().getWindow());
         stage.hide();
         stage.setHeight(770);
         stage.setWidth(345);
-        changeSceneAnimation(root,"left",320);
+        changeSceneAnimation(root, "left", 320);
         stage.setScene(new Scene(root));
         stage.show();
 
     }
 
+    /**
+     * on action of history button.
+     *
+     * @param event the event
+     */
     @FXML
     void showHistory(ActionEvent event) {
         Stage stage;
@@ -71,7 +88,7 @@ public class MenuController{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        changeSceneAnimation(root,"left",631);
+        changeSceneAnimation(root, "left", 631);
         stage.setHeight(460);
         stage.setWidth(631);
         Scene scene = new Scene(root);
@@ -79,6 +96,11 @@ public class MenuController{
         stage.show();
     }
 
+    /**
+     * on action of deck button.
+     *
+     * @param event the event
+     */
     @FXML
     void showBattleDeck(ActionEvent event) {
         Stage stage;
@@ -91,7 +113,7 @@ public class MenuController{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        changeSceneAnimation(root,"left",631);
+        changeSceneAnimation(root, "left", 631);
         stage.setHeight(460);
         stage.setWidth(631);
         Scene scene = new Scene(root);
@@ -99,6 +121,11 @@ public class MenuController{
         stage.show();
     }
 
+    /**
+     * on action of profile button.
+     *
+     * @param event the event
+     */
     @FXML
     void showProfile(ActionEvent event) {
         Stage stage;
@@ -111,7 +138,7 @@ public class MenuController{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        changeSceneAnimation(root,"left",631);
+        changeSceneAnimation(root, "left", 631);
         stage.setHeight(460);
         stage.setWidth(631);
         Scene scene = new Scene(root);
@@ -119,14 +146,23 @@ public class MenuController{
         stage.show();
     }
 
-    public void initialize(){
-        if (sharedData.getUser().getPlayer()==null){
+    /**
+     * Initialize for controller.
+     * check the player of the main user.
+     */
+    public void initialize() {
+        if (sharedData.getUser().getPlayer() == null) {
             Player player = new Player(sharedData.getUser());
             sharedData.getUser().setPlayer(player);
         }
     }
 
-    public static void changeToMenu(Node node){
+    /**
+     * static method for change to menu.
+     *
+     * @param node the node
+     */
+    public static void changeToMenu(Node node) {
         Stage stage;
         Parent root = null;
 
@@ -137,7 +173,7 @@ public class MenuController{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        changeSceneAnimation(root,"right",631);
+        changeSceneAnimation(root, "right", 631);
         stage.setHeight(460);
         stage.setWidth(631);
         Scene scene = new Scene(root);
@@ -145,10 +181,17 @@ public class MenuController{
         stage.show();
     }
 
-    public static void changeSceneAnimation(Parent root,String leftOrRight ,int width){
-        int temp1=0;
-        int temp2=0;
-        switch (leftOrRight){
+    /**
+     * animation for changing scene.
+     *
+     * @param root        the root (Parent of scene)
+     * @param leftOrRight the left or right (direction of animation)
+     * @param width       the width of stage
+     */
+    public static void changeSceneAnimation(Parent root, String leftOrRight, int width) {
+        int temp1 = 0;
+        int temp2 = 0;
+        switch (leftOrRight) {
             case "left":
                 temp1 = width;
                 break;
@@ -159,7 +202,7 @@ public class MenuController{
         }
         KeyFrame start = new KeyFrame(Duration.ZERO, new KeyValue(root.translateXProperty(), temp1));
         KeyFrame end = new KeyFrame(Duration.seconds(1), new KeyValue(root.translateXProperty(), temp2));
-        new Timeline(start,end).play();
+        new Timeline(start, end).play();
     }
 
 }

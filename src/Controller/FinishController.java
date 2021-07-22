@@ -17,25 +17,34 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The type Finish controller.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class FinishController {
-
+    // shared data of the game
     private SharedData sharedData = SharedData.getInstance();
-
+    // background
     @FXML
     private VBox vbox;
-
+    // winner name
     @FXML
     private Label winnerName;
-
+    // image of condition
     @FXML
     private ImageView winOrLose;
-
+    // image of cups
     @FXML
     private ImageView stars;
-
+    // home button
     @FXML
     private Button homeKey;
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         Game game = sharedData.getUser().getGameHistory().get(sharedData.getUser().getGameHistory().size() - 1);
 
@@ -62,12 +71,22 @@ public class FinishController {
         }
     }
 
+    /**
+     * Back to home.
+     *
+     * @param event the event
+     */
     @FXML
     void backToHome(ActionEvent event) {
         MenuController.changeToMenu(homeKey);
     }
 
-    public static void finishView(Node node){
+    /**
+     * Finish view.
+     *
+     * @param node the node
+     */
+    public static void finishView(Node node) {
         Stage stage;
         Parent root = null;
 

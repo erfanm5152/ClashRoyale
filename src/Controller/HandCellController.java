@@ -12,18 +12,31 @@ import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
+/**
+ * The type Hand cell controller.
+ * for in hand cards in game and next card
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class HandCellController extends ListCell<Card> {
+    // vbox for card
     @FXML
     private VBox vbox;
-
+    // image of card
     @FXML
     private ImageView imageCard;
-
+    // cost of card
     @FXML
     private Label elixirLabel;
-
+    // loader
     private FXMLLoader loader;
 
+    /**
+     * for list view
+     * @param card
+     * @param b
+     */
     @Override
     protected void updateItem(Card card, boolean b) {
         super.updateItem(card, b);

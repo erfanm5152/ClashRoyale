@@ -4,10 +4,21 @@ import javafx.application.Platform;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 
-public class Peka extends Soldier{
+/**
+ * The type Peka.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
+public class Peka extends Soldier {
 
+    /**
+     * Instantiates a new Peka.
+     *
+     * @param player the player
+     */
     public Peka(Player player) {
-        super(4, 1, 1.8, false, 1, Speed.FAST, player,"../View/pic/peka.png");
+        super(4, 1, 1.8, false, 1, Speed.FAST, player, "../View/pic/peka.png");
         setSelf(Target.GROUND);
         setTarget(Target.GROUND);
         updateLevel();
@@ -15,14 +26,14 @@ public class Peka extends Soldier{
 
     @Override
     public void run() {
-        if (getSecondInGame()<100) {
+        if (getSecondInGame() < 100) {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     getImageView().setFitHeight(40);
                     getImageView().setFitWidth(40);
-                    getImageView().setX(getPoint2D().getX()-20);
-                    getImageView().setY(getPoint2D().getY()-20);
+                    getImageView().setX(getPoint2D().getX() - 20);
+                    getImageView().setY(getPoint2D().getY() - 20);
                     getImageView().setImage(new Image(getClass().getResourceAsStream("../View/pic/inGame/peka/gif.gif")));
                     getMap().getChildren().add(getImageView());
                 }
@@ -42,21 +53,36 @@ public class Peka extends Soldier{
                 }
             }
         }
-        if (getHealth()<=0 || target==null || getPlayer().getGame().isFinished()){
+        if (getHealth() <= 0 || target == null || getPlayer().getGame().isFinished()) {
             stop();
             getPlayer().getGameAccessory().removeCard(this);
         }
-        setSecondInGame(getSecondInGame()+100);
+        setSecondInGame(getSecondInGame() + 100);
     }
 
     @Override
     public void updateLevel() {
-        switch (getPlayer().getUser().getLevel()){
-            case LEVEL1 ->{setHealth(600);setDamage(325);}
-            case LEVEL2 ->{setHealth(660);setDamage(357);}
-            case LEVEL3 ->{setHealth(726);setDamage(393);}
-            case LEVEL4 ->{setHealth(798);setDamage(432);}
-            case LEVEL5 ->{setHealth(876);setDamage(474);}
+        switch (getPlayer().getUser().getLevel()) {
+            case LEVEL1 -> {
+                setHealth(600);
+                setDamage(325);
+            }
+            case LEVEL2 -> {
+                setHealth(660);
+                setDamage(357);
+            }
+            case LEVEL3 -> {
+                setHealth(726);
+                setDamage(393);
+            }
+            case LEVEL4 -> {
+                setHealth(798);
+                setDamage(432);
+            }
+            case LEVEL5 -> {
+                setHealth(876);
+                setDamage(474);
+            }
         }
     }
 }

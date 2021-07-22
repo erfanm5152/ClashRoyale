@@ -8,16 +8,32 @@ import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * The type Finish thread.
+ *
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class FinishThread extends TimerTask {
-
+    // main game
     private Game game;
+    // timer of this task
     private Timer timer;
 
+    /**
+     * Instantiates a new Finish thread.
+     *
+     * @param game the game
+     */
     public FinishThread(Game game) {
         this.game = game;
         this.timer = new Timer();
     }
 
+    /**
+     * Start timer.
+     */
     public void start(){
         timer.schedule(this,0,1000);
     }
@@ -65,11 +81,20 @@ public class FinishThread extends TimerTask {
             }
         });
     }
+
+    /**
+     * Stop towers.
+     */
     public void stopTowers(){
         stopTowersOfUser(game.getUser1());
         stopTowersOfUser(game.getUser2());
     }
 
+    /**
+     * Stop towers of user.
+     *
+     * @param user the user
+     */
     public void stopTowersOfUser(User user){
         Iterator<Tower> towerIterator = user.getPlayer().getGameAccessory().getTowers().iterator();
         while (towerIterator.hasNext()){
@@ -78,10 +103,19 @@ public class FinishThread extends TimerTask {
         }
     }
 
+    /**
+     * Stop cards.
+     */
     public void stopCards(){
         stopCardsOfUser(game.getUser1());
         stopCardsOfUser(game.getUser2());
     }
+
+    /**
+     * Stop cards of user.
+     *
+     * @param user the user
+     */
     public synchronized void stopCardsOfUser(User user){
         Iterator<Card> cardIterator = user.getPlayer().getGameAccessory().getInGameTargets().iterator();
         while (cardIterator.hasNext()){

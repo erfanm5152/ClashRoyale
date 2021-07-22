@@ -3,11 +3,23 @@ package Model;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 
+/**
+ * The type Inferno tower.
+ *
+ * @author Erfanm5152
+ * @version 0.1
+ */
 public class InfernoTower extends Building {
-
+    // lower damage of the tower
     private int lowDamage;
+    // value of increase damage per second
     private int increaseDamagePerSecond;
 
+    /**
+     * Instantiates a new Inferno tower.
+     *
+     * @param player the player
+     */
     public InfernoTower(Player player) {
         super(5, 6, 0.4, 40, player, "../View/pic/inferno.png");
         updateLevel();
@@ -41,24 +53,44 @@ public class InfernoTower extends Building {
                 target.decreaseHealth(getLowDamage());
             }
         }
-        if(getSecondInGame() % 1000==0){
-            lowDamage+=increaseDamagePerSecond;
+        if (getSecondInGame() % 1000 == 0) {
+            lowDamage += increaseDamagePerSecond;
         }
         setSecondInGame(getSecondInGame() + 100);
     }
 
+    /**
+     * Gets low damage.
+     *
+     * @return the low damage
+     */
     public int getLowDamage() {
         return lowDamage;
     }
 
+    /**
+     * Sets low damage.
+     *
+     * @param lowDamage the low damage
+     */
     public void setLowDamage(int lowDamage) {
         this.lowDamage = lowDamage;
     }
 
+    /**
+     * Gets increase damage per second.
+     *
+     * @return the increase damage per second
+     */
     public int getIncreaseDamagePerSecond() {
         return increaseDamagePerSecond;
     }
 
+    /**
+     * Sets increase damage per second.
+     *
+     * @param increaseDamagePerSecond the increase damage per second
+     */
     public void setIncreaseDamagePerSecond(int increaseDamagePerSecond) {
         this.increaseDamagePerSecond = increaseDamagePerSecond;
     }
