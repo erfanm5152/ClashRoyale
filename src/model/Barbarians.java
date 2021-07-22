@@ -70,7 +70,17 @@ public class Barbarians extends Soldier {
     @Override
     public synchronized void decreaseHealth(int decreaseValue) {
         super.decreaseHealth(decreaseValue);
-
+        if ( getCount()==4 && getHealth()<=firstHealth*3){
+            setDamage(firstDamage*3);
+            setCount(3);
+        }
+        if ( getCount()==3 && getHealth()<=firstHealth*2){
+            setDamage(firstDamage*2);
+            setCount(2);
+        }if ( getCount()==2 && getHealth()<= firstHealth){
+            setDamage(firstDamage);
+            setCount(1);
+        }
     }
 
     @Override
